@@ -69,7 +69,27 @@
 
 <!-- GOOGLE MAP EMBED -->
 <div class="w-full mb-10">
-<iframe src="https://maps.google.com/maps?q=Clear%20Lake%20Wisconsin&z=9&output=embed" width="100%" height="350" style="border:0; border-radius:12px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div id="service-map" style="height:350px;border-radius:12px;"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map = L.map('service-map').setView([45.25,-92.27], 8);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+}).addTo(map);
+
+var center = [45.25,-92.27];
+
+L.marker(center).addTo(map)
+    .bindPopup('Clear Lake, WI - Base Service Area')
+    .openPopup();
+
+L.circle(center, {
+    radius: 160000,
+    fillOpacity: 0.2
+}).addTo(map);
+</script>
 </div>
 
 <div class="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
