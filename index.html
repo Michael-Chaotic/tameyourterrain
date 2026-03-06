@@ -100,7 +100,7 @@ L.marker([45.06,-92.81]).addTo(map).bindPopup('Washington County MN');
 var map = L.map('service-map').setView([45.25,-92.27], 8);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
+    maxZoom: 18
 }).addTo(map);
 
 var center = [45.25,-92.27];
@@ -113,6 +113,17 @@ L.circle(center, {
     radius: 160000,
     fillOpacity: 0.2
 }).addTo(map);
+
+// County markers
+L.marker([45.37,-92.63]).addTo(map).bindPopup('Polk County WI');
+L.marker([45.78,-92.37]).addTo(map).bindPopup('Burnett County WI');
+L.marker([45.63,-91.98]).addTo(map).bindPopup('Barron County WI');
+L.marker([45.9,-91.77]).addTo(map).bindPopup('Washburn County WI');
+L.marker([45.47,-91.1]).addTo(map).bindPopup('Rusk County WI (Ladysmith)');
+L.marker([46.01,-91.48]).addTo(map).bindPopup('Sawyer County WI (Hayward)');
+L.marker([44.81,-91.5]).addTo(map).bindPopup('Eau Claire County WI');
+L.marker([45.51,-92.90]).addTo(map).bindPopup('Chisago County MN');
+L.marker([45.06,-92.81]).addTo(map).bindPopup('Washington County MN');
 </script>
 </div>
 
