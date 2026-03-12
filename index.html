@@ -298,9 +298,10 @@
           method="POST"
         >
           <input type="hidden" name="_subject" value="New Lead - Tame Your Terrain Website">
-          <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://www.tameyourterrain.com/">
+          <input type="hidden" name="_autoresponse" value="Thank you for contacting Tame Your Terrain. We received your estimate request and the information you submitted. We will review it and get back to you as soon as possible. If you need immediate help, call 715-255-0328.">
+          <input type="hidden" name="_replyto" value="Email">
           <input type="text" name="_honey" style="display:none">
 
           <div class="form-row">
@@ -330,14 +331,14 @@
             <div class="form-row">
               <label for="serviceType">Service Type <span style="color:red;">*</span></label>
               <select id="serviceType" name="Service Type" required>
-                <option value="">- Select a service -</option>
+                <option value="" selected>- Select a service -</option>
                 <option value="Forestry Mulching">Forestry Mulching</option>
                 <option value="Trail Building">Trail Building</option>
                 <option value="Land Clearing">Land Clearing</option>
                 <option value="Buckthorn Removal">Buckthorn Removal</option>
                 <option value="Food Plot Clearing">Food Plot Clearing</option>
                 <option value="Habitat Improvement">Habitat Improvement</option>
-                <option value="Brush Removal" selected>Brush Removal</option>
+                <option value="Brush Removal">Brush Removal</option>
               </select>
             </div>
 
