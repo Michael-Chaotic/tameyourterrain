@@ -26,6 +26,94 @@
 <meta name="twitter:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
 
 <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .estimate-form * {
+    box-sizing: border-box;
+  }
+
+  .estimate-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #14532d;
+    text-align: left;
+  }
+
+  .estimate-form .form-row {
+    margin-bottom: 1rem;
+  }
+
+  .estimate-form input[type="text"],
+  .estimate-form input[type="email"],
+  .estimate-form input[type="tel"],
+  .estimate-form select,
+  .estimate-form textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #111827;
+  }
+
+  .estimate-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+  }
+
+  .estimate-form input:focus,
+  .estimate-form select:focus,
+  .estimate-form textarea:focus {
+    outline: none;
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
+
+  .estimate-form .help-text {
+    font-size: 0.92rem;
+    color: #d1d5db;
+    margin-top: 0.35rem;
+    text-align: left;
+  }
+
+  .estimate-form .button-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .estimate-form button,
+  .estimate-form input[type="reset"] {
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.95rem 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .estimate-form button[type="submit"] {
+    background: #16a34a;
+    color: #ffffff;
+  }
+
+  .estimate-form button[type="submit"]:hover {
+    background: #15803d;
+  }
+
+  .estimate-form input[type="reset"] {
+    background: #e5e7eb;
+    color: #111827;
+  }
+</style>
 </head>
 
 <body class="font-sans text-gray-800 bg-white">
@@ -77,7 +165,6 @@ Call 715-255-0328
 </div>
 </section>
 
-
 <section class="py-16">
 <div class="max-w-5xl mx-auto px-6">
 
@@ -103,7 +190,6 @@ For many landowners, buckthorn eventually takes over large sections of woods and
 
 </div>
 </section>
-
 
 <section class="py-16 bg-gray-50">
 <div class="max-w-6xl mx-auto px-6">
@@ -155,7 +241,6 @@ Clearing invasive brush helps trees regenerate and improves the long-term health
 </div>
 </section>
 
-
 <section class="py-16">
 <div class="max-w-5xl mx-auto px-6">
 
@@ -182,7 +267,6 @@ This helps clear the area while leaving behind a protective mulch layer that red
 </div>
 </section>
 
-
 <section class="py-16 bg-gray-50">
 <div class="max-w-5xl mx-auto px-6">
 
@@ -207,35 +291,98 @@ Common Buckthorn Removal Projects
 </div>
 </section>
 
-
 <section id="estimate" class="py-16 bg-green-900 text-white">
+<div class="max-w-4xl mx-auto px-6">
 
-<div class="max-w-4xl mx-auto px-6 text-center">
-
-<h2 class="text-3xl font-bold mb-4">
+<h2 class="text-3xl font-bold text-center mb-4">
 Remove Buckthorn and Reclaim Your Land
 </h2>
 
-<p class="text-lg mb-8">
+<p class="text-lg mb-10 text-center">
 If buckthorn is taking over your property, Tame Your Terrain offers forestry mulching and land clearing services across Western Wisconsin and Eastern Minnesota.
 </p>
 
-<div class="flex flex-col md:flex-row gap-4 justify-center">
+<div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
+<form
+  class="estimate-form"
+  action="https://formsubmit.co/michael@tameyourterrain.com"
+  method="POST"
+>
+  <input type="hidden" name="_subject" value="New Lead - Tame Your Terrain Website">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://www.tameyourterrain.com/buckthorn-removal-hunting-property.html">
+  <input type="text" name="_honey" style="display:none">
 
-<a href="index.html#estimate" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-2xl">
-Go to Estimate Form
-</a>
+  <div class="form-row">
+    <label for="name">Name <span style="color:red;">*</span></label>
+    <input type="text" id="name" name="Name" maxlength="80" required>
+  </div>
 
-<a href="tel:7152550328" class="bg-white text-green-900 font-bold py-4 px-8 rounded-2xl">
-Call 715-255-0328
-</a>
+  <div class="form-row">
+    <label for="propertyAddress">Property Address <span style="color:red;">*</span></label>
+    <input type="text" id="propertyAddress" name="Property Address" maxlength="160" required>
+    <div class="help-text">Street address, nearest road, or best address for the property location.</div>
+  </div>
 
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="form-row">
+      <label for="email">Email <span style="color:red;">*</span></label>
+      <input type="email" id="email" name="Email" maxlength="100" required>
+    </div>
+
+    <div class="form-row">
+      <label for="phone">Phone <span style="color:red;">*</span></label>
+      <input type="tel" id="phone" name="Phone" maxlength="30" required>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="form-row">
+      <label for="serviceType">Service Type <span style="color:red;">*</span></label>
+      <select id="serviceType" name="Service Type" required>
+        <option value="">- Select a service -</option>
+        <option value="Forestry Mulching">Forestry Mulching</option>
+        <option value="Trail Building">Trail Building</option>
+        <option value="Land Clearing">Land Clearing</option>
+        <option value="Buckthorn Removal" selected>Buckthorn Removal</option>
+        <option value="Food Plot Clearing">Food Plot Clearing</option>
+        <option value="Habitat Improvement">Habitat Improvement</option>
+        <option value="Brush Removal">Brush Removal</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="propertySize">Estimated Property Size</label>
+      <select id="propertySize" name="Estimated Property Size">
+        <option value="">- Select size -</option>
+        <option value="1 - 5 acres">1 - 5 acres</option>
+        <option value="5 - 10 acres">5 - 10 acres</option>
+        <option value="10 - 20 acres">10 - 20 acres</option>
+        <option value="20+ acres">20+ acres</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label for="projectDescription">Project Description</label>
+    <textarea id="projectDescription" name="Project Description" placeholder="Tell us what you want done, what the land looks like now, and anything important about access or timing."></textarea>
+  </div>
+
+  <div class="form-row">
+    <label for="bestTimeToContact">Best Time to Contact You</label>
+    <input type="text" id="bestTimeToContact" name="Best Time To Contact" maxlength="80" placeholder="Example: weekday afternoons or anytime after 5 pm">
+  </div>
+
+  <div class="button-row">
+    <button type="submit">Request My Free Estimate</button>
+    <input type="reset" value="Reset">
+  </div>
+</form>
 </div>
 
 </div>
-
 </section>
-
 
 <footer class="py-10 text-center bg-gray-900 text-white">
 
