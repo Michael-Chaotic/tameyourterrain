@@ -425,7 +425,7 @@
           <div><span class="legend-ring"></span>Approximate 2-hour service radius</div>
         </div>
         <p class="map-note mt-4">
-          
+          The circle is an estimate, not a guaranteed drive-time boundary. Actual travel time can vary depending on roads, weather, traffic and exact property location.
         </p>
       </div>
 
@@ -466,14 +466,13 @@
           action="https://formsubmit.co/michael@tameyourterrain.com"
           method="POST"
         >
-          <input type="hidden" name="_subject" value="New Homepage Lead - Tame Your Terrain Website">
+          <input type="hidden" name="_subject" value="New Lead - Tame Your Terrain Website">
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://www.tameyourterrain.com/?sent=1#estimate">
           <input type="hidden" name="_autoresponse" value="Thank you for contacting Tame Your Terrain. We received your estimate request and will get back to you as soon as possible. If you need immediate help, call or text 715-255-0328.">
           <input type="text" name="_honey" id="websiteField" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="Form Page" value="Homepage">
-          <input type="hidden" name="Form Started At" id="formStartedAt" value="">
+          <input type="hidden" id="formStartedAt" value="">
 
           <div class="form-row">
             <label for="name">Name <span style="color:red;">*</span></label>
@@ -502,25 +501,25 @@
             <div class="form-row">
               <label for="serviceType">Service Type <span style="color:red;">*</span></label>
               <select id="serviceType" name="Service Type" required>
-                <option value="" selected>- Select a service -</option>
-                <option value="Forestry Mulching">Forestry Mulching</option>
-                <option value="Trail Building">Trail Building</option>
-                <option value="Land Clearing">Land Clearing</option>
-                <option value="Buckthorn Removal">Buckthorn Removal</option>
-                <option value="Food Plot Clearing">Food Plot Clearing</option>
-                <option value="Habitat Improvement">Habitat Improvement</option>
-                <option value="Brush Removal">Brush Removal</option>
+                <option value="">Select Service</option>
+                <option>Forestry Mulching</option>
+                <option>Land Clearing</option>
+                <option>Trail Building</option>
+                <option>Buckthorn Removal</option>
+                <option>Food Plot Clearing</option>
+                <option>Habitat Improvement</option>
+                <option>Brush Removal</option>
               </select>
             </div>
 
             <div class="form-row">
               <label for="propertySize">Estimated Property Size</label>
               <select id="propertySize" name="Estimated Property Size">
-                <option value="">- Select size -</option>
-                <option value="1 - 5 acres">1 - 5 acres</option>
-                <option value="5 - 10 acres">5 - 10 acres</option>
-                <option value="10 - 20 acres">10 - 20 acres</option>
-                <option value="20+ acres">20+ acres</option>
+                <option value="">Select Size</option>
+                <option>1 - 5 acres</option>
+                <option>5 - 10 acres</option>
+                <option>10 - 20 acres</option>
+                <option>20+ acres</option>
               </select>
             </div>
           </div>
@@ -528,11 +527,6 @@
           <div class="form-row">
             <label for="projectDescription">Project Description</label>
             <textarea id="projectDescription" name="Project Description" placeholder="Tell us what you want done, what the land looks like now, and anything important about access or timing."></textarea>
-          </div>
-
-          <div class="form-row">
-            <label for="bestTimeToContact">Best Time to Contact You</label>
-            <input type="text" id="bestTimeToContact" name="Best Time to Contact You" maxlength="80" placeholder="Example: weekday afternoons or anytime after 5 pm">
           </div>
 
           <div class="button-row">
@@ -559,7 +553,7 @@
       scrollWheelZoom: false
     }).setView([45.25, -92.27], 8);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{y}/{x}{r}.png'.replace('{y}/{x}', '{z}/{x}/{y}'), {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
     }).addTo(map);
