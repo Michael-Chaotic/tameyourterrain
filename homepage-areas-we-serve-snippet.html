@@ -1,4 +1,4 @@
-<!-- AREAS WE SERVE -->
+<!-- AREAS WE SERVE + IMPROVED SERVICE AREA MAP -->
 <section class="py-16 bg-white">
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-10">Areas We Serve</h2>
@@ -10,27 +10,104 @@
       <div>
         <h3 class="text-xl font-bold mb-4">Wisconsin Counties</h3>
         <ul class="space-y-2">
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-polk-county-wi.html">Polk County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-burnett-county-wi.html">Burnett County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-barron-county-wi.html">Barron County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-washburn-county-wi.html">Washburn County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-rusk-county-wi.html">Rusk County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-sawyer-county-wi.html">Sawyer County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-st-croix-county-wi.html">St. Croix County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-dunn-county-wi.html">Dunn County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-eau-claire-county-wi.html">Eau Claire County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="polk-county-wi.html">Polk County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="burnett-county-wi.html">Burnett County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="barron-county-wi.html">Barron County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="washburn-county-wi.html">Washburn County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="rusk-county-wi.html">Rusk County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="sawyer-county-wi.html">Sawyer County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="st-croix-county-wi.html">St. Croix County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="dunn-county-wi.html">Dunn County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="eau-claire-county-wi.html">Eau Claire County</a></li>
         </ul>
       </div>
       <div>
         <h3 class="text-xl font-bold mb-4">Minnesota Counties</h3>
         <ul class="space-y-2">
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-chisago-county-mn.html">Chisago County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-pine-county-mn.html">Pine County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-kanabec-county-mn.html">Kanabec County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-isanti-county-mn.html">Isanti County</a></li>
-          <li><a class="text-green-700 underline hover:text-green-900" href="forestry-mulching-washington-county-mn.html">Washington County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="chisago-county-mn.html">Chisago County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="pine-county-mn.html">Pine County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="kanabec-county-mn.html">Kanabec County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="isanti-county-mn.html">Isanti County</a></li>
+          <li><a class="text-green-700 underline hover:text-green-900" href="washington-county-mn.html">Washington County</a></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Approximate Service Area</h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-8">
+      Tame Your Terrain generally serves properties within roughly a two-hour drive of Clear Lake, Wisconsin.
+      The map below is an approximate service-radius guide to help property owners quickly see the general area covered.
+    </p>
+
+    <div class="bg-gradient-to-b from-slate-50 to-white border border-gray-200 rounded-3xl shadow-lg p-4 md:p-6">
+      <div id="service-map" class="w-full rounded-2xl overflow-hidden shadow" style="height: 420px;"></div>
+
+      <div class="flex flex-wrap gap-3 justify-center mt-4 text-sm text-gray-700">
+        <div><span style="display:inline-block;width:14px;height:14px;border-radius:9999px;background:#15803d;border:2px solid #fff;box-shadow:0 0 0 2px #166534;margin-right:0.45rem;vertical-align:middle;"></span>Clear Lake, WI base location</div>
+        <div><span style="display:inline-block;width:14px;height:14px;border-radius:9999px;background:rgba(34,197,94,0.25);border:2px solid rgba(22,163,74,0.85);margin-right:0.45rem;vertical-align:middle;"></span>Approximate 2-hour service radius</div>
+      </div>
+
+      <p class="text-gray-600 text-sm leading-6 mt-4">
+        The circle is an estimate, not a guaranteed drive-time boundary. Actual travel time can vary depending on roads, weather, traffic and exact property location.
+      </p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Polk</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Burnett</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Barron</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Washburn</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Rusk</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Sawyer</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: St. Croix</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Dunn</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">WI: Eau Claire</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">MN: Chisago</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">MN: Pine</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">MN: Kanabec</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">MN: Isanti</span>
+      <span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.5rem 0.75rem;border-radius:9999px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-weight:700;font-size:0.9rem;">MN: Washington</span>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  var map = L.map('service-map', {
+    zoomControl: true,
+    scrollWheelZoom: false
+  }).setView([45.25, -92.27], 8);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+  }).addTo(map);
+
+  var center = [45.25, -92.27];
+
+  var starIcon = L.divIcon({
+    className: 'clear-lake-star-wrapper',
+    html: '<div style="color:#14532d;font-size:1.8rem;line-height:1;text-shadow:0 1px 2px rgba(255,255,255,0.9);">★</div>',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14]
+  });
+
+  L.marker(center, { icon: starIcon })
+    .addTo(map)
+    .bindPopup('<strong>Clear Lake, WI</strong><br>Base service area')
+    .openPopup();
+
+  L.circle(center, {
+    radius: 160000,
+    color: '#16a34a',
+    weight: 2,
+    fillColor: '#22c55e',
+    fillOpacity: 0.18
+  }).addTo(map);
+</script>

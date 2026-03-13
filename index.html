@@ -1,10 +1,10 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain</title>
-  <meta name="description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Serving properties within 2 hours of Clear Lake, WI 54005. Free estimates.">
+  <meta name="description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Serving properties within roughly 2 hours of Clear Lake, WI 54005. Free estimates.">
   <meta name="keywords" content="forestry mulching Wisconsin, land clearing Wisconsin, buckthorn removal Wisconsin, forestry mulching Minnesota, trail building hunting property, food plot clearing, UTV trail building, habitat improvement, deer habitat improvement Wisconsin, forestry mulching near me, land clearing near me, western Wisconsin land clearing, eastern Minnesota forestry mulching">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Tame Your Terrain">
@@ -21,6 +21,7 @@
   <meta name="twitter:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,7 +31,10 @@
     "telephone": "+1-715-255-0328",
     "image": "https://www.tameyourterrain.com/logo.png",
     "description": "Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota.",
-    "areaServed": ["Polk County WI","Burnett County WI","Barron County WI","Washburn County WI","Rusk County WI","Sawyer County WI","Eau Claire County WI","St. Croix County WI","Dunn County WI","Chisago County MN","Washington County MN","Pine County MN","Isanti County MN","Kanabec County MN"],
+    "areaServed": [
+      "Polk County WI","Burnett County WI","Barron County WI","Washburn County WI","Rusk County WI","Sawyer County WI","Eau Claire County WI","St. Croix County WI","Dunn County WI",
+      "Chisago County MN","Washington County MN","Pine County MN","Isanti County MN","Kanabec County MN"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Clear Lake",
@@ -38,7 +42,42 @@
       "postalCode": "54005",
       "addressCountry": "US"
     },
-    "serviceType": ["Forestry Mulching","Land Clearing","Buckthorn Removal","Trail Building","UTV Trail Clearing","Food Plot Clearing","Habitat Improvement"]
+    "serviceType": [
+      "Forestry Mulching","Land Clearing","Buckthorn Removal","Trail Building","UTV Trail Clearing","Food Plot Clearing","Habitat Improvement"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Tame Your Terrain offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain offers forestry mulching, land clearing, trail building, buckthorn removal, food plot clearing and habitat improvement for rural property owners in Western Wisconsin and Eastern Minnesota."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Tame Your Terrain work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain serves properties across Western Wisconsin and Eastern Minnesota, generally within roughly a two-hour drive of Clear Lake, Wisconsin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I request an estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a free estimate by filling out the form on this page or by calling or texting 715-255-0328."
+        }
+      }
+    ]
   }
   </script>
 
@@ -137,41 +176,69 @@
       margin-bottom: 1.5rem;
       font-weight: 700;
     }
+
+    .map-card {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border: 1px solid #e5e7eb;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    .legend-dot,
+    .legend-ring {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-radius: 9999px;
+      margin-right: 0.45rem;
+      vertical-align: middle;
+    }
+
+    .legend-dot {
+      background: #15803d;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #166534;
+    }
+
+    .legend-ring {
+      background: rgba(34, 197, 94, 0.25);
+      border: 2px solid rgba(22, 163, 74, 0.85);
+    }
+
+    .clear-lake-marker {
+      color: #14532d;
+      font-size: 1.8rem;
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+    }
+
+    .map-note {
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What does forestry mulching cost in Wisconsin and eastern Minnesota?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Forestry mulching costs vary based on brush density, terrain, access, acreage and project goals. The most accurate price comes from reviewing the property and the type of finish you want."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What services does Tame Your Terrain offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tame Your Terrain provides forestry mulching, land clearing, trail building, buckthorn removal, food plot clearing and habitat improvement for rural property owners in western Wisconsin and eastern Minnesota."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where does Tame Your Terrain work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tame Your Terrain serves parts of western Wisconsin and eastern Minnesota, generally within about a two-hour drive of Clear Lake, Wisconsin."
-        }
-      }
-    ]
-  }
-  </script>
-
 </head>
 <body class="font-sans text-gray-800 bg-white">
   <header class="bg-white shadow">
@@ -296,37 +363,77 @@
     </div>
   </section>
 
+  <!-- AREAS WE SERVE -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-10">Areas We Serve</h2>
-      <p class="text-center max-w-3xl mx-auto mb-10">If you are a property owner in Western Wisconsin or Eastern Minnesota, browse the county-specific pages below and reach out for a free estimate.</p>
+      <p class="text-center max-w-3xl mx-auto mb-10">
+        Browse county-specific pages for forestry mulching, land clearing, trail building, UTV trail clearing,
+        buckthorn removal and food plot clearing across Western Wisconsin and Eastern Minnesota.
+      </p>
       <div class="grid md:grid-cols-2 gap-10">
-        <div><h3 class="text-xl font-bold mb-4">Wisconsin Counties</h3><ul class="space-y-2"><li><a class="text-green-700 underline hover:text-green-900" href="polk-county-wi.html">Polk County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="burnett-county-wi.html">Burnett County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="barron-county-wi.html">Barron County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="washburn-county-wi.html">Washburn County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="rusk-county-wi.html">Rusk County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="sawyer-county-wi.html">Sawyer County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="st-croix-county-wi.html">St. Croix County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="dunn-county-wi.html">Dunn County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="eau-claire-county-wi.html">Eau Claire County</a></li></ul></div>
-        <div><h3 class="text-xl font-bold mb-4">Minnesota Counties</h3><ul class="space-y-2"><li><a class="text-green-700 underline hover:text-green-900" href="chisago-county-mn.html">Chisago County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="pine-county-mn.html">Pine County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="kanabec-county-mn.html">Kanabec County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="isanti-county-mn.html">Isanti County</a></li>
-<li><a class="text-green-700 underline hover:text-green-900" href="washington-county-mn.html">Washington County</a></li></ul></div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Wisconsin Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="polk-county-wi.html">Polk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="burnett-county-wi.html">Burnett County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="barron-county-wi.html">Barron County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washburn-county-wi.html">Washburn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="rusk-county-wi.html">Rusk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="sawyer-county-wi.html">Sawyer County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="st-croix-county-wi.html">St. Croix County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="dunn-county-wi.html">Dunn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="eau-claire-county-wi.html">Eau Claire County</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Minnesota Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="chisago-county-mn.html">Chisago County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="pine-county-mn.html">Pine County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="kanabec-county-mn.html">Kanabec County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="isanti-county-mn.html">Isanti County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washington-county-mn.html">Washington County</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- IMPROVED SERVICE AREA MAP -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-6">Service Area</h2>
-      <p class="mb-8">If you are a property owner in Western Wisconsin or Eastern Minnesota within roughly a two hour drive of Clear Lake, Wisconsin, reach out for a free estimate.</p>
-      <div class="w-full mb-10"><div id="service-map" class="w-full rounded-xl" style="height: 350px;"></div></div>
-      <div class="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
-        <div><h3 class="font-bold mb-2">Wisconsin Counties</h3><ul class="space-y-1"><li>• Polk County</li><li>• Burnett County</li><li>• Barron County</li><li>• Washburn County</li><li>• St. Croix County</li><li>• Dunn County</li><li>• Rusk County</li><li>• Sawyer County</li><li>• Eau Claire County</li></ul></div>
-        <div><h3 class="font-bold mb-2">Minnesota Counties</h3><ul class="space-y-1"><li>• Pine County</li><li>• Chisago County</li><li>• Washington County</li><li>• Isanti County</li><li>• Kanabec County</li></ul></div>
+      <h2 class="text-3xl font-bold mb-4">Approximate Service Area</h2>
+      <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-8">
+        Tame Your Terrain generally serves properties within roughly a two-hour drive of Clear Lake, Wisconsin. The map below is an approximate service-radius guide to help property owners quickly see the general area covered.
+      </p>
+
+      <div class="map-card rounded-3xl shadow-lg p-4 md:p-6">
+        <div id="service-map" class="w-full rounded-2xl overflow-hidden" style="height: 420px;"></div>
+        <div class="map-legend">
+          <div><span class="legend-dot"></span>Clear Lake, WI base location</div>
+          <div><span class="legend-ring"></span>Approximate 2-hour service radius</div>
+        </div>
+        <p class="map-note mt-4">
+          The circle is an estimate, not a guaranteed drive-time boundary. Actual travel time can vary depending on roads, weather, traffic and exact property location.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="service-chip">WI: Polk</span>
+        <span class="service-chip">WI: Burnett</span>
+        <span class="service-chip">WI: Barron</span>
+        <span class="service-chip">WI: Washburn</span>
+        <span class="service-chip">WI: Rusk</span>
+        <span class="service-chip">WI: Sawyer</span>
+        <span class="service-chip">WI: St. Croix</span>
+        <span class="service-chip">WI: Dunn</span>
+        <span class="service-chip">WI: Eau Claire</span>
+        <span class="service-chip">MN: Chisago</span>
+        <span class="service-chip">MN: Pine</span>
+        <span class="service-chip">MN: Kanabec</span>
+        <span class="service-chip">MN: Isanti</span>
+        <span class="service-chip">MN: Washington</span>
       </div>
     </div>
   </section>
@@ -337,16 +444,13 @@
       <p class="text-center mb-6 text-lg">Tell us about your property and project, and we’ll get back to you.</p>
 
       <div class="text-center mb-10">
-        <div class="estimate-form response-note">⚡ Most quote requests are answered within 1–2 hours.</div>
+        <div class="estimate-form response-note" id="formStatus" style="display:none;">⚡ Most quote requests are answered within 1–2 hours.</div>
         <p class="text-base md:text-lg">Need faster help? Call or text <a href="tel:7152550328" class="underline font-bold">715-255-0328</a>.</p>
       </div>
 
       <div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
-        
         <form class="estimate-form" id="estimateForm">
           <input type="text" name="_honey" id="websiteField" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div id="formStatus" class="response-note" style="display:none;"></div>
 
           <div class="form-row">
             <label for="name">Name <span style="color:red;">*</span></label>
@@ -425,17 +529,39 @@
     <p class="text-sm mt-4">© 2026 Tame Your Terrain</p>
   </footer>
 
-  
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    var map = L.map('service-map').setView([45.25, -92.27], 8);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; OpenStreetMap contributors'
+    var map = L.map('service-map', {
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView([45.25, -92.27], 8);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
     }).addTo(map);
+
     var center = [45.25, -92.27];
-    L.marker(center).addTo(map).bindPopup('Clear Lake, WI - Base Service Area').openPopup();
-    L.circle(center, { radius: 160000, fillOpacity: 0.2 }).addTo(map);
+
+    var starIcon = L.divIcon({
+      className: 'clear-lake-star-wrapper',
+      html: '<div class="clear-lake-marker">★</div>',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+
+    L.marker(center, { icon: starIcon })
+      .addTo(map)
+      .bindPopup('<strong>Clear Lake, WI</strong><br>Base service area')
+      .openPopup();
+
+    L.circle(center, {
+      radius: 160000,
+      color: '#16a34a',
+      weight: 2,
+      fillColor: '#22c55e',
+      fillOpacity: 0.18
+    }).addTo(map);
 
     const estimateForm = document.getElementById('estimateForm');
     const formStatus = document.getElementById('formStatus');
@@ -465,10 +591,8 @@
       const bestTimeToContact = document.getElementById('bestTimeToContact').value.trim();
 
       const combinedDescription =
-        'Property Address: ' + (propertyAddress || 'Not provided') + '
-' +
-        'Project Description: ' + (projectDescription || 'Not provided') + '
-' +
+        'Property Address: ' + (propertyAddress || 'Not provided') + '\n' +
+        'Project Description: ' + (projectDescription || 'Not provided') + '\n' +
         'Best Time To Contact: ' + (bestTimeToContact || 'Not provided');
 
       try {
@@ -508,6 +632,5 @@
       }
     });
   </script>
-
 </body>
 </html>
