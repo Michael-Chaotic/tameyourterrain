@@ -1,147 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>How Forestry Mulching Improves Deer Habitat | Tame Your Terrain</title>
 
-<meta name="description" content="Learn how forestry mulching improves deer habitat by creating bedding cover, native browse, travel corridors and better access on hunting properties in Wisconsin and Minnesota.">
+<meta name="description" content="Learn how forestry mulching can improve deer habitat by creating bedding cover, encouraging native browse, opening travel corridors and improving access on hunting properties in Wisconsin and Minnesota.">
 
-<meta name="keywords" content="deer habitat improvement Wisconsin, forestry mulching deer habitat, bedding cover, native browse, travel corridors, hunting property improvement, habitat improvement Minnesota">
+<meta name="keywords" content="deer habitat improvement Wisconsin, forestry mulching deer habitat, bedding cover, native browse, travel corridors, hunting property improvement, wildlife habitat improvement Minnesota">
 
 <meta name="robots" content="index, follow">
-<meta name="author" content="Tame Your Terrain">
-<meta name="theme-color" content="#14532d">
 <link rel="canonical" href="https://www.tameyourterrain.com/deer-habitat-improvement.html">
 
 <meta property="og:title" content="How Forestry Mulching Improves Deer Habitat | Tame Your Terrain">
-<meta property="og:description" content="Learn how forestry mulching improves deer habitat by creating bedding cover, native browse, travel corridors and better access on hunting properties in Wisconsin and Minnesota.">
-<meta property="og:type" content="article">
+<meta property="og:description" content="Learn how forestry mulching can improve deer habitat by creating bedding cover, encouraging browse growth, opening travel corridors and improving access on hunting properties in Wisconsin and Minnesota.">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://www.tameyourterrain.com/deer-habitat-improvement.html">
 <meta property="og:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="How Forestry Mulching Improves Deer Habitat | Tame Your Terrain">
-<meta name="twitter:description" content="Learn how forestry mulching improves deer habitat by creating bedding cover, native browse, travel corridors and better access on hunting properties in Wisconsin and Minnesota.">
+<meta name="twitter:description" content="Learn how forestry mulching can improve deer habitat by creating bedding cover, encouraging browse growth, opening travel corridors and improving access on hunting properties in Wisconsin and Minnesota.">
 <meta name="twitter:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
 
-html{
-scroll-behavior:smooth;
-}
+  .estimate-form * {
+    box-sizing: border-box;
+  }
 
-.estimate-form *{
-box-sizing:border-box;
-}
+  .estimate-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #14532d;
+    text-align: left;
+  }
 
-.estimate-form label{
-display:block;
-font-weight:700;
-margin-bottom:.4rem;
-color:#14532d;
-}
+  .estimate-form .form-row {
+    margin-bottom: 1rem;
+  }
 
-.estimate-form .form-row{
-margin-bottom:1rem;
-}
+  .estimate-form input[type="text"],
+  .estimate-form input[type="email"],
+  .estimate-form input[type="tel"],
+  .estimate-form select,
+  .estimate-form textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    background: #ffffff;
+    color: #111827;
+  }
 
-.estimate-form input[type="text"],
-.estimate-form input[type="email"],
-.estimate-form input[type="tel"],
-.estimate-form select,
-.estimate-form textarea{
-width:100%;
-border:1px solid #d1d5db;
-border-radius:.75rem;
-padding:.9rem 1rem;
-font-size:1rem;
-background:#fff;
-color:#111827;
-}
+  .estimate-form textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+  }
 
-.estimate-form textarea{
-min-height:140px;
-resize:vertical;
-font-family:Arial,sans-serif;
-}
+  .estimate-form input:focus,
+  .estimate-form select:focus,
+  .estimate-form textarea:focus {
+    outline: none;
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+  }
 
-.estimate-form input:focus,
-.estimate-form select:focus,
-.estimate-form textarea:focus{
-outline:none;
-border-color:#16a34a;
-box-shadow:0 0 0 3px rgba(34,197,94,.2);
-}
+  .estimate-form .help-text {
+    font-size: 0.92rem;
+    color: #4b5563;
+    margin-top: 0.35rem;
+    text-align: left;
+  }
 
-.estimate-form .help-text{
-font-size:.92rem;
-color:#4b5563;
-margin-top:.35rem;
-}
+  .estimate-form .button-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
 
-.estimate-form .button-row{
-display:flex;
-gap:.75rem;
-flex-wrap:wrap;
-margin-top:1.5rem;
-}
+  .estimate-form button,
+  .estimate-form input[type="reset"] {
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.95rem 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+  }
 
-.estimate-form button,
-.estimate-form input[type="reset"]{
-border:none;
-border-radius:.75rem;
-padding:.95rem 1.4rem;
-font-weight:700;
-cursor:pointer;
-font-size:1rem;
-}
+  .estimate-form button[type="submit"] {
+    background: #16a34a;
+    color: #ffffff;
+  }
 
-.estimate-form button[type="submit"]{
-background:#16a34a;
-color:#fff;
-}
+  .estimate-form button[type="submit"]:hover {
+    background: #15803d;
+  }
 
-.estimate-form button[type="submit"]:hover{
-background:#15803d;
-}
-
-.estimate-form button[type="submit"]:disabled{
-opacity:.7;
-cursor:not-allowed;
-}
-
-.estimate-form input[type="reset"]{
-background:#e5e7eb;
-color:#111827;
-}
-
-.estimate-form .response-note{
-display:inline-block;
-background:#ecfdf5;
-border:1px solid #bbf7d0;
-color:#14532d;
-padding:.8rem 1rem;
-border-radius:.75rem;
-margin-bottom:1.5rem;
-font-weight:700;
-}
-
-.estimate-form .error-note{
-display:inline-block;
-background:#fef2f2;
-border:1px solid #fecaca;
-color:#991b1b;
-padding:.8rem 1rem;
-border-radius:.75rem;
-margin-bottom:1.5rem;
-font-weight:700;
-}
-
+  .estimate-form input[type="reset"] {
+    background: #e5e7eb;
+    color: #111827;
+  }
 </style>
 
 <script type="application/ld+json">
@@ -170,7 +140,7 @@ font-weight:700;
       "name": "Does habitat work guarantee bigger bucks?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No habitat work guarantees bigger bucks, but better cover, browse and property layout can create conditions that support healthier wildlife use over time."
+        "text": "No. Habitat work cannot guarantee bigger bucks, but improving cover, browse and property layout can help create better conditions for deer use over time."
       }
     }
   ]
@@ -181,21 +151,35 @@ font-weight:700;
 <body class="font-sans text-gray-800 bg-white">
 
 <header class="bg-white shadow">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-green-800 font-bold hover:underline">← Back to Home</a>
     <a href="tel:7152550328" class="bg-green-700 text-white px-4 py-2 rounded-xl font-bold hover:bg-green-800">📞 Call for Estimate: 715-255-0328</a>
   </div>
 </header>
 
-<section class="bg-green-900 text-white py-20 text-center">
+<section class="relative text-white overflow-hidden">
+  <img src="mulching-hero.jpg" alt="Forestry mulching for deer habitat improvement on a rural hunting property" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative py-20 md:py-28 px-6 max-w-6xl mx-auto">
+    <img src="logo.png" alt="Tame Your Terrain logo" class="mb-8 w-[350px] max-w-full">
 
-<h1 class="text-4xl md:text-5xl font-bold mb-6 px-6">
-How Forestry Mulching Improves Deer Habitat
-</h1>
+    <h1 class="text-3xl md:text-5xl font-bold mb-6 max-w-4xl leading-tight">
+      How Forestry Mulching Improves Deer Habitat
+    </h1>
 
-<p class="text-xl max-w-4xl mx-auto px-6">
-A practical guide for rural landowners, hunters and property managers in Western Wisconsin and Eastern Minnesota.
-</p>
+    <p class="text-lg md:text-xl max-w-3xl mb-8">
+      Forestry mulching can help improve hunting properties by creating bedding cover, encouraging native browse, opening travel corridors and making land easier to access and manage.
+    </p>
 
+    <div class="flex flex-col md:flex-row gap-4">
+      <a href="index.html#estimate" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-2xl text-center">
+        Request a Free Estimate
+      </a>
+      <a href="tel:7152550328" class="bg-white text-green-900 font-bold py-3 px-6 rounded-2xl text-center">
+        Call 715-255-0328
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="py-10 bg-white">
@@ -207,278 +191,114 @@ A practical guide for rural landowners, hunters and property managers in Western
   </div>
 </section>
 
-<section class="py-16 max-w-5xl mx-auto px-6 space-y-8 text-lg leading-8">
-
-<h2 class="text-3xl font-bold">
-Why Habitat Improvement Matters
-</h2>
-
-<p>
-Overgrown timber can become shaded and stagnant when too much brush, low-value growth and invasive vegetation crowd the woods. When sunlight can no longer reach the forest floor, the native grasses, forbs and woody browse that deer rely on begin to decline. Forestry mulching can help reverse that trend by selectively opening areas back up and allowing more light to hit the ground.
-</p>
-
-<p>
-That increase in sunlight often encourages a flush of new growth. On many hunting and recreational properties, that means better bedding security, more natural browse and improved movement through the property. Instead of woods that feel choked and unused, landowners often end up with more functional cover and more manageable terrain.
-</p>
-
-<h2 class="text-3xl font-bold">
-Creating Better Bedding Cover
-</h2>
-
-<p>
-Deer are drawn to places that offer security. Thick bedding cover allows them to rest where they feel hidden from pressure, wind and visibility. In some woods, however, the existing cover may be too stem-dense in an unhelpful way, filled with invasive brush, deadfall or poor-quality understory that limits usable bedding areas rather than improving them.
-</p>
-
-<p>
-Selective forestry mulching can help create more useful structure by knocking back undesirable growth and stimulating regeneration. The goal is not to make the woods look park-like. It is to improve the mix of cover, access and usable habitat so the property functions better for wildlife.
-</p>
-
-<h2 class="text-3xl font-bold">
-Encouraging Native Browse
-</h2>
-
-<p>
-One of the main habitat benefits of forestry mulching is the ability to bring sunlight back to the forest floor. Sunlight is what drives regrowth. When more light reaches the soil, many properties respond with new stump sprouts, young woody growth and other vegetation that can become browse for deer.
-</p>
-
-<p>
-This is especially valuable on hunting land that has become over-canopied or overrun with invasive species. Removing low-value brush and opening selected portions of the property can create a younger, more active layer of vegetation that supports deer use over time.
-</p>
-
-<h2 class="text-3xl font-bold">
-Improving Travel Corridors and Access
-</h2>
-
-<p>
-Habitat work is not only about food and bedding. It is also about movement. Forestry mulching can be used to improve travel corridors, connect sections of a property and create more intentional access routes for both wildlife and landowners. This can be especially useful on hunting properties where you want better movement through cover without over-disturbing the entire tract.
-</p>
-
-<p>
-Mulching can also help widen or reclaim old trails, open access to stand locations and make it easier to reach future work areas such as food plots or secluded habitat pockets. Better access can make long-term management easier while improving how the property lays out and hunts.
-</p>
-
-<h2 class="text-3xl font-bold">
-Food Plot Access and Preparation
-</h2>
-
-<p>
-Forestry mulching is often a useful first step when a landowner wants to reclaim small overgrown openings or improve access to future food plot areas. Thick brush, saplings and invasive growth can make these spots difficult to reach or maintain. Mulching can clear the way, improve visibility and help define the working area.
-</p>
-
-<p>
-While every property is different, many landowners use mulching to support larger habitat plans that include trails, bedding cover improvements, screening and food plot access. It can be a practical way to begin reshaping the property without the mess of piling and hauling brush.
-</p>
-
-<h2 class="text-3xl font-bold">
-About Bigger Bucks
-</h2>
-
-<p>
-No habitat project can promise bigger bucks. Deer numbers, age structure, hunting pressure and neighboring properties all influence what a landowner sees. Still, better habitat can absolutely improve the conditions that make a property more attractive and more usable to deer.
-</p>
-
-<p>
-If your goal is to create thicker cover, improve browse, open access and make your hunting property more functional, forestry mulching can be a strong tool when it is used thoughtfully and selectively.
-</p>
-
-<div class="pt-4 flex flex-col md:flex-row gap-4">
-
-<a href="index.html" class="text-green-700 underline font-bold">
-Return to Homepage
-</a>
-
-<a href="#estimate" class="text-green-700 underline font-bold">
-Request a Free Estimate
-</a>
-
-</div>
-
+<section class="py-16">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">Why Habitat Improvement Matters</h2>
+    <div class="space-y-6 text-lg leading-8">
+      <p>
+        Overgrown woods can become crowded, shaded and less useful for wildlife over time. When the canopy gets too dense and the understory is packed with poor-quality growth or invasive brush, sunlight no longer reaches the forest floor the way it should. That often reduces the native grasses, forbs and woody browse that help make a hunting property more attractive to deer.
+      </p>
+      <p>
+        Forestry mulching can help reverse that by selectively opening portions of the property back up. Allowing more sunlight to hit the ground can stimulate new growth, improve the structure of the understory and create a more usable mix of cover and movement throughout the property.
+      </p>
+      <p>
+        For many rural landowners, habitat improvement is not about making the woods look neat. It is about making the property function better for wildlife, recreation and long-term land management.
+      </p>
+    </div>
+  </div>
 </section>
 
+<section class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Common Deer Habitat Benefits</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">🦌 Better Bedding Cover</h3>
+        <p>
+          Selective mulching can help create thicker, more usable cover that gives deer secure places to bed and move through the property with less exposure.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">🌿 More Native Browse</h3>
+        <p>
+          Opening the canopy allows more sunlight to reach the ground, which can encourage new woody growth, forbs and other vegetation deer use for browse.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-xl font-bold mb-4">🛻 Improved Access</h3>
+        <p>
+          Forestry mulching can help open trails, connect parts of the property and make it easier to reach stand locations, future food plots and management areas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">How Forestry Mulching Supports Deer Habitat</h2>
+    <div class="space-y-6 text-lg leading-8">
+      <p>
+        One of the biggest advantages of forestry mulching is that it can improve multiple parts of a hunting property at the same time. A project may involve reclaiming overgrown areas, improving access, knocking back invasive brush and helping define better travel routes through the land.
+      </p>
+
+      <p>
+        Depending on the property, landowners often use forestry mulching for projects like:
+      </p>
+
+      <ul class="list-disc pl-6 space-y-3">
+        <li>Creating thicker bedding cover in selected areas</li>
+        <li>Opening the canopy to encourage native browse growth</li>
+        <li>Improving access trails and movement through the property</li>
+        <li>Reclaiming overgrown edges and low-value wooded areas</li>
+        <li>Preparing access to future food plot locations</li>
+        <li>Improving the overall layout and huntability of the land</li>
+      </ul>
+
+      <p>
+        Because the brush is processed into mulch on site, forestry mulching is often cleaner and more efficient than methods that involve pushing everything into piles for later handling.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-8">Important Note About Bigger Bucks</h2>
+    <div class="space-y-6 text-lg leading-8">
+      <p>
+        Habitat work can improve the conditions on a property, but it cannot guarantee bigger bucks. Deer age structure, hunting pressure, surrounding land and regional herd factors all play a role in what you see from year to year.
+      </p>
+      <p>
+        What habitat improvement can do is help create better cover, more natural food sources, improved movement and a more functional property layout. For many landowners, that is a worthwhile long-term investment in both the land and the hunting experience.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section id="estimate" class="py-16 bg-green-900 text-white">
-
-<div class="max-w-4xl mx-auto px-6">
-
-<h2 class="text-3xl font-bold text-center mb-4">
-Request a Free Estimate
-</h2>
-
-<p class="text-center mb-6 text-lg">
-Tell us about your property and project, and we’ll get back to you.
-</p>
-
-<div class="text-center mb-10">
-  <div class="estimate-form response-note" id="formStatus" style="display:none;">
-    Thank you for contacting Tame Your Terrain. We received your estimate request and will get back to you as soon as possible. If you need immediate help, call or text 715-255-0328.
-  </div>
-  <div class="estimate-form error-note" id="formError" style="display:none;">
-    Sorry, there was a problem sending your request. Please call or text 715-255-0328.
-  </div>
-  <div class="estimate-form error-note" id="formSpeedError" style="display:none;">
-    Please wait a few seconds before submitting the form.
-  </div>
-  <p class="text-base md:text-lg">Need faster help? Call or text <a href="tel:7152550328" class="underline font-bold">715-255-0328</a>.</p>
-</div>
-
-<div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
-
-<form class="estimate-form" id="estimateForm">
-  <input type="text" name="_honey" id="websiteField" style="display:none" tabindex="-1" autocomplete="off">
-  <input type="hidden" id="formStartedAt" value="">
-
-  <div class="form-row">
-    <label for="name">Name <span style="color:red;">*</span></label>
-    <input type="text" id="name" name="Name" maxlength="80" required>
-  </div>
-
-  <div class="form-row">
-    <label for="propertyAddress">Property Address <span style="color:red;">*</span></label>
-    <input type="text" id="propertyAddress" name="Property Address" maxlength="160" required>
-    <div class="help-text">Street address, nearest road, or best address for the property location.</div>
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-4">
-    <div class="form-row">
-      <label for="email">Email <span style="color:red;">*</span></label>
-      <input type="email" id="email" name="email" maxlength="100" required>
-    </div>
-
-    <div class="form-row">
-      <label for="phone">Phone <span style="color:red;">*</span></label>
-      <input type="tel" id="phone" name="Phone" maxlength="30" required>
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Want to Improve Deer Habitat on Your Property?</h2>
+    <p class="text-lg mb-8">Use our main estimate form for forestry mulching, land clearing, trail building, buckthorn removal, food plot clearing or habitat improvement.</p>
+    <div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index.html#estimate" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-2xl text-center">Go to Estimate Form</a>
+        <a href="tel:7152550328" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Call 715-255-0328</a>
+      </div>
     </div>
   </div>
-
-  <div class="grid md:grid-cols-2 gap-4">
-    <div class="form-row">
-      <label for="serviceType">Service Type <span style="color:red;">*</span></label>
-      <select id="serviceType" name="Service Type" required>
-        <option value="">Select Service</option>
-        <option>Forestry Mulching</option>
-        <option>Land Clearing</option>
-        <option>Trail Building</option>
-        <option>Buckthorn Removal</option>
-        <option>Food Plot Clearing</option>
-        <option selected>Habitat Improvement</option>
-        <option>Brush Removal</option>
-      </select>
-    </div>
-
-    <div class="form-row">
-      <label for="propertySize">Estimated Property Size</label>
-      <select id="propertySize" name="Estimated Property Size">
-        <option value="">Select Size</option>
-        <option>1 - 5 acres</option>
-        <option>5 - 10 acres</option>
-        <option>10 - 20 acres</option>
-        <option>20+ acres</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <label for="projectDescription">Project Description</label>
-    <textarea id="projectDescription" name="Project Description" placeholder="Tell us what you want done, what the land looks like now, and anything important about access or timing."></textarea>
-  </div>
-
-  <div class="form-row">
-    <label for="bestTimeToContact">Best Time to Contact You</label>
-    <input type="text" id="bestTimeToContact" name="Best Time to Contact You" maxlength="80" placeholder="Example: weekday afternoons or anytime after 5 pm">
-  </div>
-
-  <div class="button-row">
-    <button type="submit" id="submitButton">Request My Free Estimate</button>
-    <input type="reset" value="Reset">
-  </div>
-</form>
-
-</div>
-
-</div>
-
 </section>
 
-<footer class="py-8 text-center bg-gray-900 text-white">
-  <p class="font-bold">Tame Your Terrain</p>
-  <p>Forestry Mulching • Land Clearing • Buckthorn Removal</p>
-  <p class="mt-2">Serving Western Wisconsin & Eastern Minnesota</p>
+<footer class="py-10 text-center bg-gray-900 text-white">
+  <p class="font-bold text-lg">Tame Your Terrain</p>
+  <p>Forestry Mulching • Land Clearing • Trail Building • Buckthorn Removal</p>
+  <p class="mt-2">Serving rural property owners across Western Wisconsin and Eastern Minnesota.</p>
   <p class="mt-2">Phone: 715-255-0328</p>
-  <p class="text-sm mt-4">© 2026 Tame Your Terrain</p>
+  <p class="mt-4"><a href="index.html" class="underline">Return to Home Page</a></p>
 </footer>
-
-<script>
-const estimateForm = document.getElementById('estimateForm');
-const formStartedAt = document.getElementById('formStartedAt');
-const formStatus = document.getElementById('formStatus');
-const formError = document.getElementById('formError');
-const formSpeedError = document.getElementById('formSpeedError');
-const submitButton = document.getElementById('submitButton');
-
-formStartedAt.value = Date.now().toString();
-
-estimateForm.addEventListener('submit', async function (e) {
-  e.preventDefault();
-
-  formStatus.style.display = 'none';
-  formError.style.display = 'none';
-  formSpeedError.style.display = 'none';
-
-  if (document.getElementById('websiteField').value.trim() !== '') {
-    return;
-  }
-
-  const elapsedSeconds = (Date.now() - Number(formStartedAt.value || Date.now())) / 1000;
-
-  if (elapsedSeconds < 4) {
-    formSpeedError.style.display = 'inline-block';
-    return;
-  }
-
-  submitButton.disabled = true;
-  submitButton.textContent = 'Sending...';
-
-  const formData = new FormData(estimateForm);
-
-  const data = {
-    Last_Name: formData.get('Name') || 'Website Lead',
-    Phone: formData.get('Phone'),
-    Email: formData.get('email'),
-    Description:
-      'Property Address: ' + (formData.get('Property Address') || '') +
-      '\n\nProject Description:\n' + (formData.get('Project Description') || '') +
-      '\n\nBest Time To Contact:\n' + (formData.get('Best Time to Contact You') || ''),
-    Service_Type: formData.get('Service Type'),
-    Estimated_Property_Size: formData.get('Estimated Property Size')
-  };
-
-  try {
-    const response = await fetch('https://node-starter--chaotic-reason.replit.app/api/zoho/create-lead', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      formStatus.style.display = 'inline-block';
-      estimateForm.reset();
-      formStartedAt.value = Date.now().toString();
-      document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      formError.style.display = 'inline-block';
-    }
-  } catch (err) {
-    formError.style.display = 'inline-block';
-  } finally {
-    submitButton.disabled = false;
-    submitButton.textContent = 'Request My Free Estimate';
-  }
-});
-</script>
 
 </body>
 </html>
