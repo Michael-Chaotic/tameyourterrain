@@ -4,7 +4,1323 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain</title>
+  <meta name="description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain</title>
   <meta name="description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Serving properties within roughly 2 hours of Clear Lake, WI 54005. Free estimates.">
+  <meta name="keywords" content="forestry mulching Wisconsin, land clearing Wisconsin, buckthorn removal Wisconsin, forestry mulching Minnesota, trail building hunting property, food plot clearing, UTV trail building, habitat improvement, deer habitat improvement Wisconsin, forestry mulching near me, land clearing near me, western Wisconsin land clearing, eastern Minnesota forestry mulching">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Tame Your Terrain">
+  <meta name="theme-color" content="#14532d">
+  <link rel="canonical" href="https://www.tameyourterrain.com/">
+  <meta property="og:title" content="Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain">
+  <meta property="og:description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Free estimates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tameyourterrain.com/">
+  <meta property="og:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain">
+  <meta name="twitter:description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Free estimates.">
+  <meta name="twitter:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tame Your Terrain",
+    "url": "https://www.tameyourterrain.com",
+    "telephone": "+1-715-255-0328",
+    "image": "https://www.tameyourterrain.com/logo.png",
+    "description": "Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota.",
+    "areaServed": [
+      "Polk County WI","Burnett County WI","Barron County WI","Washburn County WI","Rusk County WI","Sawyer County WI","Eau Claire County WI","St. Croix County WI","Dunn County WI",
+      "Chisago County MN","Washington County MN","Pine County MN","Isanti County MN","Kanabec County MN"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clear Lake",
+      "addressRegion": "WI",
+      "postalCode": "54005",
+      "addressCountry": "US"
+    },
+    "serviceType": [
+      "Forestry Mulching","Land Clearing","Buckthorn Removal","Trail Building","UTV Trail Clearing","Food Plot Clearing","Habitat Improvement"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Tame Your Terrain offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain offers forestry mulching, land clearing, trail building, buckthorn removal, food plot clearing and habitat improvement for rural property owners in Western Wisconsin and Eastern Minnesota."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Tame Your Terrain work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain serves properties across Western Wisconsin and Eastern Minnesota, generally within roughly a two-hour drive of Clear Lake, Wisconsin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I request an estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a free estimate by filling out the form on this page or by calling or texting 715-255-0328."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .estimate-form * {
+      box-sizing: border-box;
+    }
+
+    .estimate-form label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #14532d;
+    }
+
+    .estimate-form .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .estimate-form input[type="text"],
+    .estimate-form input[type="email"],
+    .estimate-form input[type="tel"],
+    .estimate-form select,
+    .estimate-form textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .estimate-form textarea {
+      min-height: 140px;
+      resize: vertical;
+      font-family: Arial, sans-serif;
+    }
+
+    .estimate-form input:focus,
+    .estimate-form select:focus,
+    .estimate-form textarea:focus {
+      outline: none;
+      border-color: #16a34a;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+
+    .estimate-form .help-text {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-top: 0.35rem;
+    }
+
+    .estimate-form .button-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .estimate-form button,
+    .estimate-form input[type="reset"] {
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.95rem 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .estimate-form button[type="submit"] {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .estimate-form button[type="submit"]:hover {
+      background: #15803d;
+    }
+
+    .estimate-form button[type="submit"]:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .estimate-form input[type="reset"] {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .estimate-form .response-note {
+      display: inline-block;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      padding: 0.8rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .estimate-form .error-note {
+      display: inline-block;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 0.8rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .map-card {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border: 1px solid #e5e7eb;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    .legend-dot,
+    .legend-ring {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-radius: 9999px;
+      margin-right: 0.45rem;
+      vertical-align: middle;
+    }
+
+    .legend-dot {
+      background: #15803d;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #166534;
+    }
+
+    .legend-ring {
+      background: rgba(34, 197, 94, 0.25);
+      border: 2px solid rgba(22, 163, 74, 0.85);
+    }
+
+    .clear-lake-marker {
+      color: #14532d;
+      font-size: 1.8rem;
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+    }
+
+    .map-note {
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+      <a href="tel:7152550328" class="bg-green-700 text-white px-4 py-2 rounded-xl font-bold hover:bg-green-800">📞 Call for Estimate: 715-255-0328</a>
+    </div>
+  </header>
+
+  <section class="relative text-white overflow-hidden">
+    <img src="mulching-hero.jpg" alt="Takeuchi track loader with forestry mulching head clearing brush" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative py-20 md:py-28 pl-4 md:pl-12 pr-4 md:pr-6">
+      <img src="logo.png" alt="Tame Your Terrain logo" class="mb-6 md:mb-8 w-[320px] md:w-[550px] max-w-full">
+      <h1 class="text-3xl md:text-5xl font-bold mb-5 max-w-2xl leading-tight">Forestry Mulching, Trail Building, Food Plots, Land Clearing & Buckthorn Removal</h1>
+      <p class="text-lg md:text-xl mb-4 max-w-2xl">Serving property owners across Western Wisconsin and Eastern Minnesota.</p>
+      <p class="text-base md:text-lg mb-8 max-w-2xl">Locally owned land management services helping property owners tame, reclaim and maintain their land.</p>
+      <div class="flex flex-col md:flex-row gap-4">
+        <a href="tel:7152550328" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-2xl text-center">Call for a Free Estimate: 715-255-0328</a>
+        <a href="#estimate" class="bg-white text-green-900 font-bold py-3 px-6 rounded-2xl text-center">Get a Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Land Management Services</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🌲 Forestry Mulching</h3>
+          <p>Efficiently clear brush, invasive species and overgrown areas without hauling debris. Forestry mulching leaves natural mulch behind that protects and improves soil health.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🛻 UTV Trail Building</h3>
+          <p>Create wider UTV trails, hunting access routes, food plot access and property lanes for recreational and hunting properties.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🌿 Buckthorn Removal</h3>
+          <p>Remove invasive buckthorn and reclaim woods and fields so native plants and healthy forest growth can return.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Recent Forestry Mulching Projects</h2>
+      <p class="mb-10 text-gray-700">Examples of forestry mulching, land clearing, trail building and reclamation work.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <img src="mulching1.jpg" alt="Forestry mulching project clearing overgrown brush" class="w-full h-64 object-cover rounded-xl shadow-lg">
+        <img src="mulching2.jpg" alt="Track loader with mulching head opening a trail through woods" class="w-full h-64 object-cover rounded-xl shadow-lg">
+        <img src="mulching3.jpg" alt="Land clearing and vegetation management project in rural property setting" class="w-full h-64 object-cover rounded-xl shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Habitat Improvement</h2>
+      <div class="space-y-6 text-lg leading-8 text-gray-800">
+        <p>Selective clearing and forestry mulching can improve wildlife habitat by allowing sunlight to reach the forest floor. That can help native grasses, forbs and browse plants grow again, which improves food and cover for deer and other wildlife.</p>
+        <p>Many landowners use forestry mulching to open hunting property, improve bedding cover, create travel corridors, widen UTV trails and prepare access to future food plots while making the woods healthier overall.</p>
+        <p class="text-center pt-2">
+          <a href="deer-habitat-improvement.html" class="text-green-700 underline font-bold hover:text-green-900">Learn how forestry mulching improves deer habitat →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Learn More About Property Improvement</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How Forestry Mulching Improves Deer Habitat</h3>
+          <p class="text-lg leading-8 mb-6">
+            Learn how forestry mulching can help create bedding cover, improve browse growth, open travel corridors, and support better wildlife habitat on hunting properties.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="deer-habitat-improvement.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">Food Plot Clearing with Forestry Mulching</h3>
+          <p class="text-lg leading-8 mb-6">
+            See how forestry mulching can help clear overgrown food plot areas, improve access, reclaim hunting ground, and support your long-term habitat goals.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="food-plot-clearing-with-forestry-mulching.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How to Remove Buckthorn from Hunting Property</h3>
+          <p class="text-lg leading-8 mb-6">
+            Buckthorn is one of the most aggressive invasive plants in Wisconsin and Minnesota. Learn how removing buckthorn can restore woods, improve wildlife habitat and reclaim hunting property.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="buckthorn-removal-hunting-property.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How Much Does Forestry Mulching Cost in Wisconsin?</h3>
+          <p class="text-lg leading-8 mb-6">
+            Learn what affects forestry mulching cost, including brush density, terrain, access, acreage and project goals.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="how-much-does-forestry-mulching-cost-in-wisconsin.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Areas We Serve</h2>
+      <p class="text-center max-w-3xl mx-auto mb-10">
+        Browse county-specific pages for forestry mulching, land clearing, trail building, UTV trail clearing,
+        buckthorn removal and food plot clearing across Western Wisconsin and Eastern Minnesota.
+      </p>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Wisconsin Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="polk-county-wi.html">Polk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="burnett-county-wi.html">Burnett County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="barron-county-wi.html">Barron County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washburn-county-wi.html">Washburn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="rusk-county-wi.html">Rusk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="sawyer-county-wi.html">Sawyer County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="st-croix-county-wi.html">St. Croix County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="dunn-county-wi.html">Dunn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="eau-claire-county-wi.html">Eau Claire County</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Minnesota Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="chisago-county-mn.html">Chisago County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="pine-county-mn.html">Pine County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="kanabec-county-mn.html">Kanabec County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="isanti-county-mn.html">Isanti County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washington-county-mn.html">Washington County</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Approximate Service Area</h2>
+      <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-8">
+        Tame Your Terrain generally serves properties within roughly a two-hour drive of Clear Lake, Wisconsin. The map below is an approximate service-radius guide to help property owners quickly see the general area covered.
+      </p>
+
+      <div class="map-card rounded-3xl shadow-lg p-4 md:p-6">
+        <div id="service-map" class="w-full rounded-2xl overflow-hidden" style="height: 420px;"></div>
+        <div class="map-legend">
+          <div><span class="legend-dot"></span>Clear Lake, WI base location</div>
+          <div><span class="legend-ring"></span>Approximate 2-hour service radius</div>
+        </div>
+        <p class="map-note mt-4">
+          The circle is an estimate, not a guaranteed drive-time boundary. Actual travel time can vary depending on roads, weather, traffic and exact property location.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="service-chip">WI: Polk</span>
+        <span class="service-chip">WI: Burnett</span>
+        <span class="service-chip">WI: Barron</span>
+        <span class="service-chip">WI: Washburn</span>
+        <span class="service-chip">WI: Rusk</span>
+        <span class="service-chip">WI: Sawyer</span>
+        <span class="service-chip">WI: St. Croix</span>
+        <span class="service-chip">WI: Dunn</span>
+        <span class="service-chip">WI: Eau Claire</span>
+        <span class="service-chip">MN: Chisago</span>
+        <span class="service-chip">MN: Pine</span>
+        <span class="service-chip">MN: Kanabec</span>
+        <span class="service-chip">MN: Isanti</span>
+        <span class="service-chip">MN: Washington</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimate" class="py-16 bg-green-900 text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Get a Free Estimate</h2>
+      <p class="text-center mb-6 text-lg">Tell us about your property and project, and we’ll get back to you.</p>
+
+      <div class="text-center mb-10">
+        <div class="estimate-form response-note" id="formStatus" style="display:none;">
+          Thank you for contacting Tame Your Terrain. We received your estimate request and will get back to you as soon as possible. If you need immediate help, call or text 715-255-0328.
+        </div>
+        <div class="estimate-form error-note" id="formError" style="display:none;">
+          Sorry, there was a problem sending your request. Please call or text 715-255-0328.
+        </div>
+        <div class="estimate-form error-note" id="formSpeedError" style="display:none;">
+          Please wait a few seconds before submitting the form.
+        </div>
+        <p class="text-base md:text-lg">Need faster help? Call or text <a href="tel:7152550328" class="underline font-bold">715-255-0328</a>.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
+        <form class="estimate-form" id="estimateForm">
+          <input type="text" name="_honey" id="websiteField" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="form_start_time" id="formStartedAt" value="">
+
+          <div class="form-row">
+            <label for="name">Name <span style="color:red;">*</span></label>
+            <input type="text" id="name" name="Name" maxlength="80" required>
+          </div>
+
+          <div class="form-row">
+            <label for="propertyAddress">Property Address <span style="color:red;">*</span></label>
+            <input type="text" id="propertyAddress" name="Property Address" maxlength="160" required>
+            <div class="help-text">Street address, nearest road, or best address for the property location.</div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-row">
+              <label for="email">Email <span style="color:red;">*</span></label>
+              <input type="email" id="email" name="email" maxlength="100" required>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone <span style="color:red;">*</span></label>
+              <input type="tel" id="phone" name="Phone" maxlength="30" required>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-row">
+              <label for="serviceType">Service Type <span style="color:red;">*</span></label>
+              <select id="serviceType" name="Service Type" required>
+                <option value="">Select Service</option>
+                <option>Forestry Mulching</option>
+                <option>Land Clearing</option>
+                <option>Trail Building</option>
+                <option>Buckthorn Removal</option>
+                <option>Food Plot Clearing</option>
+                <option>Habitat Improvement</option>
+                <option>Brush Removal</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="propertySize">Estimated Property Size</label>
+              <select id="propertySize" name="Estimated Property Size">
+                <option value="">Select Size</option>
+                <option>1 - 5 acres</option>
+                <option>5 - 10 acres</option>
+                <option>10 - 20 acres</option>
+                <option>20+ acres</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="projectDescription">Project Description</label>
+            <textarea id="projectDescription" name="Project Description" placeholder="Tell us what you want done, what the land looks like now, and anything important about access or timing."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="bestTimeToContact">Best Time to Contact You</label>
+            <input type="text" id="bestTimeToContact" name="Best Time to Contact You" maxlength="80" placeholder="Example: weekday afternoons or anytime after 5 pm">
+          </div>
+
+          <div class="button-row">
+            <button type="submit" id="submitButton">Request My Free Estimate</button>
+            <input type="reset" value="Reset">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center bg-gray-900 text-white">
+    <p class="font-bold">Tame Your Terrain</p>
+    <p>Forestry Mulching • Land Clearing • Buckthorn Removal</p>
+    <p class="mt-2">Serving Western Wisconsin & Eastern Minnesota</p>
+    <p class="mt-2">Phone: 715-255-0328</p>
+    <p class="text-sm mt-4">© 2026 Tame Your Terrain</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('service-map', {
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView([45.25, -92.27], 8);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+
+    var center = [45.25, -92.27];
+
+    var starIcon = L.divIcon({
+      className: 'clear-lake-star-wrapper',
+      html: '<div class="clear-lake-marker">★</div>',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+
+    L.marker(center, { icon: starIcon })
+      .addTo(map)
+      .bindPopup('<strong>Clear Lake, WI</strong><br>Base service area')
+      .openPopup();
+
+    L.circle(center, {
+      radius: 160000,
+      color: '#16a34a',
+      weight: 2,
+      fillColor: '#22c55e',
+      fillOpacity: 0.18
+    }).addTo(map);
+
+    const estimateForm = document.getElementById('estimateForm');
+    const formStartedAt = document.getElementById('formStartedAt');
+    const formStatus = document.getElementById('formStatus');
+    const formError = document.getElementById('formError');
+    const formSpeedError = document.getElementById('formSpeedError');
+    const submitButton = document.getElementById('submitButton');
+
+    formStartedAt.value = Date.now().toString();
+
+    estimateForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      formStatus.style.display = 'none';
+      formError.style.display = 'none';
+      formSpeedError.style.display = 'none';
+
+      if (document.getElementById('websiteField').value.trim() !== '') {
+        return;
+      }
+
+      const elapsedSeconds = (Date.now() - Number(formStartedAt.value || Date.now())) / 1000;
+
+      if (elapsedSeconds < 4) {
+        formSpeedError.style.display = 'inline-block';
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      const formData = new FormData(estimateForm);
+
+      const data = {
+        Last_Name: formData.get('Name') || 'Website Lead',
+        Phone: formData.get('Phone'),
+        Email: formData.get('email'),
+        Description:
+          'Property Address: ' + (formData.get('Property Address') || '') +
+          '\n\nProject Description:\n' + (formData.get('Project Description') || '') +
+          '\n\nBest Time To Contact:\n' + (formData.get('Best Time to Contact You') || ''),
+        Service_Type: formData.get('Service Type'),
+        Estimated_Property_Size: formData.get('Estimated Property Size'),
+        _honey: formData.get('_honey'),
+        form_start_time: formData.get('form_start_time')
+      };
+
+      try {
+        const response = await fetch('https://node-starter--chaotic-reason.replit.app/api/zoho/create-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          formStatus.style.display = 'inline-block';
+          estimateForm.reset();
+          formStartedAt.value = Date.now().toString();
+          document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          formError.style.display = 'inline-block';
+        }
+      } catch (err) {
+        formError.style.display = 'inline-block';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Request My Free Estimate';
+      }
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain</title>
+  <meta name="description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Serving properties within roughly 2 hours of Clear Lake, WI 54005. Free estimates.">
+  <meta name="keywords" content="forestry mulching Wisconsin, land clearing Wisconsin, buckthorn removal Wisconsin, forestry mulching Minnesota, trail building hunting property, food plot clearing, UTV trail building, habitat improvement, deer habitat improvement Wisconsin, forestry mulching near me, land clearing near me, western Wisconsin land clearing, eastern Minnesota forestry mulching">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Tame Your Terrain">
+  <meta name="theme-color" content="#14532d">
+  <link rel="canonical" href="https://www.tameyourterrain.com/">
+  <meta property="og:title" content="Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain">
+  <meta property="og:description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Free estimates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tameyourterrain.com/">
+  <meta property="og:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Forestry Mulching, Land Clearing & Buckthorn Removal | Tame Your Terrain">
+  <meta name="twitter:description" content="Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota. Free estimates.">
+  <meta name="twitter:image" content="https://www.tameyourterrain.com/mulching-hero.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tame Your Terrain",
+    "url": "https://www.tameyourterrain.com",
+    "telephone": "+1-715-255-0328",
+    "image": "https://www.tameyourterrain.com/logo.png",
+    "description": "Forestry mulching, land clearing, trail building, UTV trail clearing, buckthorn removal and habitat improvement in Western Wisconsin and Eastern Minnesota.",
+    "areaServed": [
+      "Polk County WI","Burnett County WI","Barron County WI","Washburn County WI","Rusk County WI","Sawyer County WI","Eau Claire County WI","St. Croix County WI","Dunn County WI",
+      "Chisago County MN","Washington County MN","Pine County MN","Isanti County MN","Kanabec County MN"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clear Lake",
+      "addressRegion": "WI",
+      "postalCode": "54005",
+      "addressCountry": "US"
+    },
+    "serviceType": [
+      "Forestry Mulching","Land Clearing","Buckthorn Removal","Trail Building","UTV Trail Clearing","Food Plot Clearing","Habitat Improvement"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Tame Your Terrain offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain offers forestry mulching, land clearing, trail building, buckthorn removal, food plot clearing and habitat improvement for rural property owners in Western Wisconsin and Eastern Minnesota."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Tame Your Terrain work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tame Your Terrain serves properties across Western Wisconsin and Eastern Minnesota, generally within roughly a two-hour drive of Clear Lake, Wisconsin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I request an estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can request a free estimate by filling out the form on this page or by calling or texting 715-255-0328."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .estimate-form * {
+      box-sizing: border-box;
+    }
+
+    .estimate-form label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #14532d;
+    }
+
+    .estimate-form .form-row {
+      margin-bottom: 1rem;
+    }
+
+    .estimate-form input[type="text"],
+    .estimate-form input[type="email"],
+    .estimate-form input[type="tel"],
+    .estimate-form select,
+    .estimate-form textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .estimate-form textarea {
+      min-height: 140px;
+      resize: vertical;
+      font-family: Arial, sans-serif;
+    }
+
+    .estimate-form input:focus,
+    .estimate-form select:focus,
+    .estimate-form textarea:focus {
+      outline: none;
+      border-color: #16a34a;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+
+    .estimate-form .help-text {
+      font-size: 0.92rem;
+      color: #4b5563;
+      margin-top: 0.35rem;
+    }
+
+    .estimate-form .button-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .estimate-form button,
+    .estimate-form input[type="reset"] {
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.95rem 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .estimate-form button[type="submit"] {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .estimate-form button[type="submit"]:hover {
+      background: #15803d;
+    }
+
+    .estimate-form button[type="submit"]:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .estimate-form input[type="reset"] {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .estimate-form .response-note {
+      display: inline-block;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      padding: 0.8rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .estimate-form .error-note {
+      display: inline-block;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 0.8rem 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .map-card {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border: 1px solid #e5e7eb;
+    }
+
+    .service-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+
+    .legend-dot,
+    .legend-ring {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      border-radius: 9999px;
+      margin-right: 0.45rem;
+      vertical-align: middle;
+    }
+
+    .legend-dot {
+      background: #15803d;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #166534;
+    }
+
+    .legend-ring {
+      background: rgba(34, 197, 94, 0.25);
+      border: 2px solid rgba(22, 163, 74, 0.85);
+    }
+
+    .clear-lake-marker {
+      color: #14532d;
+      font-size: 1.8rem;
+      line-height: 1;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.9);
+    }
+
+    .map-note {
+      color: #4b5563;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-end">
+      <a href="tel:7152550328" class="bg-green-700 text-white px-4 py-2 rounded-xl font-bold hover:bg-green-800">📞 Call for Estimate: 715-255-0328</a>
+    </div>
+  </header>
+
+  <section class="relative text-white overflow-hidden">
+    <img src="mulching-hero.jpg" alt="Takeuchi track loader with forestry mulching head clearing brush" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative py-20 md:py-28 pl-4 md:pl-12 pr-4 md:pr-6">
+      <img src="logo.png" alt="Tame Your Terrain logo" class="mb-6 md:mb-8 w-[320px] md:w-[550px] max-w-full">
+      <h1 class="text-3xl md:text-5xl font-bold mb-5 max-w-2xl leading-tight">Forestry Mulching, Trail Building, Food Plots, Land Clearing & Buckthorn Removal</h1>
+      <p class="text-lg md:text-xl mb-4 max-w-2xl">Serving property owners across Western Wisconsin and Eastern Minnesota.</p>
+      <p class="text-base md:text-lg mb-8 max-w-2xl">Locally owned land management services helping property owners tame, reclaim and maintain their land.</p>
+      <div class="flex flex-col md:flex-row gap-4">
+        <a href="tel:7152550328" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-2xl text-center">Call for a Free Estimate: 715-255-0328</a>
+        <a href="#estimate" class="bg-white text-green-900 font-bold py-3 px-6 rounded-2xl text-center">Get a Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Land Management Services</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🌲 Forestry Mulching</h3>
+          <p>Efficiently clear brush, invasive species and overgrown areas without hauling debris. Forestry mulching leaves natural mulch behind that protects and improves soil health.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🛻 UTV Trail Building</h3>
+          <p>Create wider UTV trails, hunting access routes, food plot access and property lanes for recreational and hunting properties.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h3 class="text-xl font-bold mb-3">🌿 Buckthorn Removal</h3>
+          <p>Remove invasive buckthorn and reclaim woods and fields so native plants and healthy forest growth can return.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Recent Forestry Mulching Projects</h2>
+      <p class="mb-10 text-gray-700">Examples of forestry mulching, land clearing, trail building and reclamation work.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <img src="mulching1.jpg" alt="Forestry mulching project clearing overgrown brush" class="w-full h-64 object-cover rounded-xl shadow-lg">
+        <img src="mulching2.jpg" alt="Track loader with mulching head opening a trail through woods" class="w-full h-64 object-cover rounded-xl shadow-lg">
+        <img src="mulching3.jpg" alt="Land clearing and vegetation management project in rural property setting" class="w-full h-64 object-cover rounded-xl shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Habitat Improvement</h2>
+      <div class="space-y-6 text-lg leading-8 text-gray-800">
+        <p>Selective clearing and forestry mulching can improve wildlife habitat by allowing sunlight to reach the forest floor. That can help native grasses, forbs and browse plants grow again, which improves food and cover for deer and other wildlife.</p>
+        <p>Many landowners use forestry mulching to open hunting property, improve bedding cover, create travel corridors, widen UTV trails and prepare access to future food plots while making the woods healthier overall.</p>
+        <p class="text-center pt-2">
+          <a href="deer-habitat-improvement.html" class="text-green-700 underline font-bold hover:text-green-900">Learn how forestry mulching improves deer habitat →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Learn More About Property Improvement</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How Forestry Mulching Improves Deer Habitat</h3>
+          <p class="text-lg leading-8 mb-6">
+            Learn how forestry mulching can help create bedding cover, improve browse growth, open travel corridors, and support better wildlife habitat on hunting properties.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="deer-habitat-improvement.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">Food Plot Clearing with Forestry Mulching</h3>
+          <p class="text-lg leading-8 mb-6">
+            See how forestry mulching can help clear overgrown food plot areas, improve access, reclaim hunting ground, and support your long-term habitat goals.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="food-plot-clearing-with-forestry-mulching.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How to Remove Buckthorn from Hunting Property</h3>
+          <p class="text-lg leading-8 mb-6">
+            Buckthorn is one of the most aggressive invasive plants in Wisconsin and Minnesota. Learn how removing buckthorn can restore woods, improve wildlife habitat and reclaim hunting property.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="buckthorn-removal-hunting-property.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-2xl shadow">
+          <h3 class="text-2xl font-bold mb-4">How Much Does Forestry Mulching Cost in Wisconsin?</h3>
+          <p class="text-lg leading-8 mb-6">
+            Learn what affects forestry mulching cost, including brush density, terrain, access, acreage and project goals.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="how-much-does-forestry-mulching-cost-in-wisconsin.html" class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-2xl text-center">Read This Page</a>
+            <a href="#estimate" class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-3 px-6 rounded-2xl text-center">Request Estimate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">Areas We Serve</h2>
+      <p class="text-center max-w-3xl mx-auto mb-10">
+        Browse county-specific pages for forestry mulching, land clearing, trail building, UTV trail clearing,
+        buckthorn removal and food plot clearing across Western Wisconsin and Eastern Minnesota.
+      </p>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Wisconsin Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="polk-county-wi.html">Polk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="burnett-county-wi.html">Burnett County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="barron-county-wi.html">Barron County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washburn-county-wi.html">Washburn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="rusk-county-wi.html">Rusk County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="sawyer-county-wi.html">Sawyer County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="st-croix-county-wi.html">St. Croix County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="dunn-county-wi.html">Dunn County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="eau-claire-county-wi.html">Eau Claire County</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Minnesota Counties</h3>
+          <ul class="space-y-2">
+            <li><a class="text-green-700 underline hover:text-green-900" href="chisago-county-mn.html">Chisago County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="pine-county-mn.html">Pine County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="kanabec-county-mn.html">Kanabec County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="isanti-county-mn.html">Isanti County</a></li>
+            <li><a class="text-green-700 underline hover:text-green-900" href="washington-county-mn.html">Washington County</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Approximate Service Area</h2>
+      <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-8">
+        Tame Your Terrain generally serves properties within roughly a two-hour drive of Clear Lake, Wisconsin. The map below is an approximate service-radius guide to help property owners quickly see the general area covered.
+      </p>
+
+      <div class="map-card rounded-3xl shadow-lg p-4 md:p-6">
+        <div id="service-map" class="w-full rounded-2xl overflow-hidden" style="height: 420px;"></div>
+        <div class="map-legend">
+          <div><span class="legend-dot"></span>Clear Lake, WI base location</div>
+          <div><span class="legend-ring"></span>Approximate 2-hour service radius</div>
+        </div>
+        <p class="map-note mt-4">
+          The circle is an estimate, not a guaranteed drive-time boundary. Actual travel time can vary depending on roads, weather, traffic and exact property location.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <span class="service-chip">WI: Polk</span>
+        <span class="service-chip">WI: Burnett</span>
+        <span class="service-chip">WI: Barron</span>
+        <span class="service-chip">WI: Washburn</span>
+        <span class="service-chip">WI: Rusk</span>
+        <span class="service-chip">WI: Sawyer</span>
+        <span class="service-chip">WI: St. Croix</span>
+        <span class="service-chip">WI: Dunn</span>
+        <span class="service-chip">WI: Eau Claire</span>
+        <span class="service-chip">MN: Chisago</span>
+        <span class="service-chip">MN: Pine</span>
+        <span class="service-chip">MN: Kanabec</span>
+        <span class="service-chip">MN: Isanti</span>
+        <span class="service-chip">MN: Washington</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimate" class="py-16 bg-green-900 text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Get a Free Estimate</h2>
+      <p class="text-center mb-6 text-lg">Tell us about your property and project, and we’ll get back to you.</p>
+
+      <div class="text-center mb-10">
+        <div class="estimate-form response-note" id="formStatus" style="display:none;">
+          Thank you for contacting Tame Your Terrain. We received your estimate request and will get back to you as soon as possible. If you need immediate help, call or text 715-255-0328.
+        </div>
+        <div class="estimate-form error-note" id="formError" style="display:none;">
+          Sorry, there was a problem sending your request. Please call or text 715-255-0328.
+        </div>
+        <div class="estimate-form error-note" id="formSpeedError" style="display:none;">
+          Please wait a few seconds before submitting the form.
+        </div>
+        <p class="text-base md:text-lg">Need faster help? Call or text <a href="tel:7152550328" class="underline font-bold">715-255-0328</a>.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-white text-gray-800 rounded-2xl shadow-xl p-6 md:p-8">
+        <form class="estimate-form" id="estimateForm">
+          <input type="text" name="_honey" id="websiteField" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="form_start_time" id="formStartedAt" value="">
+
+          <div class="form-row">
+            <label for="name">Name <span style="color:red;">*</span></label>
+            <input type="text" id="name" name="Name" maxlength="80" required>
+          </div>
+
+          <div class="form-row">
+            <label for="propertyAddress">Property Address <span style="color:red;">*</span></label>
+            <input type="text" id="propertyAddress" name="Property Address" maxlength="160" required>
+            <div class="help-text">Street address, nearest road, or best address for the property location.</div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-row">
+              <label for="email">Email <span style="color:red;">*</span></label>
+              <input type="email" id="email" name="email" maxlength="100" required>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone <span style="color:red;">*</span></label>
+              <input type="tel" id="phone" name="Phone" maxlength="30" required>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-row">
+              <label for="serviceType">Service Type <span style="color:red;">*</span></label>
+              <select id="serviceType" name="Service Type" required>
+                <option value="">Select Service</option>
+                <option>Forestry Mulching</option>
+                <option>Land Clearing</option>
+                <option>Trail Building</option>
+                <option>Buckthorn Removal</option>
+                <option>Food Plot Clearing</option>
+                <option>Habitat Improvement</option>
+                <option>Brush Removal</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="propertySize">Estimated Property Size</label>
+              <select id="propertySize" name="Estimated Property Size">
+                <option value="">Select Size</option>
+                <option>1 - 5 acres</option>
+                <option>5 - 10 acres</option>
+                <option>10 - 20 acres</option>
+                <option>20+ acres</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="projectDescription">Project Description</label>
+            <textarea id="projectDescription" name="Project Description" placeholder="Tell us what you want done, what the land looks like now, and anything important about access or timing."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="bestTimeToContact">Best Time to Contact You</label>
+            <input type="text" id="bestTimeToContact" name="Best Time to Contact You" maxlength="80" placeholder="Example: weekday afternoons or anytime after 5 pm">
+          </div>
+
+          <div class="button-row">
+            <button type="submit" id="submitButton">Request My Free Estimate</button>
+            <input type="reset" value="Reset">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center bg-gray-900 text-white">
+    <p class="font-bold">Tame Your Terrain</p>
+    <p>Forestry Mulching • Land Clearing • Buckthorn Removal</p>
+    <p class="mt-2">Serving Western Wisconsin & Eastern Minnesota</p>
+    <p class="mt-2">Phone: 715-255-0328</p>
+    <p class="text-sm mt-4">© 2026 Tame Your Terrain</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('service-map', {
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView([45.25, -92.27], 8);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+
+    var center = [45.25, -92.27];
+
+    var starIcon = L.divIcon({
+      className: 'clear-lake-star-wrapper',
+      html: '<div class="clear-lake-marker">★</div>',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+
+    L.marker(center, { icon: starIcon })
+      .addTo(map)
+      .bindPopup('<strong>Clear Lake, WI</strong><br>Base service area')
+      .openPopup();
+
+    L.circle(center, {
+      radius: 160000,
+      color: '#16a34a',
+      weight: 2,
+      fillColor: '#22c55e',
+      fillOpacity: 0.18
+    }).addTo(map);
+
+    const estimateForm = document.getElementById('estimateForm');
+    const formStartedAt = document.getElementById('formStartedAt');
+    const formStatus = document.getElementById('formStatus');
+    const formError = document.getElementById('formError');
+    const formSpeedError = document.getElementById('formSpeedError');
+    const submitButton = document.getElementById('submitButton');
+
+    formStartedAt.value = Date.now().toString();
+
+    estimateForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      formStatus.style.display = 'none';
+      formError.style.display = 'none';
+      formSpeedError.style.display = 'none';
+
+      if (document.getElementById('websiteField').value.trim() !== '') {
+        return;
+      }
+
+      const elapsedSeconds = (Date.now() - Number(formStartedAt.value || Date.now())) / 1000;
+
+      if (elapsedSeconds < 4) {
+        formSpeedError.style.display = 'inline-block';
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      const formData = new FormData(estimateForm);
+
+      const data = {
+        Last_Name: formData.get('Name') || 'Website Lead',
+        Phone: formData.get('Phone'),
+        Email: formData.get('email'),
+        Description:
+          'Property Address: ' + (formData.get('Property Address') || '') +
+          '\n\nProject Description:\n' + (formData.get('Project Description') || '') +
+          '\n\nBest Time To Contact:\n' + (formData.get('Best Time to Contact You') || ''),
+        Service_Type: formData.get('Service Type'),
+        Estimated_Property_Size: formData.get('Estimated Property Size'),
+        _honey: formData.get('_honey'),
+        form_start_time: formData.get('form_start_time')
+      };
+
+      try {
+        const response = await fetch('https://node-starter--chaotic-reason.replit.app/api/zoho/create-lead', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          formStatus.style.display = 'inline-block';
+          estimateForm.reset();
+          formStartedAt.value = Date.now().toString();
+          document.getElementById('estimate').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          formError.style.display = 'inline-block';
+        }
+      } catch (err) {
+        formError.style.display = 'inline-block';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Request My Free Estimate';
+      }
+    });
+  </script>
+</body>
+</html> in Western Wisconsin and Eastern Minnesota. Serving properties within roughly 2 hours of Clear Lake, WI 54005. Free estimates.">
   <meta name="keywords" content="forestry mulching Wisconsin, land clearing Wisconsin, buckthorn removal Wisconsin, forestry mulching Minnesota, trail building hunting property, food plot clearing, UTV trail building, habitat improvement, deer habitat improvement Wisconsin, forestry mulching near me, land clearing near me, western Wisconsin land clearing, eastern Minnesota forestry mulching">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Tame Your Terrain">
