@@ -294,8 +294,34 @@
       line-height: 1.6;
     }
 
+    .services-card-link {
+      display: block;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
     .services-card {
       min-height: 100%;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      border: 1px solid transparent;
+    }
+
+    .services-card-link:hover .services-card,
+    .services-card-link:focus .services-card {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.10);
+      border-color: #bbf7d0;
+    }
+
+    .service-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 1rem;
+      color: #166534;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -346,7 +372,7 @@
         <div class="quick-card rounded-3xl p-6 md:p-8 text-gray-900">
           <h2 class="text-2xl md:text-3xl font-bold mb-3">Quick Estimate Request</h2>
           <p class="text-base md:text-lg mb-6">
-            Start here, then continue to the full estimate form below.  
+            Start here, then continue to the full estimate form below.
           </p>
 
           <form id="quickEstimateForm" class="quick-estimate-form">
@@ -388,44 +414,62 @@
   </section>
 
   <section class="py-14 md:py-16 bg-gray-50">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">Land Management Services</h2>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Land Management Services</h2>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🌲 Forestry Mulching</h3>
-        <p>Clear brush, invasive species and overgrown areas efficiently without hauling debris. Leaves a natural mulch layer that improves soil health.</p>
+        <a href="#estimate" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🌲 Forestry Mulching</h3>
+            <p>Forestry mulching clears brush, invasive species and overgrown areas efficiently without hauling debris. It leaves a natural mulch layer that helps protect soil and clean up rough ground fast.</p>
+            <span class="service-card-arrow">Request Estimate →</span>
+          </div>
+        </a>
+
+        <a href="#estimate" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🚜 Land Clearing</h3>
+            <p>Land clearing helps reclaim overgrown property, open up fields, improve access and prepare land for future use while keeping disturbance as controlled as possible.</p>
+            <span class="service-card-arrow">Request Estimate →</span>
+          </div>
+        </a>
+
+        <a href="#estimate" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🛻 Trail Building</h3>
+            <p>Create and improve trails for hunting access, property management, recreation and easier movement across your land in Wisconsin or Eastern Minnesota.</p>
+            <span class="service-card-arrow">Request Estimate →</span>
+          </div>
+        </a>
+
+        <a href="#estimate" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🛣️ UTV Trail Clearing</h3>
+            <p>UTV trail clearing widens and improves trails for safer access, better usability and smoother long-term maintenance on rural and hunting properties.</p>
+            <span class="service-card-arrow">Request Estimate →</span>
+          </div>
+        </a>
+
+        <a href="buckthorn-removal-hunting-property.html" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🌿 Buckthorn Removal</h3>
+            <p>Remove invasive buckthorn and reclaim woods and field edges so native plants, healthier tree growth and better wildlife habitat can return.</p>
+            <span class="service-card-arrow">Learn More →</span>
+          </div>
+        </a>
+
+        <a href="food-plot-clearing-with-forestry-mulching.html" class="services-card-link">
+          <div class="bg-white p-6 rounded-2xl shadow services-card">
+            <h3 class="text-xl font-bold mb-3">🌱 Food Plot &amp; Habitat Improvement</h3>
+            <p>Open food plots, improve bedding cover, build travel corridors and support better deer habitat with selective clearing and forestry mulching.</p>
+            <span class="service-card-arrow">Learn More →</span>
+          </div>
+        </a>
+
       </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🚜 Land Clearing</h3>
-        <p>Reclaim overgrown land, open fields and prepare property for future use while minimizing disturbance to the soil.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🛻 Trail Building</h3>
-        <p>Create and improve trails for hunting access, property management and recreational use.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🛣️ UTV Trail Clearing</h3>
-        <p>Widen and maintain UTV trails to improve access, usability and long-term durability.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🌿 Buckthorn Removal</h3>
-        <p>Remove invasive buckthorn and restore healthy woods, allowing native plants and wildlife habitat to return.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-bold mb-3">🌱 Food Plot & Habitat Improvement</h3>
-        <p>Open and maintain food plots, improve bedding areas, and enhance habitat for deer and other wildlife.</p>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
@@ -440,9 +484,7 @@
           <div><span class="legend-dot"></span>Clear Lake, WI base location</div>
           <div><span class="legend-ring"></span>Approximate 2-hour service radius</div>
         </div>
-        <p class="map-note mt-4 max-w-4xl mx-auto">
-          
-        </p>
+        <p class="map-note mt-4 max-w-4xl mx-auto"></p>
       </div>
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">
