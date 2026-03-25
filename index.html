@@ -202,7 +202,7 @@
     }
 
     .hero-overlay {
-      background: linear-gradient(90deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.52) 35%, rgba(0,0,0,0.36) 65%, rgba(0,0,0,0.52) 100%);
+      background: linear-gradient(90deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.58) 32%, rgba(0,0,0,0.34) 64%, rgba(0,0,0,0.48) 100%);
     }
 
     .quick-card {
@@ -335,17 +335,20 @@
     <img src="mulching-hero.jpg" alt="Takeuchi track loader with forestry mulching head clearing brush" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 hero-overlay"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-14 md:py-18 lg:py-20">
-      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center">
+    <div class="relative py-14 md:py-18 lg:py-20 pl-4 md:pl-12 pr-4 md:pr-8">
+      <div class="grid lg:grid-cols-[1.18fr_0.82fr] gap-10 lg:gap-16 items-center">
         <div class="max-w-3xl">
-          <img src="logo.png" alt="Tame Your Terrain logo" class="mb-6 w-[260px] md:w-[360px] lg:w-[420px] max-w-full">
+          <img src="logo.png" alt="Tame Your Terrain logo" class="mb-6 md:mb-8 w-[320px] md:w-[550px] max-w-full">
+
           <h1 class="text-3xl md:text-5xl font-bold mb-5 max-w-3xl leading-tight">
             Habitat Improvement, Trail Building, Forestry Mulching, Buckthorn Removal &amp; Land Clearing
           </h1>
+
           <p class="text-xl md:text-2xl mb-4 max-w-2xl font-semibold text-white">
             Serving property owners across Western Wisconsin and Eastern Minnesota.
           </p>
-          <p class="text-lg md:text-xl mb-7 max-w-2xl text-white">
+
+          <p class="text-lg md:text-xl mb-7 max-w-2xl text-white leading-relaxed">
             Locally owned land management services helping property owners tame, reclaim and maintain their land.
           </p>
 
@@ -357,38 +360,40 @@
           </div>
         </div>
 
-        <div class="quick-card rounded-3xl p-6 md:p-8 text-gray-900">
-          <h2 class="text-2xl md:text-3xl font-bold mb-6">Get a Free Estimate</h2>
+        <div class="w-full lg:max-w-[460px] lg:justify-self-end lg:mr-2">
+          <div class="quick-card rounded-3xl p-7 md:p-9 lg:p-10 text-gray-900">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Get a Free Estimate</h2>
 
-          <form id="quickEstimateForm" class="quick-estimate-form">
-            <div class="form-row">
-              <label for="quickName">Name</label>
-              <input type="text" id="quickName" maxlength="80" placeholder="Your name">
-            </div>
+            <form id="quickEstimateForm" class="quick-estimate-form">
+              <div class="form-row">
+                <label for="quickName">Name</label>
+                <input type="text" id="quickName" maxlength="80" placeholder="Your name">
+              </div>
 
-            <div class="form-row">
-              <label for="quickPhone">Phone</label>
-              <input type="tel" id="quickPhone" maxlength="30" placeholder="Best number to reach you">
-            </div>
+              <div class="form-row">
+                <label for="quickPhone">Phone</label>
+                <input type="tel" id="quickPhone" maxlength="30" placeholder="Best number to reach you">
+              </div>
 
-            <div class="form-row">
-              <label for="quickServiceType">Service Type</label>
-              <select id="quickServiceType">
-                <option value="">Select Service</option>
-                <option>Forestry Mulching</option>
-                <option>Land Clearing</option>
-                <option>Trail Building</option>
-                <option>Buckthorn Removal</option>
-                <option>Food Plot Clearing</option>
-                <option>Habitat Improvement</option>
-                <option>Brush Removal</option>
-              </select>
-            </div>
+              <div class="form-row">
+                <label for="quickServiceType">Service Type</label>
+                <select id="quickServiceType">
+                  <option value="">Select Service</option>
+                  <option>Forestry Mulching</option>
+                  <option>Land Clearing</option>
+                  <option>Trail Building</option>
+                  <option>Buckthorn Removal</option>
+                  <option>Food Plot Clearing</option>
+                  <option>Habitat Improvement</option>
+                  <option>Brush Removal</option>
+                </select>
+              </div>
 
-            <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-5 rounded-2xl">
-              Continue
-            </button>
-          </form>
+              <button type="submit" class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-5 rounded-2xl">
+                Continue
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
