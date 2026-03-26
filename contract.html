@@ -1,59 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Service Agreement | Tame Your Terrain</title>
+  <meta
+    name="description"
+    content="Tame Your Terrain service agreement for forestry mulching, trail building, land clearing, food plot clearing, and habitat improvement projects."
+  />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-gray-100 text-gray-800">
-
-  <div class="max-w-3xl mx-auto bg-white p-6 my-8 shadow-lg rounded-lg">
-
-    <!-- LOGO -->
-    <div class="text-center mb-6">
-      <img src="logo.png" alt="Tame Your Terrain" class="mx-auto w-64">
+<body class="bg-stone-100 text-stone-800">
+  <header class="bg-gradient-to-b from-stone-900 to-stone-800 text-white border-b-4 border-amber-600">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <div class="flex justify-center">
+        <img
+          src="Header%20logo.png"
+          alt="Tame Your Terrain"
+          class="w-full max-w-2xl h-auto"
+        />
+      </div>
+      <div class="text-center mt-4">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-wide">Service Agreement</h1>
+        <p class="text-stone-200 mt-2 text-sm md:text-base">
+          Forestry Mulching • Trail Building • Habitat Improvement
+        </p>
+      </div>
     </div>
+  </header>
 
-    <h1 class="text-2xl font-bold text-center mb-4">SERVICE AGREEMENT</h1>
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-stone-200">
+      <div class="p-6 md:p-10">
+        <div class="bg-stone-50 border border-stone-200 rounded-xl p-4 md:p-5 mb-8">
+          <p class="text-sm md:text-base leading-relaxed">
+            Please complete this agreement after approving your estimate. A <strong>20% non-refundable deposit</strong>
+            is required to secure scheduling. The remaining balance is due <strong>within 7 days of project completion</strong>.
+          </p>
+        </div>
 
-    <!-- CUSTOMER INFO -->
-    <h2 class="font-semibold mt-6 mb-2">Customer Information</h2>
-    <input class="w-full border p-2 mb-2" placeholder="Full Name">
-    <input class="w-full border p-2 mb-2" placeholder="Address">
-    <input class="w-full border p-2 mb-2" placeholder="Phone">
-    <input class="w-full border p-2 mb-4" placeholder="Email">
+        <form id="contractForm" class="space-y-10">
+          <section>
+            <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Customer Information</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="customerName">Full Name *</label>
+                <input id="customerName" name="customerName" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="phone">Phone *</label>
+                <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold mb-1" for="email">Email *</label>
+                <input id="email" name="email" type="email" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold mb-1" for="mailingAddress">Mailing Address *</label>
+                <input id="mailingAddress" name="mailingAddress" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+            </div>
+          </section>
 
-    <!-- PROJECT -->
-    <h2 class="font-semibold mt-6 mb-2">Project Details</h2>
-    <input class="w-full border p-2 mb-2" placeholder="Project Location">
-    <textarea class="w-full border p-2 mb-4" placeholder="Description of Work"></textarea>
+          <section>
+            <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Project Details</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold mb-1" for="projectLocation">Project Location *</label>
+                <input id="projectLocation" name="projectLocation" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="estimateDate">Estimate Date</label>
+                <input id="estimateDate" name="estimateDate" type="date" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="targetStartWindow">Requested Start Window</label>
+                <input id="targetStartWindow" name="targetStartWindow" type="text" placeholder="Example: Late April" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="projectPrice">Fixed Project Price ($) *</label>
+                <input id="projectPrice" name="projectPrice" type="number" step="0.01" min="0" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="depositAmount">Deposit Amount ($)</label>
+                <input id="depositAmount" name="depositAmount" type="number" step="0.01" min="0" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold mb-1" for="scopeOfWork">Description of Work *</label>
+                <textarea id="scopeOfWork" name="scopeOfWork" rows="5" required class="w-full rounded-lg border border-stone-300 px-4 py-3" placeholder="List the agreed work to be completed."></textarea>
+              </div>
+            </div>
+          </section>
 
-    <!-- PRICING -->
-    <h2 class="font-semibold mt-6 mb-2">Project Pricing</h2>
-    <input class="w-full border p-2 mb-2" placeholder="Total Project Cost">
-    <input class="w-full border p-2 mb-4" placeholder="Deposit Amount (20%)">
+          <section>
+            <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Agreement Terms</h2>
+            <div class="space-y-4 text-sm md:text-base leading-relaxed text-stone-700">
+              <div>
+                <h3 class="font-bold text-stone-900">1. Fixed Price Agreement</h3>
+                <p>
+                  This project is quoted as a fixed job price, not by the hour and not by the acre. The agreed price is based on Tame Your Terrain's site evaluation,
+                  expected conditions, access, and scope of work.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">2. Deposit and Final Payment</h3>
+                <p>
+                  A 20% non-refundable deposit is required before the project is placed on the schedule. The remaining balance is due within 7 days after project completion.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">3. Scheduling and Delays</h3>
+                <p>
+                  Start dates are estimates only. Weather, wet ground, equipment issues, hidden hazards, site access problems, and other unforeseen conditions may delay or pause work.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">4. Site Marking and Customer Responsibility</h3>
+                <p>
+                  The customer is responsible for identifying and clearly marking property lines, utilities, septic systems, wells, drain tile, buried wire, fencing, obstacles, and any other hidden hazards.
+                  Tame Your Terrain is not responsible for damage to unmarked items.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">5. Surface Conditions and Results</h3>
+                <p>
+                  Forestry mulching, land clearing, and trail work may leave uneven surfaces, tire marks, rutting, wood chips, and natural disturbance depending on weather and soil conditions.
+                  A finished lawn or smooth final grade is not included unless specifically stated in writing.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">6. Additional Work</h3>
+                <p>
+                  Any work outside the original agreed scope, including extra acreage, heavier-than-expected conditions, cleanup, or added finishing work, will require approval and additional cost.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">7. Hidden Hazard and Equipment Damage Clause</h3>
+                <p>
+                  If hidden metal, wire, concrete, buried debris, or other damaging materials are encountered, work may be paused. Damage, downtime, and repair costs caused by undisclosed hazards may be charged to the customer.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">8. Cancellation</h3>
+                <p>
+                  Once the project has been scheduled, the deposit is non-refundable.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">9. Photo Release</h3>
+                <p>
+                  Customer grants permission for Tame Your Terrain to take and use before-and-after project photos for marketing purposes, without sharing sensitive personal information.
+                </p>
+              </div>
+            </div>
+          </section>
 
-    <!-- TERMS -->
-    <h2 class="font-semibold mt-6 mb-2">Agreement Terms</h2>
-    <p class="text-sm mb-4">
-      This project is quoted as a fixed price. A 20% non-refundable deposit is required to schedule work.
-      The remaining balance is due within 7 days of completion.
-      Contractor is not responsible for unmarked utilities, hidden hazards, or ground disturbance due to conditions.
-    </p>
+          <section>
+            <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Customer Acceptance</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="typedSignature">Type Full Legal Name as Signature *</label>
+                <input id="typedSignature" name="typedSignature" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="signatureDate">Date *</label>
+                <input id="signatureDate" name="signatureDate" type="date" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+            </div>
 
-    <!-- SIGNATURE -->
-    <h2 class="font-semibold mt-6 mb-2">Signature</h2>
-    <input class="w-full border p-2 mb-2" placeholder="Type Full Name as Signature">
-    <input class="w-full border p-2 mb-6" placeholder="Date">
+            <label class="flex items-start gap-3 mt-5 p-4 bg-stone-50 border border-stone-200 rounded-xl">
+              <input id="acceptTerms" name="acceptTerms" type="checkbox" required class="mt-1 h-5 w-5" />
+              <span class="text-sm md:text-base leading-relaxed">
+                I confirm that I am authorized to approve this work, that I have reviewed the agreement terms above,
+                and that typing my name below serves as my electronic acknowledgement of this agreement.
+              </span>
+            </label>
+          </section>
 
-    <!-- SUBMIT BUTTON -->
-    <button class="w-full bg-green-700 text-white py-3 rounded-lg text-lg font-semibold hover:bg-green-800">
-      Submit Agreement
-    </button>
+          <section class="bg-stone-50 border border-stone-200 rounded-xl p-5">
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p class="font-bold text-stone-900">Tame Your Terrain LLC</p>
+                <p>Clear Lake, Wisconsin</p>
+                <p>(715) 255-0328</p>
+                <p>www.tameyourterrain.com</p>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-1" for="ownerEmail">Send completed agreement to this business email *</label>
+                <input id="ownerEmail" name="ownerEmail" type="email" required placeholder="michael@tameyourterrain.com" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              </div>
+            </div>
+          </section>
 
-  </div>
+          <div>
+            <button
+              type="submit"
+              id="submitButton"
+              class="w-full rounded-xl bg-green-800 hover:bg-green-900 text-white font-bold text-lg px-6 py-4 transition"
+            >
+              Submit Agreement
+            </button>
+            <p id="statusMessage" class="mt-4 text-sm"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
 
+  <script>
+    const form = document.getElementById('contractForm');
+    const statusMessage = document.getElementById('statusMessage');
+    const submitButton = document.getElementById('submitButton');
+    const projectPriceInput = document.getElementById('projectPrice');
+    const depositAmountInput = document.getElementById('depositAmount');
+
+    function formatMoney(value) {
+      const number = Number(value);
+      if (Number.isNaN(number)) return '';
+      return number.toFixed(2);
+    }
+
+    projectPriceInput.addEventListener('input', () => {
+      const price = Number(projectPriceInput.value);
+      if (!Number.isNaN(price) && price > 0) {
+        depositAmountInput.value = (price * 0.20).toFixed(2);
+      }
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      statusMessage.textContent = '';
+      statusMessage.className = 'mt-4 text-sm';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+
+      const formData = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const response = await fetch('https://node-starter--chaotic-reason.replit.app/api/contracts/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Unable to submit agreement.');
+        }
+
+        statusMessage.textContent = 'Thank you. Your agreement has been submitted successfully. We will review it and follow up with scheduling and deposit instructions.';
+        statusMessage.classList.add('text-green-700');
+        form.reset();
+      } catch (error) {
+        statusMessage.textContent = error.message || 'Something went wrong. Please try again or contact us directly.';
+        statusMessage.classList.add('text-red-700');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit Agreement';
+      }
+    });
+  </script>
 </body>
 </html>
