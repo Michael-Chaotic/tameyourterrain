@@ -47,7 +47,6 @@
       font-size:16px;background:#fff
     }
     textarea{min-height:280px;resize:vertical}
-    .subtle{font-size:13px;color:var(--muted);margin-top:4px}
     .checkrow{
       display:flex;align-items:center;justify-content:space-between;gap:12px;
       padding:10px 0;border-bottom:1px solid var(--line)
@@ -197,7 +196,7 @@
               <input id="mobilization" type="number" value="225" />
             </div>
             <div>
-              <label for="driveHours">Drive time round trip (hours)</label>
+              <label for="driveHours">Drive time round trip per day (hours)</label>
               <input id="driveHours" type="number" step="0.25" value="0" />
             </div>
             <div>
@@ -263,7 +262,7 @@
   </div>
 
   <script>
-    const API_BASE = "https://node-starter--chaotic-reason.replit.app";
+    const API_BASE = "https://node-starter--chaotic-reason.replit.app/api";
 
     function money(n){ return '$' + Math.round(n).toLocaleString(); }
     function round50(n){ return Math.round(n / 50) * 50; }
@@ -402,7 +401,7 @@
       if (depositPct > 0) text += 'Suggested deposit to reserve time: ' + money(deposit) + '\n';
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
-      text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
+      if (driveCharge > 0) text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip per day x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
       if (drivers.length) text += 'Price factors included: ' + drivers.join(', ') + '\n';
       if (customNotes) text += 'Notes: ' + customNotes + '\n';
       text += '\nIf site conditions differ materially from what was described or shown in photos, the final price may need to be adjusted.\n';
