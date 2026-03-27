@@ -377,7 +377,12 @@
       const remainingBalance = total - deposit;
 
       document.getElementById('quote').textContent = money(total);
-      document.getElementById('perAcre').textContent = acres > 0 ? `Approx. ${money(perAcre)} per acre` : 'Approx. $0 per acre';
+
+      if (acres > 1) {
+        document.getElementById('perAcre').textContent = `Approx. ${money(perAcre)} per acre`;
+      } else {
+        document.getElementById('perAcre').textContent = '';
+      }
 
       if (depositPct > 0) {
         document.getElementById('deposit').innerHTML =
@@ -410,7 +415,7 @@
       text += 'Terrain: ' + terrainLabel(terrain) + '\n';
       text += 'Finish level: ' + finishLabel(finish) + '\n\n';
       text += 'Estimated project price: ' + money(total) + '\n';
-      if (acres > 0) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
+      if (acres > 1) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
       if (depositPct > 0) {
         text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
         text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
