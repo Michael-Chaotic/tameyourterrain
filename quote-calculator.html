@@ -91,6 +91,10 @@
       padding:10px 14px;
       border-radius:12px
     }
+    #deposit{
+      margin-top:8px;
+      line-height:1.5;
+    }
   </style>
 </head>
 <body>
@@ -235,10 +239,10 @@
 
       <div>
         <div class="card quotebox">
-          <div>Recommended Project Quote</div>
+          <div>Estimated Project Price</div>
           <div id="quote" class="big">$0</div>
           <div id="perAcre">Approx. $0 per acre</div>
-          <div id="deposit" style="margin-top:8px;"></div>
+          <div id="deposit"></div>
           <div class="summaryline" id="summary" style="margin-top:10px;"></div>
         </div>
 
@@ -370,10 +374,19 @@
       const total = Math.max(minJob, round50(densityTerrainAdjusted + finishCharge + addOns + mobilizationFee + driveCharge));
       const perAcre = acres > 0 ? Math.round(total / acres) : 0;
       const deposit = round50(total * (depositPct / 100));
+      const remainingBalance = total - deposit;
 
       document.getElementById('quote').textContent = money(total);
       document.getElementById('perAcre').textContent = acres > 0 ? `Approx. ${money(perAcre)} per acre` : 'Approx. $0 per acre';
-      document.getElementById('deposit').textContent = depositPct > 0 ? `Suggested deposit: ${money(deposit)} (${depositPct}%)` : '';
+
+      if (depositPct > 0) {
+        document.getElementById('deposit').innerHTML =
+          `Deposit due before scheduling: ${money(deposit)}<br>` +
+          `Remaining balance due within 7 days of project completion: ${money(remainingBalance)}`;
+      } else {
+        document.getElementById('deposit').textContent = '';
+      }
+
       document.getElementById('summary').textContent =
         `Base ${money(base)} • Vegetation x${vegAdj.toFixed(2)} • Terrain x${terrainAdj.toFixed(2)} • Finish ${money(finishCharge)} • Mobilization ${money(mobilizationFee)} • Drive ${money(driveCharge)} • Add-ons ${money(addOns)}`;
 
@@ -399,9 +412,8 @@
       text += 'Estimated project price: ' + money(total) + '\n';
       if (acres > 0) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
       if (depositPct > 0) {
-      const remainingBalance = total - deposit;
-      text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
-      text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
+        text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
+        text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
       }
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
