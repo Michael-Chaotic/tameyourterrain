@@ -44,8 +44,8 @@
             <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Customer Information</h2>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-sm font-semibold mb-1" for="customerName">Full Name *</label>
-                <input id="customerName" name="customerName" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+                <label class="block text-sm font-semibold mb-1" for="name">Full Name *</label>
+                <input id="name" name="name" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
               <div>
                 <label class="block text-sm font-semibold mb-1" for="phone">Phone *</label>
@@ -56,8 +56,8 @@
                 <input id="email" name="email" type="email" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
               <div class="md:col-span-2">
-                <label class="block text-sm font-semibold mb-1" for="mailingAddress">Mailing Address *</label>
-                <input id="mailingAddress" name="mailingAddress" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+                <label class="block text-sm font-semibold mb-1" for="address">Mailing Address *</label>
+                <input id="address" name="address" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
             </div>
           </section>
@@ -78,16 +78,16 @@
                 <input id="targetStartWindow" name="targetStartWindow" type="text" placeholder="Example: Late April" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
               <div>
-                <label class="block text-sm font-semibold mb-1" for="projectPrice">Fixed Project Price ($) *</label>
-                <input id="projectPrice" name="projectPrice" type="number" step="0.01" min="0" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+                <label class="block text-sm font-semibold mb-1" for="projectCost">Fixed Project Price ($) *</label>
+                <input id="projectCost" name="projectCost" type="number" step="0.01" min="0" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
               <div>
-                <label class="block text-sm font-semibold mb-1" for="depositAmount">Deposit Amount ($)</label>
-                <input id="depositAmount" name="depositAmount" type="number" step="0.01" min="0" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+                <label class="block text-sm font-semibold mb-1" for="depositPreview">Deposit Amount ($)</label>
+                <input id="depositPreview" name="depositPreview" type="text" readonly class="w-full rounded-lg border border-stone-300 bg-stone-100 px-4 py-3" />
               </div>
               <div class="md:col-span-2">
-                <label class="block text-sm font-semibold mb-1" for="scopeOfWork">Description of Work *</label>
-                <textarea id="scopeOfWork" name="scopeOfWork" rows="5" required class="w-full rounded-lg border border-stone-300 px-4 py-3" placeholder="List the agreed work to be completed."></textarea>
+                <label class="block text-sm font-semibold mb-1" for="descriptionOfWork">Description of Work *</label>
+                <textarea id="descriptionOfWork" name="descriptionOfWork" rows="5" required class="w-full rounded-lg border border-stone-300 px-4 py-3" placeholder="List the agreed work to be completed."></textarea>
               </div>
             </div>
           </section>
@@ -159,8 +159,8 @@
             <h2 class="text-2xl font-bold text-stone-900 mb-4 border-b border-stone-200 pb-2">Customer Acceptance</h2>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-sm font-semibold mb-1" for="typedSignature">Type Full Legal Name as Signature *</label>
-                <input id="typedSignature" name="typedSignature" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+                <label class="block text-sm font-semibold mb-1" for="signature">Type Full Legal Name as Signature *</label>
+                <input id="signature" name="signature" type="text" required class="w-full rounded-lg border border-stone-300 px-4 py-3" />
               </div>
               <div>
                 <label class="block text-sm font-semibold mb-1" for="signatureDate">Date *</label>
@@ -185,9 +185,10 @@
                 <p>(715) 255-0328</p>
                 <p>www.tameyourterrain.com</p>
               </div>
-              <div>
-                <label class="block text-sm font-semibold mb-1" for="ownerEmail">Send completed agreement to this business email *</label>
-                <input id="ownerEmail" name="ownerEmail" type="email" required placeholder="michael@tameyourterrain.com" class="w-full rounded-lg border border-stone-300 px-4 py-3" />
+              <div class="flex items-end">
+                <p class="text-stone-600">
+                  After submission, your agreement will be sent directly to Tame Your Terrain for review.
+                </p>
               </div>
             </div>
           </section>
@@ -208,58 +209,61 @@
   </main>
 
   <script>
-    const form = document.getElementById('contractForm');
-    const statusMessage = document.getElementById('statusMessage');
-    const submitButton = document.getElementById('submitButton');
-    const projectPriceInput = document.getElementById('projectPrice');
-    const depositAmountInput = document.getElementById('depositAmount');
+    const form = document.getElementById("contractForm");
+    const statusMessage = document.getElementById("statusMessage");
+    const submitButton = document.getElementById("submitButton");
+    const projectCostInput = document.getElementById("projectCost");
+    const depositPreviewInput = document.getElementById("depositPreview");
 
     function formatMoney(value) {
       const number = Number(value);
-      if (Number.isNaN(number)) return '';
+      if (Number.isNaN(number)) return "";
       return number.toFixed(2);
     }
 
-    projectPriceInput.addEventListener('input', () => {
-      const price = Number(projectPriceInput.value);
+    projectCostInput.addEventListener("input", () => {
+      const price = Number(projectCostInput.value);
       if (!Number.isNaN(price) && price > 0) {
-        depositAmountInput.value = (price * 0.20).toFixed(2);
+        depositPreviewInput.value = (price * 0.20).toFixed(2);
+      } else {
+        depositPreviewInput.value = "";
       }
     });
 
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      statusMessage.textContent = '';
-      statusMessage.className = 'mt-4 text-sm';
+      statusMessage.textContent = "";
+      statusMessage.className = "mt-4 text-sm";
       submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
+      submitButton.textContent = "Submitting...";
 
-      const formData = Object.fromEntries(new FormData(form).entries());
+      const payload = Object.fromEntries(new FormData(form).entries());
 
       try {
-        const response = await fetch('https://node-starter--chaotic-reason.replit.app/api/contracts/submit', {
-          method: 'POST',
+        const response = await fetch("https://node-starter--chaotic-reason.replit.app/api/contracts/submit", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(payload)
         });
 
         const result = await response.json();
 
         if (!response.ok) {
-          throw new Error(result.error || 'Unable to submit agreement.');
+          throw new Error(result.error || "Unable to submit agreement.");
         }
 
-        statusMessage.textContent = 'Thank you. Your agreement has been submitted successfully. We will review it and follow up with scheduling and deposit instructions.';
-        statusMessage.classList.add('text-green-700');
+        statusMessage.textContent = `Thank you. Your agreement has been submitted successfully. Deposit due: $${formatMoney(result.depositAmount)}. Remaining balance: $${formatMoney(result.balanceAmount)}.`;
+        statusMessage.classList.add("text-green-700");
         form.reset();
+        depositPreviewInput.value = "";
       } catch (error) {
-        statusMessage.textContent = error.message || 'Something went wrong. Please try again or contact us directly.';
-        statusMessage.classList.add('text-red-700');
+        statusMessage.textContent = error.message || "Something went wrong. Please try again or contact us directly.";
+        statusMessage.classList.add("text-red-700");
       } finally {
         submitButton.disabled = false;
-        submitButton.textContent = 'Submit Agreement';
+        submitButton.textContent = "Submit Agreement";
       }
     });
   </script>
