@@ -398,7 +398,11 @@
       text += 'Finish level: ' + finishLabel(finish) + '\n\n';
       text += 'Estimated project price: ' + money(total) + '\n';
       if (acres > 0) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
-      if (depositPct > 0) text += 'Suggested deposit to reserve time: ' + money(deposit) + '\n';
+      if (depositPct > 0) {
+      const remainingBalance = total - deposit;
+      text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
+      text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
+      }
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
       if (driveCharge > 0) text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip per day x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
