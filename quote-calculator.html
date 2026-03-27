@@ -342,7 +342,7 @@
       const terrainAdj = terrainFactor(terrain);
       const densityTerrainAdjusted = base * vegAdj * terrainAdj;
       const finishCharge = finishAdd(finish, base);
-      const driveCharge = driveHours * driveRate;
+      const driveCharge = driveHours * driveRate * days;
 
       let addOns = 0;
       const drivers = [];
@@ -402,7 +402,7 @@
       if (depositPct > 0) text += 'Suggested deposit to reserve time: ' + money(deposit) + '\n';
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
-      if (driveCharge > 0) text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip @ ' + money(driveRate) + '/hr)\n';
+      text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
       if (drivers.length) text += 'Price factors included: ' + drivers.join(', ') + '\n';
       if (customNotes) text += 'Notes: ' + customNotes + '\n';
       text += '\nIf site conditions differ materially from what was described or shown in photos, the final price may need to be adjusted.\n';
