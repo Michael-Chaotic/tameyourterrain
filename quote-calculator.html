@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tame Your Terrain Premium Quote Calculator</title>
+  <title>Quote Calculator | Tame Your Terrain</title>
+  <meta name="description" content="Mobile-friendly quote calculator for Tame Your Terrain project estimates." />
   <style>
     :root{
       --bg:#f4f6f8;
@@ -14,6 +15,8 @@
       --brand-dark:#173a23;
       --brand2:#8a6a2f;
       --line:#e5e7eb;
+      --danger:#b91c1c;
+      --success:#166534;
       --overlay:rgba(17,24,39,.62);
     }
 
@@ -42,7 +45,7 @@
       border-radius:18px;
       padding:20px;
       margin-bottom:16px;
-      box-shadow:0 6px 18px rgba(0,0,0,.10);
+      box-shadow:0 6px 18px rgba(0,0,0,0.10);
     }
 
     .hero h1{
@@ -57,7 +60,7 @@
 
     .badge{
       display:inline-block;
-      background:rgba(255,255,255,.16);
+      background:rgba(255,255,255,0.16);
       padding:6px 10px;
       border-radius:999px;
       font-size:13px;
@@ -69,7 +72,7 @@
       border-radius:18px;
       padding:16px;
       margin-bottom:16px;
-      box-shadow:0 2px 10px rgba(0,0,0,.06);
+      box-shadow:0 2px 10px rgba(0,0,0,0.06);
     }
 
     h2{
@@ -110,10 +113,8 @@
       outline-offset:1px;
     }
 
-    .subtle{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:4px;
+    textarea{
+      resize:vertical;
     }
 
     .checkrow{
@@ -176,15 +177,15 @@
       background:#d9dde3;
     }
 
+    button:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
     .btnrow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-    }
-
-    #quoteText{
-      min-height:320px;
-      resize:vertical;
     }
 
     .pillrow{
@@ -206,9 +207,58 @@
       letter-spacing:.5px;
     }
 
+    .status{
+      margin-top:12px;
+      padding:12px;
+      border-radius:12px;
+      font-size:14px;
+      display:none;
+    }
+
+    .status.show{
+      display:block;
+    }
+
+    .status.error{
+      background:#fef2f2;
+      color:var(--danger);
+      border:1px solid #fecaca;
+    }
+
+    .status.success{
+      background:#f0fdf4;
+      color:var(--success);
+      border:1px solid #bbf7d0;
+    }
+
+    .topnav{
+      margin:0 0 16px 0;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .topnav a{
+      text-decoration:none;
+      color:var(--brand);
+      font-weight:700;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:12px;
+    }
+
+    #deposit{
+      margin-top:8px;
+      line-height:1.5;
+    }
+
+    #quoteText{
+      min-height:280px;
+    }
+
     .notes-preview{
       min-height:96px;
-      resize:vertical;
     }
 
     .notes-actions{
@@ -274,7 +324,6 @@
 
     .modal-body textarea{
       min-height:52vh;
-      resize:vertical;
       line-height:1.5;
     }
 
@@ -322,11 +371,16 @@
 </head>
 <body>
   <div class="wrap">
+    <div class="topnav">
+      <a href="/">Home</a>
+      <a href="/contract.html">Contract Page</a>
+    </div>
+
     <div class="hero">
       <div class="logo">TAME YOUR TERRAIN</div>
       <h1>Premium Quote Calculator</h1>
-      <p>Built for quick quoting on your phone while talking to landowners.</p>
-      <div class="badge">Clear Lake, WI area • Project-based pricing</div>
+      <p>Mobile-friendly project quoting for forestry mulching, trails, food plots, buckthorn removal, and habitat work.</p>
+      <div class="badge">Clear Lake, WI • Project-based pricing • Deposit model built in</div>
     </div>
 
     <div class="grid grid-2">
@@ -340,6 +394,17 @@
               <input id="customerName" placeholder="John Smith" />
             </div>
             <div>
+              <label for="customerEmail">Customer email</label>
+              <input id="customerEmail" type="email" placeholder="john@email.com" />
+            </div>
+            <div>
+              <label for="customerPhone">Customer phone</label>
+              <input id="customerPhone" placeholder="(555) 555-5555" />
+            </div>
+          </div>
+
+          <div class="grid grid-3" style="margin-top:14px;">
+            <div>
               <label for="location">Job location</label>
               <input id="location" placeholder="County / town / road" />
             </div>
@@ -347,12 +412,16 @@
               <label for="service">Service type</label>
               <select id="service">
                 <option>Forestry mulching</option>
-                <option>Trail cutting</option>
+                <option>Trail building</option>
                 <option>Food plot clearing</option>
-                <option>Buckthorn / invasive removal</option>
+                <option>Buckthorn removal</option>
                 <option>Habitat improvement</option>
-                <option>Property reclamation</option>
+                <option>Land clearing</option>
               </select>
+            </div>
+            <div>
+              <label for="phone">Business phone on quote</label>
+              <input id="phone" value="(715) 255-0328" />
             </div>
           </div>
 
@@ -376,10 +445,9 @@
               <label for="veg">Vegetation density</label>
               <select id="veg">
                 <option value="0">Light</option>
-                <option value="1">Medium</option>
-                <option value="2" selected>Heavy</option>
+                <option value="1" selected>Medium</option>
+                <option value="2">Heavy</option>
               </select>
-              <div class="subtle">Adjusts production and pricing.</div>
             </div>
             <div>
               <label for="terrain">Terrain</label>
@@ -388,7 +456,6 @@
                 <option value="1">Slightly hilly</option>
                 <option value="2">Steep</option>
               </select>
-              <div class="subtle">Adds for slower, more careful work.</div>
             </div>
             <div>
               <label for="finish">Finish level</label>
@@ -397,21 +464,20 @@
                 <option value="1">Cleaner finish</option>
                 <option value="2">Premium finish</option>
               </select>
-              <div class="subtle">For cleaner, more manicured results.</div>
             </div>
           </div>
 
           <div class="grid grid-3" style="margin-top:14px;">
             <div>
-              <label for="mobilizationFee">Mobilization fee ($)</label>
-              <input id="mobilizationFee" type="number" value="225" />
+              <label for="mobilization">Mobilization fee ($)</label>
+              <input id="mobilization" type="number" value="225" />
             </div>
             <div>
-              <label for="driveHours">Drive time (hours round trip)</label>
-              <input id="driveHours" type="number" step="0.25" value="1" />
+              <label for="driveHours">Drive time round trip per day (hours)</label>
+              <input id="driveHours" type="number" step="0.25" value="0" />
             </div>
             <div>
-              <label for="driveRate">Drive time rate ($/hour)</label>
+              <label for="driveRate">Drive rate ($/hour)</label>
               <input id="driveRate" type="number" value="125" />
             </div>
           </div>
@@ -426,23 +492,18 @@
               <input id="depositPct" type="number" value="20" />
             </div>
             <div>
-              <label for="phone">Phone number on quote</label>
-              <input id="phone" value="(715) 255-0328" />
+              <label for="customNotes">Optional notes</label>
+              <textarea
+                id="customNotes"
+                class="notes-preview"
+                placeholder="Tap “Open Notes Editor” for a bigger writing area."
+              ></textarea>
+              <div class="notes-actions">
+                <button type="button" onclick="openNotesEditor()">Open Notes Editor</button>
+                <button type="button" class="alt" onclick="clearNotes()">Clear Notes</button>
+              </div>
+              <div id="notesCount" class="notes-count">0 characters</div>
             </div>
-          </div>
-
-          <div style="margin-top:14px;">
-            <label for="optionalNotes">Optional notes</label>
-            <textarea
-              id="optionalNotes"
-              class="notes-preview"
-              placeholder="Tap “Open Notes Editor” for a bigger writing area."
-            ></textarea>
-            <div class="notes-actions">
-              <button type="button" onclick="openNotesEditor()">Open Notes Editor</button>
-              <button type="button" class="alt" onclick="clearNotes()">Clear Notes</button>
-            </div>
-            <div id="notesCount" class="notes-count">0 characters</div>
           </div>
         </div>
 
@@ -460,10 +521,10 @@
 
       <div>
         <div class="card quotebox">
-          <div>Recommended Project Quote</div>
+          <div>Estimated Project Price</div>
           <div id="quote" class="big">$0</div>
           <div id="perAcre">Approx. $0 per acre</div>
-          <div id="deposit" style="margin-top:8px;"></div>
+          <div id="deposit"></div>
           <div class="summaryline" id="summary" style="margin-top:10px;"></div>
         </div>
 
@@ -476,9 +537,11 @@
           <h2>Customer-Facing Quote</h2>
           <textarea id="quoteText" readonly></textarea>
           <div class="btnrow" style="margin-top:12px;">
+            <button type="button" onclick="sendEstimate()" id="sendBtn">Send Estimate</button>
             <button type="button" onclick="copyQuote()">Copy Quote</button>
             <button type="button" class="alt" onclick="updateCalc()">Refresh</button>
           </div>
+          <div id="statusBox" class="status"></div>
         </div>
       </div>
     </div>
@@ -488,15 +551,12 @@
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="notesModalTitle">
       <div class="modal-header">
         <h2 id="notesModalTitle" class="modal-title">Optional Notes Editor</h2>
-        <p class="modal-subtle">Write freely here, then save and return to the estimate form.</p>
+        <p class="modal-subtle">Write your notes here, then save and return to the estimate form.</p>
       </div>
 
       <div class="modal-body">
         <label for="notesEditor">Notes</label>
-        <textarea
-          id="notesEditor"
-          placeholder="Type your notes here..."
-        ></textarea>
+        <textarea id="notesEditor" placeholder="Type your notes here..."></textarea>
       </div>
 
       <div class="modal-footer">
@@ -504,12 +564,14 @@
           <button type="button" onclick="saveAndCloseNotes()">Save &amp; Close</button>
           <button type="button" class="alt" onclick="cancelNotesEditor()">Cancel</button>
         </div>
-        <div class="footer-note">Save &amp; Close updates the Optional Notes field on the form.</div>
+        <div class="footer-note">Save &amp; Close updates the Optional Notes field on the estimate form.</div>
       </div>
     </div>
   </div>
 
   <script>
+    const API_BASE = "https://node-starter--chaotic-reason.replit.app/api";
+
     function money(n){
       return '$' + Math.round(n).toLocaleString();
     }
@@ -562,34 +624,31 @@
       return document.getElementById(id).checked;
     }
 
-    function notesValue(){
-      return document.getElementById('optionalNotes').value.trim();
+    function showStatus(message, type){
+      const box = document.getElementById('statusBox');
+      box.className = 'status show ' + type;
+      box.textContent = message;
+    }
+
+    function clearStatus(){
+      const box = document.getElementById('statusBox');
+      box.className = 'status';
+      box.textContent = '';
     }
 
     function updateNotesCount(){
-      const count = document.getElementById('optionalNotes').value.length;
+      const count = document.getElementById('customNotes').value.length;
       document.getElementById('notesCount').textContent = count + (count === 1 ? ' character' : ' characters');
     }
 
     function openNotesEditor(){
       const notesModal = document.getElementById('notesModal');
       const notesEditor = document.getElementById('notesEditor');
-      notesEditor.value = document.getElementById('optionalNotes').value;
+      notesEditor.value = document.getElementById('customNotes').value;
       notesModal.classList.add('show');
       notesModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
       setTimeout(() => notesEditor.focus(), 50);
-    }
-
-    function saveAndCloseNotes(){
-      document.getElementById('optionalNotes').value = document.getElementById('notesEditor').value;
-      closeNotesEditor();
-      updateNotesCount();
-      updateCalc();
-    }
-
-    function cancelNotesEditor(){
-      closeNotesEditor();
     }
 
     function closeNotesEditor(){
@@ -599,79 +658,102 @@
       document.body.classList.remove('modal-open');
     }
 
+    function saveAndCloseNotes(){
+      document.getElementById('customNotes').value = document.getElementById('notesEditor').value;
+      closeNotesEditor();
+      updateNotesCount();
+      updateCalc();
+    }
+
+    function cancelNotesEditor(){
+      closeNotesEditor();
+    }
+
     function clearNotes(){
-      document.getElementById('optionalNotes').value = '';
+      document.getElementById('customNotes').value = '';
       document.getElementById('notesEditor').value = '';
       updateNotesCount();
       updateCalc();
     }
 
     function updateCalc(){
+      clearStatus();
+
       const customerName = val('customerName').trim();
       const location = val('location').trim();
       const service = val('service');
+      const phone = val('phone').trim();
+      const customNotes = val('customNotes').trim();
+
       const dailyRate = Number(val('dailyRate')) || 0;
       const days = Number(val('days')) || 0;
       const acres = Number(val('acres')) || 0;
       const veg = Number(val('veg'));
       const terrain = Number(val('terrain'));
       const finish = Number(val('finish'));
-      const mobilizationFee = Number(val('mobilizationFee')) || 0;
+      const mobilizationFee = Number(val('mobilization')) || 0;
       const driveHours = Number(val('driveHours')) || 0;
       const driveRate = Number(val('driveRate')) || 0;
       const minJob = Number(val('minJob')) || 0;
       const depositPct = Number(val('depositPct')) || 0;
-      const phone = val('phone');
-      const optionalNotes = notesValue();
 
       const base = dailyRate * days;
       const vegAdj = vegFactor(veg);
       const terrainAdj = terrainFactor(terrain);
-      const driveCharge = driveHours * driveRate;
+      const densityTerrainAdjusted = base * vegAdj * terrainAdj;
+      const finishCharge = finishAdd(finish, base);
+      const driveCharge = driveHours * driveRate * days;
 
       let addOns = 0;
       const drivers = [];
 
       if (checked('grapple')) { addOns += 300; drivers.push('grapple work'); }
       if (checked('rake')) { addOns += 350; drivers.push('rake work'); }
-      if (checked('obstacles')) { addOns += 250; drivers.push('hidden obstacles'); }
-      if (checked('wet')) { addOns += 200; drivers.push('wet ground'); }
-      if (checked('rush')) { addOns += 250; drivers.push('rush scheduling'); }
-      if (checked('access')) { addOns += 200; drivers.push('hard access'); }
-      if (checked('trash')) { addOns += 250; drivers.push('wire/trash risk'); }
-
-      const densityTerrainAdjusted = base * vegAdj * terrainAdj;
-      const finishCharge = finishAdd(finish, base);
+      if (checked('obstacles')) { addOns += 250; drivers.push('stumps / rocks / hidden obstacles'); }
+      if (checked('wet')) { addOns += 200; drivers.push('wet / soft ground'); }
+      if (checked('rush')) { addOns += 250; drivers.push('small-job / rush premium'); }
+      if (checked('access')) { addOns += 200; drivers.push('long backing / hard access'); }
+      if (checked('trash')) { addOns += 250; drivers.push('wire / fence / trash risk'); }
 
       if (veg === 2) drivers.push('heavy vegetation');
-      if (veg === 1) drivers.push('medium vegetation');
-      if (terrain === 1) drivers.push('slightly hilly terrain');
+      else if (veg === 1) drivers.push('medium vegetation');
+      else drivers.push('light vegetation');
+
       if (terrain === 2) drivers.push('steep terrain');
-      if (finish === 1) drivers.push('cleaner finish');
-      if (finish === 2) drivers.push('premium finish');
+      else if (terrain === 1) drivers.push('slightly hilly terrain');
+      else drivers.push('flat terrain');
+
+      if (finish === 1) drivers.push('cleaner finish requested');
+      if (finish === 2) drivers.push('premium finish requested');
       if (mobilizationFee > 0) drivers.push('mobilization');
       if (driveCharge > 0) drivers.push('drive time');
 
-      const total = Math.max(
-        minJob,
-        round50(densityTerrainAdjusted + finishCharge + addOns + mobilizationFee + driveCharge)
-      );
-
+      const total = Math.max(minJob, round50(densityTerrainAdjusted + finishCharge + addOns + mobilizationFee + driveCharge));
       const perAcre = acres > 0 ? Math.round(total / acres) : 0;
       const deposit = round50(total * (depositPct / 100));
+      const remainingBalance = total - deposit;
 
       document.getElementById('quote').textContent = money(total);
-      document.getElementById('perAcre').textContent =
-        acres > 0 ? `Approx. ${money(perAcre)} per acre` : 'Approx. $0 per acre';
-      document.getElementById('deposit').textContent =
-        depositPct > 0 ? `Suggested deposit: ${money(deposit)} (${depositPct}%)` : '';
+
+      if (acres > 1) {
+        document.getElementById('perAcre').textContent = `Approx. ${money(perAcre)} per acre`;
+      } else {
+        document.getElementById('perAcre').textContent = '';
+      }
+
+      if (depositPct > 0) {
+        document.getElementById('deposit').innerHTML =
+          `Deposit due before scheduling: ${money(deposit)}<br>` +
+          `Remaining balance due within 7 days of project completion: ${money(remainingBalance)}`;
+      } else {
+        document.getElementById('deposit').textContent = '';
+      }
 
       document.getElementById('summary').textContent =
         `Base ${money(base)} • Vegetation x${vegAdj.toFixed(2)} • Terrain x${terrainAdj.toFixed(2)} • Finish ${money(finishCharge)} • Mobilization ${money(mobilizationFee)} • Drive ${money(driveCharge)} • Add-ons ${money(addOns)}`;
 
       const driversBox = document.getElementById('drivers');
       driversBox.innerHTML = '';
-
       (drivers.length ? drivers : ['base project scope']).forEach(d => {
         const span = document.createElement('div');
         span.className = 'pill';
@@ -681,35 +763,37 @@
 
       let text = '';
       text += 'Tame Your Terrain Estimate\n\n';
-
       if (customerName) text += 'Customer: ' + customerName + '\n';
       if (location) text += 'Location: ' + location + '\n';
-
       text += 'Service: ' + service + '\n';
       text += 'Estimated acres: ' + acres + '\n';
       text += 'Estimated production time: ' + days + ' day(s)\n';
       text += 'Vegetation: ' + vegLabel(veg) + '\n';
       text += 'Terrain: ' + terrainLabel(terrain) + '\n';
       text += 'Finish level: ' + finishLabel(finish) + '\n\n';
-
       text += 'Estimated project price: ' + money(total) + '\n';
 
-      if (acres > 0) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
-      if (depositPct > 0) text += 'Suggested deposit to reserve time: ' + money(deposit) + '\n';
+      if (acres > 1) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
+
+      if (depositPct > 0) {
+        text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
+        text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
+      }
 
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
 
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
       if (driveCharge > 0) {
-        text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip @ ' + money(driveRate) + '/hr)\n';
+        text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip per day x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
       }
       if (drivers.length) text += 'Price factors included: ' + drivers.join(', ') + '\n';
-      if (optionalNotes) text += 'Notes: ' + optionalNotes + '\n';
+      if (customNotes) text += 'Notes: ' + customNotes + '\n';
 
       text += '\nIf site conditions differ materially from what was described or shown in photos, the final price may need to be adjusted.\n';
-      text += 'To get on the schedule, call or text ' + phone + '.';
+      text += 'To move forward, reply to this email or call/text ' + phone + '.';
 
       document.getElementById('quoteText').value = text;
+      updateNotesCount();
     }
 
     function copyQuote(){
@@ -717,18 +801,96 @@
       box.select();
       box.setSelectionRange(0, 99999);
       navigator.clipboard.writeText(box.value);
-      alert('Quote copied.');
+      showStatus('Quote copied.', 'success');
     }
 
-    document.querySelectorAll('input, select, textarea').forEach(el => {
-      el.addEventListener('input', () => {
-        updateNotesCount();
-        updateCalc();
-      });
-      el.addEventListener('change', () => {
-        updateNotesCount();
-        updateCalc();
-      });
+    async function sendEstimate(){
+      clearStatus();
+      updateCalc();
+
+      const customerName = val('customerName').trim();
+      const customerEmail = val('customerEmail').trim();
+      const customerPhone = val('customerPhone').trim();
+      const location = val('location').trim();
+      const service = val('service').trim();
+      const acres = val('acres').trim();
+      const days = val('days').trim();
+      const vegetation = vegLabel(val('veg'));
+      const terrain = terrainLabel(val('terrain'));
+      const finishLevel = finishLabel(val('finish'));
+      const projectPrice = document.getElementById('quote').textContent.trim();
+      const perAcreText = document.getElementById('perAcre').textContent.trim();
+      const depositText = document.getElementById('deposit').textContent.trim();
+      const quoteText = val('quoteText').trim();
+      const businessPhone = val('phone').trim();
+
+      if (!customerName) {
+        showStatus('Please enter the customer name.', 'error');
+        return;
+      }
+
+      if (!customerEmail) {
+        showStatus('Please enter the customer email.', 'error');
+        return;
+      }
+
+      if (!quoteText) {
+        showStatus('The quote is empty. Please refresh the calculator first.', 'error');
+        return;
+      }
+
+      const sendBtn = document.getElementById('sendBtn');
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(API_BASE + '/estimates/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            customerName,
+            customerEmail,
+            customerPhone,
+            location,
+            service,
+            acres,
+            days,
+            vegetation,
+            terrain,
+            finishLevel,
+            projectPrice,
+            perAcre: perAcreText,
+            deposit: depositText,
+            quoteText,
+            businessPhone
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to send estimate.');
+        }
+
+        showStatus('Estimate sent successfully.', 'success');
+      } catch (error) {
+        showStatus(error.message || 'Something went wrong sending the estimate.', 'error');
+      } finally {
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send Estimate';
+      }
+    }
+
+    [
+      'customerName','customerEmail','customerPhone','location','service','phone','dailyRate','days','acres',
+      'veg','terrain','finish','mobilization','driveHours','driveRate','minJob','depositPct','customNotes',
+      'grapple','rake','obstacles','wet','rush','access','trash'
+    ].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', updateCalc);
+      el.addEventListener('change', updateCalc);
     });
 
     document.getElementById('notesModal').addEventListener('click', function(e){
@@ -743,7 +905,6 @@
       }
     });
 
-    updateNotesCount();
     updateCalc();
   </script>
 </body>
