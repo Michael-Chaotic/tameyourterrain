@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quote Calculator | Tame Your Terrain</title>
-  <meta name="description" content="Mobile-friendly quote calculator for Tame Your Terrain project estimates." />
+  <title>Tame Your Terrain Premium Quote Calculator</title>
   <style>
     :root{
       --bg:#f4f6f8;
@@ -12,125 +11,334 @@
       --text:#1f2937;
       --muted:#6b7280;
       --brand:#1f4d2e;
+      --brand-dark:#173a23;
       --brand2:#8a6a2f;
       --line:#e5e7eb;
-      --danger:#b91c1c;
-      --success:#166534;
+      --overlay:rgba(17,24,39,.62);
     }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:1050px;margin:0 auto;padding:16px}
+
+    html, body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    body.modal-open{
+      overflow:hidden;
+    }
+
+    .wrap{
+      max-width:1050px;
+      margin:0 auto;
+      padding:16px;
+    }
+
     .hero{
       background:linear-gradient(135deg,var(--brand),#2d6a3d);
-      color:#fff;border-radius:18px;padding:20px;margin-bottom:16px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.10)
+      color:#fff;
+      border-radius:18px;
+      padding:20px;
+      margin-bottom:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,.10);
     }
-    .hero h1{margin:0 0 6px 0;font-size:28px}
-    .hero p{margin:0;color:#e5efe7}
+
+    .hero h1{
+      margin:0 0 6px 0;
+      font-size:28px;
+    }
+
+    .hero p{
+      margin:0;
+      color:#e5efe7;
+    }
+
     .badge{
-      display:inline-block;background:rgba(255,255,255,0.16);padding:6px 10px;
-      border-radius:999px;font-size:13px;margin-top:10px
+      display:inline-block;
+      background:rgba(255,255,255,.16);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+      margin-top:10px;
     }
+
     .card{
-      background:var(--card);border-radius:18px;padding:16px;margin-bottom:16px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.06)
+      background:var(--card);
+      border-radius:18px;
+      padding:16px;
+      margin-bottom:16px;
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
     }
-    h2{margin:0 0 14px 0}
-    .grid{display:grid;gap:14px}
+
+    h2{
+      margin:0 0 14px 0;
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+    }
+
     @media (min-width:820px){
       .grid-2{grid-template-columns:1.2fr .8fr}
       .grid-3{grid-template-columns:1fr 1fr 1fr}
     }
-    label{display:block;font-weight:700;margin-bottom:6px}
+
+    label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
     input,select,textarea{
-      width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:12px;
-      font-size:16px;background:#fff
+      width:100%;
+      padding:12px;
+      border:1px solid #cbd5e1;
+      border-radius:12px;
+      font-size:16px;
+      background:#fff;
+      font-family:Arial,sans-serif;
     }
-    textarea{min-height:280px;resize:vertical}
+
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus{
+      outline:3px solid rgba(31,77,46,.18);
+      outline-offset:1px;
+    }
+
+    .subtle{
+      font-size:13px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
     .checkrow{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:10px 0;border-bottom:1px solid var(--line)
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid var(--line);
     }
-    .checkrow:last-child{border-bottom:none}
+
+    .checkrow:last-child{
+      border-bottom:none;
+    }
+
     .quotebox{
-      background:#111827;color:#fff;border-radius:18px;padding:18px
+      background:#111827;
+      color:#fff;
+      border-radius:18px;
+      padding:18px;
     }
-    .quotebox .big{font-size:38px;font-weight:800;margin:8px 0}
-    .summaryline{font-size:14px;color:#d1d5db}
+
+    .quotebox .big{
+      font-size:38px;
+      font-weight:800;
+      margin:8px 0;
+    }
+
+    .summaryline{
+      font-size:14px;
+      color:#d1d5db;
+    }
+
     button{
-      background:var(--brand);color:#fff;border:none;border-radius:12px;
-      padding:12px 16px;font-size:16px;font-weight:700;cursor:pointer
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      padding:12px 16px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      transition:background .15s ease, transform .15s ease;
     }
-    button.alt{background:#e5e7eb;color:#111827}
-    button:disabled{opacity:.6;cursor:not-allowed}
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap}
-    .pillrow{display:flex;gap:8px;flex-wrap:wrap}
-    .pill{
-      border:1px solid var(--line);padding:8px 10px;border-radius:999px;
-      font-size:13px;background:#fff
+
+    button:hover{
+      background:var(--brand-dark);
     }
-    .logo{font-weight:800;letter-spacing:.5px}
-    .status{
-      margin-top:12px;padding:12px;border-radius:12px;font-size:14px;display:none
+
+    button:active{
+      transform:translateY(1px);
     }
-    .status.show{display:block}
-    .status.error{background:#fef2f2;color:var(--danger);border:1px solid #fecaca}
-    .status.success{background:#f0fdf4;color:var(--success);border:1px solid #bbf7d0}
-    .topnav{
-      margin:0 0 16px 0;
+
+    button.alt{
+      background:#e5e7eb;
+      color:#111827;
+    }
+
+    button.alt:hover{
+      background:#d9dde3;
+    }
+
+    .btnrow{
       display:flex;
       gap:10px;
-      flex-wrap:wrap
+      flex-wrap:wrap;
     }
-    .topnav a{
-      text-decoration:none;
-      color:var(--brand);
-      font-weight:700;
-      background:#fff;
+
+    #quoteText{
+      min-height:320px;
+      resize:vertical;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
       border:1px solid var(--line);
-      padding:10px 14px;
-      border-radius:12px
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      background:#fff;
     }
-    #deposit{
-      margin-top:8px;
+
+    .logo{
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+
+    .notes-preview{
+      min-height:96px;
+      resize:vertical;
+    }
+
+    .notes-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .notes-count{
+      margin-top:6px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:var(--overlay);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:9999;
+    }
+
+    .modal-backdrop.show{
+      display:flex;
+    }
+
+    .modal-card{
+      width:min(900px, 100%);
+      max-height:92vh;
+      background:#fff;
+      border-radius:20px;
+      box-shadow:0 18px 45px rgba(0,0,0,.25);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    .modal-header{
+      padding:18px 18px 12px 18px;
+      border-bottom:1px solid var(--line);
+      background:#f8fafc;
+    }
+
+    .modal-title{
+      margin:0;
+      font-size:24px;
+    }
+
+    .modal-subtle{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .modal-body{
+      padding:16px 18px;
+      overflow:auto;
+    }
+
+    .modal-body textarea{
+      min-height:52vh;
+      resize:vertical;
       line-height:1.5;
+    }
+
+    .modal-footer{
+      padding:14px 18px 18px 18px;
+      border-top:1px solid var(--line);
+      background:#fff;
+    }
+
+    .footer-note{
+      margin-top:8px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media (max-width:640px){
+      .hero h1{
+        font-size:24px;
+      }
+
+      .quotebox .big{
+        font-size:32px;
+      }
+
+      .modal-card{
+        max-height:96vh;
+        border-radius:16px;
+      }
+
+      .modal-title{
+        font-size:22px;
+      }
+
+      .modal-body textarea{
+        min-height:48vh;
+      }
+
+      .btnrow button,
+      .notes-actions button,
+      .modal-footer .btnrow button{
+        width:100%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="topnav">
-      <a href="/">Home</a>
-      <a href="/contract.html">Contract Page</a>
-    </div>
-
     <div class="hero">
       <div class="logo">TAME YOUR TERRAIN</div>
       <h1>Premium Quote Calculator</h1>
-      <p>Mobile-friendly project quoting for forestry mulching, trails, food plots, buckthorn removal, and habitat work.</p>
-      <div class="badge">Clear Lake, WI • Project-based pricing • Deposit model built in</div>
+      <p>Built for quick quoting on your phone while talking to landowners.</p>
+      <div class="badge">Clear Lake, WI area • Project-based pricing</div>
     </div>
 
     <div class="grid grid-2">
       <div>
         <div class="card">
           <h2>Customer & Job Details</h2>
+
           <div class="grid grid-3">
             <div>
               <label for="customerName">Customer name</label>
               <input id="customerName" placeholder="John Smith" />
             </div>
-            <div>
-              <label for="customerEmail">Customer email</label>
-              <input id="customerEmail" type="email" placeholder="john@email.com" />
-            </div>
-            <div>
-              <label for="customerPhone">Customer phone</label>
-              <input id="customerPhone" placeholder="(555) 555-5555" />
-            </div>
-          </div>
-
-          <div class="grid grid-3" style="margin-top:14px;">
             <div>
               <label for="location">Job location</label>
               <input id="location" placeholder="County / town / road" />
@@ -139,16 +347,12 @@
               <label for="service">Service type</label>
               <select id="service">
                 <option>Forestry mulching</option>
-                <option>Trail building</option>
+                <option>Trail cutting</option>
                 <option>Food plot clearing</option>
-                <option>Buckthorn removal</option>
+                <option>Buckthorn / invasive removal</option>
                 <option>Habitat improvement</option>
-                <option>Land clearing</option>
+                <option>Property reclamation</option>
               </select>
-            </div>
-            <div>
-              <label for="phone">Business phone on quote</label>
-              <input id="phone" value="(715) 255-0328" />
             </div>
           </div>
 
@@ -172,9 +376,10 @@
               <label for="veg">Vegetation density</label>
               <select id="veg">
                 <option value="0">Light</option>
-                <option value="1" selected>Medium</option>
-                <option value="2">Heavy</option>
+                <option value="1">Medium</option>
+                <option value="2" selected>Heavy</option>
               </select>
+              <div class="subtle">Adjusts production and pricing.</div>
             </div>
             <div>
               <label for="terrain">Terrain</label>
@@ -183,6 +388,7 @@
                 <option value="1">Slightly hilly</option>
                 <option value="2">Steep</option>
               </select>
+              <div class="subtle">Adds for slower, more careful work.</div>
             </div>
             <div>
               <label for="finish">Finish level</label>
@@ -191,20 +397,21 @@
                 <option value="1">Cleaner finish</option>
                 <option value="2">Premium finish</option>
               </select>
+              <div class="subtle">For cleaner, more manicured results.</div>
             </div>
           </div>
 
           <div class="grid grid-3" style="margin-top:14px;">
             <div>
-              <label for="mobilization">Mobilization fee ($)</label>
-              <input id="mobilization" type="number" value="225" />
+              <label for="mobilizationFee">Mobilization fee ($)</label>
+              <input id="mobilizationFee" type="number" value="225" />
             </div>
             <div>
-              <label for="driveHours">Drive time round trip per day (hours)</label>
-              <input id="driveHours" type="number" step="0.25" value="0" />
+              <label for="driveHours">Drive time (hours round trip)</label>
+              <input id="driveHours" type="number" step="0.25" value="1" />
             </div>
             <div>
-              <label for="driveRate">Drive rate ($/hour)</label>
+              <label for="driveRate">Drive time rate ($/hour)</label>
               <input id="driveRate" type="number" value="125" />
             </div>
           </div>
@@ -219,9 +426,23 @@
               <input id="depositPct" type="number" value="20" />
             </div>
             <div>
-              <label for="customNotes">Optional notes</label>
-              <input id="customNotes" placeholder="Anything special to mention" />
+              <label for="phone">Phone number on quote</label>
+              <input id="phone" value="(715) 255-0328" />
             </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <label for="optionalNotes">Optional notes</label>
+            <textarea
+              id="optionalNotes"
+              class="notes-preview"
+              placeholder="Tap “Open Notes Editor” for a bigger writing area."
+            ></textarea>
+            <div class="notes-actions">
+              <button type="button" onclick="openNotesEditor()">Open Notes Editor</button>
+              <button type="button" class="alt" onclick="clearNotes()">Clear Notes</button>
+            </div>
+            <div id="notesCount" class="notes-count">0 characters</div>
           </div>
         </div>
 
@@ -239,10 +460,10 @@
 
       <div>
         <div class="card quotebox">
-          <div>Estimated Project Price</div>
+          <div>Recommended Project Quote</div>
           <div id="quote" class="big">$0</div>
           <div id="perAcre">Approx. $0 per acre</div>
-          <div id="deposit"></div>
+          <div id="deposit" style="margin-top:8px;"></div>
           <div class="summaryline" id="summary" style="margin-top:10px;"></div>
         </div>
 
@@ -255,21 +476,47 @@
           <h2>Customer-Facing Quote</h2>
           <textarea id="quoteText" readonly></textarea>
           <div class="btnrow" style="margin-top:12px;">
-            <button type="button" onclick="sendEstimate()" id="sendBtn">Send Estimate</button>
             <button type="button" onclick="copyQuote()">Copy Quote</button>
             <button type="button" class="alt" onclick="updateCalc()">Refresh</button>
           </div>
-          <div id="statusBox" class="status"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    const API_BASE = "https://node-starter--chaotic-reason.replit.app/api";
+  <div id="notesModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="notesModalTitle">
+      <div class="modal-header">
+        <h2 id="notesModalTitle" class="modal-title">Optional Notes Editor</h2>
+        <p class="modal-subtle">Write freely here, then save and return to the estimate form.</p>
+      </div>
 
-    function money(n){ return '$' + Math.round(n).toLocaleString(); }
-    function round50(n){ return Math.round(n / 50) * 50; }
+      <div class="modal-body">
+        <label for="notesEditor">Notes</label>
+        <textarea
+          id="notesEditor"
+          placeholder="Type your notes here..."
+        ></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <div class="btnrow">
+          <button type="button" onclick="saveAndCloseNotes()">Save &amp; Close</button>
+          <button type="button" class="alt" onclick="cancelNotesEditor()">Cancel</button>
+        </div>
+        <div class="footer-note">Save &amp; Close updates the Optional Notes field on the form.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function money(n){
+      return '$' + Math.round(n).toLocaleString();
+    }
+
+    function round50(n){
+      return Math.round(n / 50) * 50;
+    }
 
     function vegFactor(v){
       v = Number(v);
@@ -278,6 +525,7 @@
       if (v === 2) return 1.30;
       return 1.10;
     }
+
     function vegLabel(v){
       return ['Light','Medium','Heavy'][Number(v)] || 'Medium';
     }
@@ -289,6 +537,7 @@
       if (v === 2) return 1.28;
       return 1.00;
     }
+
     function terrainLabel(v){
       return ['Flat','Slightly hilly','Steep'][Number(v)] || 'Flat';
     }
@@ -300,103 +549,129 @@
       if (v === 2) return Math.max(500, base * 0.12);
       return 0;
     }
+
     function finishLabel(v){
       return ['Mulching only','Cleaner finish','Premium finish'][Number(v)] || 'Mulching only';
     }
 
-    function val(id){ return document.getElementById(id).value; }
-    function checked(id){ return document.getElementById(id).checked; }
-
-    function showStatus(message, type){
-      const box = document.getElementById('statusBox');
-      box.className = 'status show ' + type;
-      box.textContent = message;
+    function val(id){
+      return document.getElementById(id).value;
     }
 
-    function clearStatus(){
-      const box = document.getElementById('statusBox');
-      box.className = 'status';
-      box.textContent = '';
+    function checked(id){
+      return document.getElementById(id).checked;
+    }
+
+    function notesValue(){
+      return document.getElementById('optionalNotes').value.trim();
+    }
+
+    function updateNotesCount(){
+      const count = document.getElementById('optionalNotes').value.length;
+      document.getElementById('notesCount').textContent = count + (count === 1 ? ' character' : ' characters');
+    }
+
+    function openNotesEditor(){
+      const notesModal = document.getElementById('notesModal');
+      const notesEditor = document.getElementById('notesEditor');
+      notesEditor.value = document.getElementById('optionalNotes').value;
+      notesModal.classList.add('show');
+      notesModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      setTimeout(() => notesEditor.focus(), 50);
+    }
+
+    function saveAndCloseNotes(){
+      document.getElementById('optionalNotes').value = document.getElementById('notesEditor').value;
+      closeNotesEditor();
+      updateNotesCount();
+      updateCalc();
+    }
+
+    function cancelNotesEditor(){
+      closeNotesEditor();
+    }
+
+    function closeNotesEditor(){
+      const notesModal = document.getElementById('notesModal');
+      notesModal.classList.remove('show');
+      notesModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    function clearNotes(){
+      document.getElementById('optionalNotes').value = '';
+      document.getElementById('notesEditor').value = '';
+      updateNotesCount();
+      updateCalc();
     }
 
     function updateCalc(){
-      clearStatus();
-
       const customerName = val('customerName').trim();
       const location = val('location').trim();
       const service = val('service');
-      const phone = val('phone').trim();
-      const customNotes = val('customNotes').trim();
-
       const dailyRate = Number(val('dailyRate')) || 0;
       const days = Number(val('days')) || 0;
       const acres = Number(val('acres')) || 0;
       const veg = Number(val('veg'));
       const terrain = Number(val('terrain'));
       const finish = Number(val('finish'));
-      const mobilizationFee = Number(val('mobilization')) || 0;
+      const mobilizationFee = Number(val('mobilizationFee')) || 0;
       const driveHours = Number(val('driveHours')) || 0;
       const driveRate = Number(val('driveRate')) || 0;
       const minJob = Number(val('minJob')) || 0;
       const depositPct = Number(val('depositPct')) || 0;
+      const phone = val('phone');
+      const optionalNotes = notesValue();
 
       const base = dailyRate * days;
       const vegAdj = vegFactor(veg);
       const terrainAdj = terrainFactor(terrain);
-      const densityTerrainAdjusted = base * vegAdj * terrainAdj;
-      const finishCharge = finishAdd(finish, base);
-      const driveCharge = driveHours * driveRate * days;
+      const driveCharge = driveHours * driveRate;
 
       let addOns = 0;
       const drivers = [];
 
       if (checked('grapple')) { addOns += 300; drivers.push('grapple work'); }
       if (checked('rake')) { addOns += 350; drivers.push('rake work'); }
-      if (checked('obstacles')) { addOns += 250; drivers.push('stumps / rocks / hidden obstacles'); }
-      if (checked('wet')) { addOns += 200; drivers.push('wet / soft ground'); }
-      if (checked('rush')) { addOns += 250; drivers.push('small-job / rush premium'); }
-      if (checked('access')) { addOns += 200; drivers.push('long backing / hard access'); }
-      if (checked('trash')) { addOns += 250; drivers.push('wire / fence / trash risk'); }
+      if (checked('obstacles')) { addOns += 250; drivers.push('hidden obstacles'); }
+      if (checked('wet')) { addOns += 200; drivers.push('wet ground'); }
+      if (checked('rush')) { addOns += 250; drivers.push('rush scheduling'); }
+      if (checked('access')) { addOns += 200; drivers.push('hard access'); }
+      if (checked('trash')) { addOns += 250; drivers.push('wire/trash risk'); }
+
+      const densityTerrainAdjusted = base * vegAdj * terrainAdj;
+      const finishCharge = finishAdd(finish, base);
 
       if (veg === 2) drivers.push('heavy vegetation');
-      else if (veg === 1) drivers.push('medium vegetation');
-      else drivers.push('light vegetation');
-
+      if (veg === 1) drivers.push('medium vegetation');
+      if (terrain === 1) drivers.push('slightly hilly terrain');
       if (terrain === 2) drivers.push('steep terrain');
-      else if (terrain === 1) drivers.push('slightly hilly terrain');
-      else drivers.push('flat terrain');
-
-      if (finish === 1) drivers.push('cleaner finish requested');
-      if (finish === 2) drivers.push('premium finish requested');
+      if (finish === 1) drivers.push('cleaner finish');
+      if (finish === 2) drivers.push('premium finish');
       if (mobilizationFee > 0) drivers.push('mobilization');
       if (driveCharge > 0) drivers.push('drive time');
 
-      const total = Math.max(minJob, round50(densityTerrainAdjusted + finishCharge + addOns + mobilizationFee + driveCharge));
+      const total = Math.max(
+        minJob,
+        round50(densityTerrainAdjusted + finishCharge + addOns + mobilizationFee + driveCharge)
+      );
+
       const perAcre = acres > 0 ? Math.round(total / acres) : 0;
       const deposit = round50(total * (depositPct / 100));
-      const remainingBalance = total - deposit;
 
       document.getElementById('quote').textContent = money(total);
-
-      if (acres > 1) {
-        document.getElementById('perAcre').textContent = `Approx. ${money(perAcre)} per acre`;
-      } else {
-        document.getElementById('perAcre').textContent = '';
-      }
-
-      if (depositPct > 0) {
-        document.getElementById('deposit').innerHTML =
-          `Deposit due before scheduling: ${money(deposit)}<br>` +
-          `Remaining balance due within 7 days of project completion: ${money(remainingBalance)}`;
-      } else {
-        document.getElementById('deposit').textContent = '';
-      }
+      document.getElementById('perAcre').textContent =
+        acres > 0 ? `Approx. ${money(perAcre)} per acre` : 'Approx. $0 per acre';
+      document.getElementById('deposit').textContent =
+        depositPct > 0 ? `Suggested deposit: ${money(deposit)} (${depositPct}%)` : '';
 
       document.getElementById('summary').textContent =
         `Base ${money(base)} • Vegetation x${vegAdj.toFixed(2)} • Terrain x${terrainAdj.toFixed(2)} • Finish ${money(finishCharge)} • Mobilization ${money(mobilizationFee)} • Drive ${money(driveCharge)} • Add-ons ${money(addOns)}`;
 
       const driversBox = document.getElementById('drivers');
       driversBox.innerHTML = '';
+
       (drivers.length ? drivers : ['base project scope']).forEach(d => {
         const span = document.createElement('div');
         span.className = 'pill';
@@ -406,27 +681,34 @@
 
       let text = '';
       text += 'Tame Your Terrain Estimate\n\n';
+
       if (customerName) text += 'Customer: ' + customerName + '\n';
       if (location) text += 'Location: ' + location + '\n';
+
       text += 'Service: ' + service + '\n';
       text += 'Estimated acres: ' + acres + '\n';
       text += 'Estimated production time: ' + days + ' day(s)\n';
       text += 'Vegetation: ' + vegLabel(veg) + '\n';
       text += 'Terrain: ' + terrainLabel(terrain) + '\n';
       text += 'Finish level: ' + finishLabel(finish) + '\n\n';
+
       text += 'Estimated project price: ' + money(total) + '\n';
-      if (acres > 1) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
-      if (depositPct > 0) {
-        text += 'Deposit due before scheduling: ' + money(deposit) + '\n';
-        text += 'Remaining balance due within 7 days of project completion: ' + money(remainingBalance) + '\n';
-      }
+
+      if (acres > 0) text += 'Approx. per-acre price: ' + money(perAcre) + '\n';
+      if (depositPct > 0) text += 'Suggested deposit to reserve time: ' + money(deposit) + '\n';
+
       text += '\nThis estimate is based on the current site conditions described and includes machine time, fuel, normal grease use, and standard setup.\n';
+
       if (mobilizationFee > 0) text += 'Mobilization included: ' + money(mobilizationFee) + '\n';
-      if (driveCharge > 0) text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip per day x ' + days + ' day(s) @ ' + money(driveRate) + '/hr)\n';
+      if (driveCharge > 0) {
+        text += 'Drive time included: ' + money(driveCharge) + ' (' + driveHours + ' hr round trip @ ' + money(driveRate) + '/hr)\n';
+      }
       if (drivers.length) text += 'Price factors included: ' + drivers.join(', ') + '\n';
-      if (customNotes) text += 'Notes: ' + customNotes + '\n';
+      if (optionalNotes) text += 'Notes: ' + optionalNotes + '\n';
+
       text += '\nIf site conditions differ materially from what was described or shown in photos, the final price may need to be adjusted.\n';
-      text += 'To move forward, reply to this email or call/text ' + phone + '.';
+      text += 'To get on the schedule, call or text ' + phone + '.';
+
       document.getElementById('quoteText').value = text;
     }
 
@@ -435,98 +717,33 @@
       box.select();
       box.setSelectionRange(0, 99999);
       navigator.clipboard.writeText(box.value);
-      showStatus('Quote copied.', 'success');
+      alert('Quote copied.');
     }
 
-    async function sendEstimate(){
-      clearStatus();
-      updateCalc();
-
-      const customerName = val('customerName').trim();
-      const customerEmail = val('customerEmail').trim();
-      const customerPhone = val('customerPhone').trim();
-      const location = val('location').trim();
-      const service = val('service').trim();
-      const acres = val('acres').trim();
-      const days = val('days').trim();
-      const vegetation = vegLabel(val('veg'));
-      const terrain = terrainLabel(val('terrain'));
-      const finishLevel = finishLabel(val('finish'));
-      const projectPrice = document.getElementById('quote').textContent.trim();
-      const perAcreText = document.getElementById('perAcre').textContent.trim();
-      const depositText = document.getElementById('deposit').textContent.trim();
-      const quoteText = val('quoteText').trim();
-      const businessPhone = val('phone').trim();
-
-      if (!customerName) {
-        showStatus('Please enter the customer name.', 'error');
-        return;
-      }
-
-      if (!customerEmail) {
-        showStatus('Please enter the customer email.', 'error');
-        return;
-      }
-
-      if (!quoteText) {
-        showStatus('The quote is empty. Please refresh the calculator first.', 'error');
-        return;
-      }
-
-      const sendBtn = document.getElementById('sendBtn');
-      sendBtn.disabled = true;
-      sendBtn.textContent = 'Sending...';
-
-      try {
-        const response = await fetch(API_BASE + '/estimates/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            customerName,
-            customerEmail,
-            customerPhone,
-            location,
-            service,
-            acres,
-            days,
-            vegetation,
-            terrain,
-            finishLevel,
-            projectPrice,
-            perAcre: perAcreText,
-            deposit: depositText,
-            quoteText,
-            businessPhone
-          })
-        });
-
-        const result = await response.json();
-
-        if (!response.ok) {
-          throw new Error(result.error || 'Failed to send estimate.');
-        }
-
-        showStatus('Estimate sent successfully.', 'success');
-      } catch (error) {
-        showStatus(error.message || 'Something went wrong sending the estimate.', 'error');
-      } finally {
-        sendBtn.disabled = false;
-        sendBtn.textContent = 'Send Estimate';
-      }
-    }
-
-    [
-      'customerName','customerEmail','customerPhone','location','service','phone','dailyRate','days','acres',
-      'veg','terrain','finish','mobilization','driveHours','driveRate','minJob','depositPct','customNotes',
-      'grapple','rake','obstacles','wet','rush','access','trash'
-    ].forEach(id => {
-      const el = document.getElementById(id);
-      el.addEventListener('input', updateCalc);
-      el.addEventListener('change', updateCalc);
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        updateNotesCount();
+        updateCalc();
+      });
+      el.addEventListener('change', () => {
+        updateNotesCount();
+        updateCalc();
+      });
     });
 
+    document.getElementById('notesModal').addEventListener('click', function(e){
+      if (e.target === this) {
+        closeNotesEditor();
+      }
+    });
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') {
+        closeNotesEditor();
+      }
+    });
+
+    updateNotesCount();
     updateCalc();
   </script>
 </body>
