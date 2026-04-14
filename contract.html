@@ -105,7 +105,7 @@
               <div>
                 <h3 class="font-bold text-stone-900">2. Deposit and Final Payment</h3>
                 <p>
-                  A 20% non-refundable deposit is required before the project is placed on the schedule. The remaining balance is due within 7 days after project completion.
+                  A 25% non-refundable deposit is required before the project is placed on the schedule. The remaining balance is due upon project completion.
                 </p>
               </div>
               <div>
@@ -131,7 +131,7 @@
               <div>
                 <h3 class="font-bold text-stone-900">6. Additional Work</h3>
                 <p>
-                  Any work outside the original agreed scope, including extra acreage, heavier-than-expected conditions, cleanup, or added finishing work, will require approval and additional cost.
+                  Any work outside the original agreed scope, including extra acreage, heavier-than-expected conditions, hidden debris, cleanup, or added finishing work, will require approval and additional cost.
                 </p>
               </div>
               <div>
@@ -141,13 +141,30 @@
                 </p>
               </div>
               <div>
-                <h3 class="font-bold text-stone-900">8. Cancellation</h3>
+                <h3 class="font-bold text-stone-900">8. Hidden Debris and Additional Cleanup Costs</h3>
+                <p>
+                  If excessive hidden debris is encountered, including but not limited to wire, fencing, scrap metal, garbage, concrete, tires, or other foreign materials not visible during initial site evaluation,
+                  additional charges may apply.
+                </p>
+                <p class="mt-2">
+                  These materials significantly reduce productivity, increase equipment wear, and require additional time for safe removal and disposal.
+                </p>
+                <p class="mt-2">
+                  If such conditions are encountered, Tame Your Terrain reserves the right to pause work, reassess the project scope, and apply additional charges based on time, difficulty, cleanup requirements,
+                  disposal requirements, and equipment impact.
+                </p>
+                <p class="mt-2">
+                  Where possible, the customer will be notified before continuing work under revised conditions. However, immediate action may be taken if necessary to protect equipment or maintain safety.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-900">9. Cancellation</h3>
                 <p>
                   Once the project has been scheduled, the deposit is non-refundable.
                 </p>
               </div>
               <div>
-                <h3 class="font-bold text-stone-900">9. Photo Release</h3>
+                <h3 class="font-bold text-stone-900">10. Photo Release</h3>
                 <p>
                   Customer grants permission for Tame Your Terrain to take and use before-and-after project photos for marketing purposes, without sharing sensitive personal information.
                 </p>
@@ -169,10 +186,25 @@
             </div>
 
             <label class="flex items-start gap-3 mt-5 p-4 bg-stone-50 border border-stone-200 rounded-xl">
-              <input id="acceptTerms" name="acceptTerms" type="checkbox" required class="mt-1 h-5 w-5" />
+              <input id="acceptTerms" name="acceptTerms" type="checkbox" value="yes" required class="mt-1 h-5 w-5" />
               <span class="text-sm md:text-base leading-relaxed">
                 I confirm that I am authorized to approve this work, that I have reviewed the agreement terms above,
                 and that typing my name below serves as my electronic acknowledgement of this agreement.
+              </span>
+            </label>
+
+            <label class="flex items-start gap-3 mt-4 p-4 bg-amber-50 border border-amber-300 rounded-xl">
+              <input
+                id="acceptHiddenDebris"
+                name="acceptHiddenDebris"
+                type="checkbox"
+                value="yes"
+                required
+                class="mt-1 h-5 w-5"
+              />
+              <span class="text-sm md:text-base leading-relaxed">
+                I understand that if hidden debris, buried materials, wire, fencing, scrap metal, garbage, concrete, tires, or other undisclosed obstacles are encountered that were not visible during the initial site evaluation,
+                Tame Your Terrain may pause work, reassess the project, and apply additional charges for cleanup, disposal, reduced productivity, equipment wear, downtime, or repair costs.
               </span>
             </label>
           </section>
@@ -224,7 +256,7 @@
     projectCostInput.addEventListener("input", () => {
       const price = Number(projectCostInput.value);
       if (!Number.isNaN(price) && price > 0) {
-        depositPreviewInput.value = (price * 0.20).toFixed(2);
+        depositPreviewInput.value = (price * 0.25).toFixed(2);
       } else {
         depositPreviewInput.value = "";
       }
