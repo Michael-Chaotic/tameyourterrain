@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tame Your Terrain Bid Builder v4 v4</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root{
+      --bg:#f4f1ea;
+      --card:#ffffff;
+      --ink:#1d251f;
+      --muted:#667062;
+      --brand:#1f4d2e;
+      --brand-dark:#14351f;
+      --accent:#8a6a2f;
+      --accent-soft:#f3ead5;
+      --line:#ddd7c9;
+      --danger:#8b1e1e;
+      --warn:#9a6400;
+      --ok:#1f6b35;
+      --shadow:0 10px 24px rgba(31,37,31,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+    .wrap{max-width:1220px;margin:0 auto;padding:18px}
+    .hero{background:linear-gradient(135deg,var(--brand-dark),var(--brand));color:#fff;border-radius:24px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+    .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#d7e6d9;font-weight:800;margin-bottom:8px}
+    h1{margin:0;font-size:clamp(28px,4vw,44px);line-height:1.05}
+    .hero p{margin:10px 0 0;color:#eaf2ec;max-width:900px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:8px 10px;border-radius:999px;font-size:13px;color:#fff}
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){.grid-2{grid-template-columns:1.05fr .95fr}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .card{background:var(--card);border:1px solid rgba(221,215,201,.8);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow)}
+    .card h2{margin:0 0 12px;font-size:20px;color:var(--brand-dark)}
+    .card h3{margin:18px 0 10px;font-size:16px;color:var(--brand-dark)}
+    label{display:block;font-weight:800;margin:0 0 6px;font-size:14px;color:#253025}
+    input,select,textarea{width:100%;border:1px solid #cfc7b7;border-radius:12px;background:#fff;color:var(--ink);padding:11px 12px;font-size:15px;font-family:inherit}
+    textarea{min-height:180px;resize:vertical;white-space:pre-wrap}
+    .small{font-size:12px;color:var(--muted);margin-top:5px}
+    .field{min-width:0}
+    .stack{display:grid;gap:12px}
+    .checkgrid{display:grid;gap:8px}
+    @media (min-width:720px){.checkgrid{grid-template-columns:1fr 1fr}}
+    .checkrow{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fffdf8}
+    .checkrow input{width:auto;margin-top:3px;transform:scale(1.12)}
+    .checkrow label{margin:0;font-weight:700;line-height:1.25;cursor:pointer}
+    .checkrow .desc{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:3px}
+    .quotePanel{background:#111a13;color:#fff;border-radius:24px;padding:18px;box-shadow:var(--shadow);position:sticky;top:12px}
+    .quotePanel .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#c8d8cb;font-weight:800}
+    .quotePanel .price{font-size:clamp(36px,5vw,58px);font-weight:900;letter-spacing:-.04em;margin:8px 0}
+    .quotePanel .mini{color:#d8e3d9;font-size:14px;margin:6px 0}
+    .metricgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+    .metric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px}
+    .metric .m1{font-size:12px;color:#c8d8cb}.metric .m2{font-size:18px;font-weight:900;margin-top:2px}
+    .notice{border-radius:14px;padding:12px;margin-top:12px;font-size:13px;display:none}.notice.show{display:block}.notice.ok{background:#e8f6ec;color:#174c28;border:1px solid #badfc4}.notice.warn{background:#fff2d8;color:#7a4f00;border:1px solid #f0ca81}.notice.danger{background:#fbe7e7;color:#7b1d1d;border:1px solid #e8b4b4}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    button{border:0;border-radius:12px;padding:11px 14px;background:var(--brand);color:#fff;font-size:15px;font-weight:800;cursor:pointer}button:hover{background:#28623a}button.alt{background:#e7e0d1;color:#1d251f}button.gold{background:var(--accent)}button.danger{background:var(--danger)}button:disabled{opacity:.55;cursor:not-allowed}
+    .pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:#fffdf8;color:#263126;font-size:12px;font-weight:700}
+    .breakdown{font-size:13px;color:#41503f;background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:12px}
+    .divider{height:1px;background:var(--line);margin:16px 0}.hidden{display:none!important}.footerNote{font-size:12px;color:var(--muted);text-align:center;margin:16px 0 4px}.copyStatus{font-size:13px;margin-top:8px;color:var(--ok);min-height:18px}
+    .sectionTag{display:inline-block;background:var(--accent-soft);color:#5f461d;border-radius:999px;padding:5px 9px;font-weight:800;font-size:12px;margin-bottom:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Tame Your Terrain • Internal Estimating Tool</div>
+      <h1>Bid Builder & Project Price Calculator</h1>
+      <p>Built for forestry mulching, habitat improvement, trail building, food plot clearing, buckthorn removal, grapple work, rake work, and hunting-property projects. Customer sees a clean <strong>Project Price</strong>; you see the internal production math.</p>
+      <div class="badges">
+        <span class="badge">$3,000/day internal base</span>
+        <span class="badge">1-day minimum project</span>
+        <span class="badge">25% deposit</span>
+        <span class="badge">Copy/paste into Jobber</span>
+      </div>
+    </header>
+
+    <div class="grid grid-2">
+      <main>
+        <section class="card">
+          <span class="sectionTag">Step 1</span>
+          <h2>Customer & Job Details</h2>
+          <div class="grid grid-3">
+            <div class="field"><label for="customerName">Customer name</label><input id="customerName" placeholder="John Smith"></div>
+            <div class="field"><label for="customerPhone">Customer phone</label><input id="customerPhone" placeholder="715-555-1234"></div>
+            <div class="field"><label for="customerEmail">Customer email</label><input id="customerEmail" placeholder="customer@email.com"></div>
+          </div>
+          <div class="grid grid-3" style="margin-top:12px">
+            <div class="field"><label for="location">Job location</label><input id="location" placeholder="Town / county / road"></div>
+            <div class="field"><label for="service">Primary service</label><select id="service"><option>Forestry mulching</option><option>Habitat improvement</option><option>Trail building / trail clearing</option><option>Food plot clearing</option><option>Buckthorn / invasive removal</option><option>Land clearing</option><option>Shooting lanes / stand access</option><option>Tick habitat reduction</option><option>Mixed land improvement project</option></select></div>
+            <div class="field"><label for="projectName">Project name / reference</label><input id="projectName" placeholder="North woods trail project"></div>
+          </div>
+          <div style="margin-top:12px"><label for="customerPriorities">Customer priorities / desired result</label><textarea id="customerPriorities" placeholder="Example: Open trails to deer stands, clear buckthorn near food plot, preserve mature oaks, improve access for side-by-side."></textarea></div>
+        </section>
+
+        <section class="card">
+          <span class="sectionTag">Step 2</span>
+          <h2>Production Estimate & Project Block</h2>
+          <div class="grid grid-4">
+            <div class="field"><label for="dayRate">Internal day value ($)</label><input id="dayRate" type="number" value="3000" min="0" step="50"><div class="small">Customer does not see this.</div></div>
+            <div class="field"><label for="productionDays">Estimated production time</label><select id="productionDays"><option value="0.5">0.5 day internal</option><option value="1" selected>1 day</option><option value="1.5">1.5 days</option><option value="2">2 days</option><option value="2.5">2.5 days</option><option value="3">3 days</option><option value="3.5">3.5 days</option><option value="4">4 days</option><option value="4.5">4.5 days</option><option value="5">5 days</option><option value="6">6 days</option><option value="7">7 days</option><option value="8">8 days</option><option value="10">10 days</option></select><div class="small">Used for internal planning only.</div></div>
+            <div class="field"><label for="manualProjectDays">Billable project block</label><select id="manualProjectDays"><option value="auto" selected>Auto round up</option><option value="1">1-day project</option><option value="2">2-day project</option><option value="3">3-day project</option><option value="4">4-day project</option><option value="5">5-day project</option><option value="6">6-day project</option><option value="7">7-day project</option><option value="8">8-day project</option><option value="10">10-day project</option></select><div class="small">Minimum is always 1 day.</div></div>
+            <div class="field"><label for="acres">Estimated acres / area</label><input id="acres" type="number" value="1" min="0" step="0.01"><div class="small">Optional, for per-acre sanity check.</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <span class="sectionTag">Step 3</span>
+          <h2>Scope, Density, Terrain & Finish</h2>
+          <div class="grid grid-3">
+            <div class="field"><label for="density">Vegetation density</label><select id="density"><option value="1.00">Light underbrush</option><option value="1.10" selected>Moderate brush / saplings</option><option value="1.25">Dense / heavy growth</option><option value="1.45">Extreme / unknown</option></select><div class="small">Internal multiplier.</div></div>
+            <div class="field"><label for="terrain">Terrain / access difficulty</label><select id="terrain"><option value="1.00" selected>Mostly flat / easy access</option><option value="1.10">Rolling / moderate</option><option value="1.25">Steep / tight / limited angles</option><option value="1.45">Very difficult / custom review</option></select><div class="small">Internal multiplier.</div></div>
+            <div class="field"><label for="finish">Desired finished result</label><select id="finish"><option value="1.00" selected>Functional access</option><option value="1.10">Managed hunting property</option><option value="1.25">Park-like / clean finish</option><option value="1.35">Maximum practical clearing</option></select><div class="small">Price for the result, not just acres.</div></div>
+          </div>
+          <div class="grid grid-3" style="margin-top:12px">
+            <div class="field"><label for="grapple">Grapple work</label><select id="grapple"><option value="0">None</option><option value="300">Light (+$300)</option><option value="600">Moderate (+$600)</option><option value="1200">Heavy (+$1,200)</option><option value="1800">Very heavy (+$1,800)</option></select><div class="small">Logs, piles, storm debris, staging burn piles.</div></div>
+            <div class="field"><label for="rake">Rake work / finish prep</label><select id="rake"><option value="0">None</option><option value="350">Light (+$350)</option><option value="700">Moderate (+$700)</option><option value="1200">Heavy (+$1,200)</option><option value="1800">Very heavy (+$1,800)</option></select><div class="small">Food plots, lawn edges, seed prep, smoothing.</div></div>
+            <div class="field"><label for="manualAddons">Manual add-ons / buffer ($)</label><input id="manualAddons" type="number" value="0" step="50"><div class="small">Use for special attachments, extra labor, unusual scope.</div></div>
+          </div>
+          <div style="margin-top:12px"><label for="scopeNotes">Scope notes</label><textarea id="scopeNotes" placeholder="Example: Mulch buckthorn and saplings around food plot edge. Open trail from gate to ridge stand. Stage larger logs where customer marks."></textarea></div>
+        </section>
+
+        <section class="card">
+          <span class="sectionTag">Step 4</span>
+          <h2>Risk / Obstacle Flags</h2>
+          <div class="checkgrid">
+            <div class="checkrow"><input id="wet" type="checkbox" data-cost="300" data-label="wet / soft ground"><label for="wet">Wet / soft ground <span class="desc">+$300 risk buffer</span></label></div>
+            <div class="checkrow"><input id="creek" type="checkbox" data-cost="250" data-label="creek / pond / drainage area"><label for="creek">Creek / pond / drainage <span class="desc">+$250 risk buffer</span></label></div>
+            <div class="checkrow"><input id="rocks" type="checkbox" data-cost="300" data-label="rocks / stumps"><label for="rocks">Rocks / stumps <span class="desc">+$300 risk buffer</span></label></div>
+            <div class="checkrow"><input id="wire" type="checkbox" data-cost="500" data-label="wire / old fence"><label for="wire">Wire / old fence <span class="desc">+$500 risk buffer</span></label></div>
+            <div class="checkrow"><input id="trash" type="checkbox" data-cost="400" data-label="junk / trash / metal"><label for="trash">Junk / trash / metal <span class="desc">+$400 risk buffer</span></label></div>
+            <div class="checkrow"><input id="tight" type="checkbox" data-cost="300" data-label="tight access / long backing"><label for="tight">Tight access / long backing <span class="desc">+$300 risk buffer</span></label></div>
+            <div class="checkrow"><input id="structures" type="checkbox" data-cost="250" data-label="work near structures"><label for="structures">Work near structures <span class="desc">+$250 risk buffer</span></label></div>
+            <div class="checkrow"><input id="boundaries" type="checkbox" data-cost="250" data-label="unclear boundaries"><label for="boundaries">Unclear boundaries <span class="desc">+$250 risk buffer</span></label></div>
+            <div class="checkrow"><input id="preserve" type="checkbox" data-cost="150" data-label="trees to preserve / selective work"><label for="preserve">Trees to preserve / selective work <span class="desc">+$150 risk buffer</span></label></div>
+            <div class="checkrow"><input id="scattered" type="checkbox" data-cost="300" data-label="multiple scattered zones"><label for="scattered">Multiple scattered zones <span class="desc">+$300 risk buffer</span></label></div>
+            <div class="checkrow"><input id="unknown" type="checkbox" data-cost="500" data-label="unknown hidden hazards"><label for="unknown">Unknown hidden hazards <span class="desc">+$500 risk buffer</span></label></div>
+            <div class="checkrow"><input id="rush" type="checkbox" data-cost="500" data-label="rush scheduling"><label for="rush">Rush scheduling <span class="desc">+$500 premium</span></label></div>
+          </div>
+          <div style="margin-top:12px"><label for="hazardNotes">Hazard / boundary notes</label><textarea id="hazardNotes" placeholder="Example: Avoid creek bank. Possible old fence line near south edge. Preserve white oaks. Customer will mark boundary with orange flags."></textarea></div>
+        </section>
+
+        <section class="card">
+          <span class="sectionTag">Step 5</span>
+          <h2>Mobilization, Deposit & Tax</h2>
+          <div class="grid grid-4">
+            <div class="field"><label for="mobilizationFee">Mobilization fee ($)</label><input id="mobilizationFee" type="number" value="0" step="25"><div class="small">Optional one-time mobilization.</div></div>
+            <div class="field"><label for="driveHours">Drive hours round trip</label><input id="driveHours" type="number" value="1" min="0" step="0.25"></div>
+            <div class="field"><label for="driveTrips">Drive trips / days</label><input id="driveTrips" type="number" value="1" min="0" step="1"><div class="small">Auto-updates to billable project days unless edited.</div></div>
+            <div class="field"><label for="driveRate">Drive rate ($/hr)</label><input id="driveRate" type="number" value="125" step="5"></div>
+          </div>
+          <div class="grid grid-4" style="margin-top:12px">
+            <div class="field"><label for="depositPct">Deposit %</label><input id="depositPct" type="number" value="25" min="0" max="100" step="1"></div>
+            <div class="field"><label for="taxPct">Sales tax %</label><input id="taxPct" type="number" value="0" min="0" step="0.001"><div class="small">Leave 0 if Jobber adds tax.</div></div>
+            <div class="field"><label for="rounding">Round Project Price up to</label><select id="rounding"><option value="50">Next $50</option><option value="100" selected>Next $100</option><option value="250">Next $250</option><option value="500">Next $500</option><option value="1">No rounding</option></select><div class="small">Uses round-up logic, not nearest-dollar rounding.</div></div>
+            <div class="field"><label for="businessPhone">Business phone</label><input id="businessPhone" value="715-255-0328"></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <span class="sectionTag">Step 6</span>
+          <h2>Operator Notes & Job Data Collection</h2>
+          <div class="grid grid-3">
+            <div class="field"><label for="accessNotes">Access / trailer path</label><textarea id="accessNotes" placeholder="Gate location, driveway limitations, trailer parking, turn-around area."></textarea></div>
+            <div class="field"><label for="preserveNotes">Preserve / avoid</label><textarea id="preserveNotes" placeholder="Trees to keep, areas to avoid, customer-marked boundaries, firewood logs to save."></textarea></div>
+            <div class="field"><label for="futureWork">Future work / follow-up</label><textarea id="futureWork" placeholder="Possible food plot expansion, additional trails, second phase, maintenance visit."></textarea></div>
+          </div>
+          <div class="divider"></div>
+          <h3>After-job log fields</h3>
+          <div class="grid grid-4">
+            <div class="field"><label for="actualDays">Actual production days</label><input id="actualDays" type="number" step="0.25" placeholder=""></div>
+            <div class="field"><label for="actualHours">Actual machine hours</label><input id="actualHours" type="number" step="0.25" placeholder=""></div>
+            <div class="field"><label for="fuelUsed">Fuel used / cost</label><input id="fuelUsed" placeholder="Example: 52 gal / $190"></div>
+            <div class="field"><label for="wouldChange">Next time price change?</label><select id="wouldChange"><option></option><option>Price was good</option><option>Would bid higher next time</option><option>Would bid lower next time</option><option>Need more data</option></select></div>
+          </div>
+          <div class="grid grid-3" style="margin-top:12px">
+            <div class="field"><label for="beforePhotos">Before photo links / notes</label><textarea id="beforePhotos" placeholder="Paste Google Drive, phone album, or Jobber photo references."></textarea></div>
+            <div class="field"><label for="afterPhotos">After photo links / notes</label><textarea id="afterPhotos" placeholder="Paste after photo references."></textarea></div>
+            <div class="field"><label for="lessons">What slowed down / lessons learned</label><textarea id="lessons" placeholder="Example: Hidden fence wire slowed job. Ground wetter than expected. Rake work took longer than estimated."></textarea></div>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <div class="quotePanel">
+          <div class="label">Customer-facing amount</div>
+          <div class="price" id="projectPrice">$3,000</div>
+          <div class="mini"><strong>Project Price</strong> <span id="taxMini"></span></div>
+          <div class="mini" id="depositMini">Deposit to schedule: $750</div>
+          <div class="mini" id="balanceMini">Balance before tax: $2,250</div>
+          <div class="btnrow" style="margin-top:14px">
+            <button class="gold" onclick="copyPriceOnly()">Copy Price Only</button>
+            <button onclick="copyText('jobberText','quickCopyStatus')">Copy Jobber Line Item</button>
+            <button class="alt" onclick="copyText('customerQuote','quickCopyStatus')">Copy Customer Quote</button>
+          </div>
+          <div id="quickCopyStatus" class="copyStatus"></div>
+          <div class="mini"><strong>Jobber tip:</strong> copy “Jobber Line Item” into the quote line item description, then enter the Project Price as the line item amount.</div>
+          <div class="metricgrid">
+            <div class="metric"><div class="m1">Internal estimate</div><div class="m2" id="internalDays">1 day</div></div>
+            <div class="metric"><div class="m1">Billable block</div><div class="m2" id="projectBlock">1 day</div></div>
+            <div class="metric"><div class="m1">Revenue / est. day</div><div class="m2" id="revPerDay">$3,000</div></div>
+            <div class="metric"><div class="m1">Confidence</div><div class="m2" id="confidence">High</div></div>
+          </div>
+          <div class="notice" id="profitNotice"></div>
+          <div class="breakdown" id="breakdown"></div>
+          <div class="pillrow" id="drivers"></div>
+        </div>
+
+        <section class="card">
+          <h2>Customer Quote Text</h2>
+          <textarea id="customerQuote" readonly></textarea>
+          <div class="btnrow"><button onclick="copyText('customerQuote','customerStatus')">Copy Customer Quote</button><button class="alt" onclick="calculate()">Refresh</button></div>
+          <div id="customerStatus" class="copyStatus"></div>
+        </section>
+
+        <section class="card">
+          <h2>Jobber Line Item</h2>
+          <textarea id="jobberText" readonly></textarea>
+          <div class="btnrow"><button onclick="copyText('jobberText','jobberStatus')">Copy Jobber Text</button></div>
+          <div id="jobberStatus" class="copyStatus"></div>
+        </section>
+
+        <section class="card">
+          <h2>Operator Notes</h2>
+          <textarea id="operatorNotes" readonly></textarea>
+          <div class="btnrow"><button onclick="copyText('operatorNotes','operatorStatus')">Copy Operator Notes</button></div>
+          <div id="operatorStatus" class="copyStatus"></div>
+        </section>
+
+        <section class="card">
+          <h2>Job Data Log</h2>
+          <textarea id="jobLog" readonly></textarea>
+          <div class="btnrow"><button class="gold" onclick="downloadJobLog()">Download CSV Row</button><button class="alt" onclick="saveSnapshot()">Save Snapshot</button><button class="danger" onclick="resetForm()">Reset</button></div>
+          <div id="saveStatus" class="copyStatus"></div>
+        </section>
+      </aside>
+    </div>
+    <div class="footerNote">Internal tool. Do not publish this page where customers can view your pricing logic.</div>
+  </div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const money = (n) => '$' + (Math.round(Number(n) || 0)).toLocaleString();
+  const num = (id) => Number($(id).value) || 0;
+  const text = (id) => ($(id).value || '').trim();
+  const selectedText = (id) => $(id).options[$(id).selectedIndex].text;
+  const roundTo = (n, step) => step <= 1 ? Math.round(n) : Math.round(n / step) * step;
+  const roundUpTo = (n, step) => step <= 1 ? Math.ceil(n) : Math.ceil(n / step) * step;
+  const dayWord = (n) => Number(n) === 1 ? 'day' : 'days';
+  const safeLine = (label, value) => value ? label + ': ' + value + '\n' : '';
+  let driveTripsManuallyEdited = false;
+
+  const riskIds = ['wet','creek','rocks','wire','trash','tight','structures','boundaries','preserve','scattered','unknown','rush'];
+  const allInputSelector = 'input, select, textarea';
+
+  document.addEventListener('input', (e) => {
+    if (e.target && e.target.id === 'driveTrips') driveTripsManuallyEdited = true;
+    calculate();
+  });
+  document.addEventListener('change', (e) => {
+    if (e.target && ['productionDays','manualProjectDays'].includes(e.target.id)) syncDriveTrips();
+    calculate();
+  });
+
+  function getProjectDays(){
+    const productionDays = Math.max(0.5, num('productionDays'));
+    const manual = $('manualProjectDays').value;
+    const autoDays = Math.max(1, Math.ceil(productionDays));
+    return manual === 'auto' ? autoDays : Math.max(1, Number(manual));
+  }
+
+  function syncDriveTrips(){
+    if (!driveTripsManuallyEdited) $('driveTrips').value = getProjectDays();
+  }
+
+  function getRiskData(){
+    let total = 0;
+    const labels = [];
+    riskIds.forEach(id => {
+      const el = $(id);
+      if (el && el.checked) {
+        total += Number(el.dataset.cost || 0);
+        labels.push(el.dataset.label || id);
+      }
+    });
+    return {total, labels};
+  }
+
+  function quoteConfidence(riskLabels, densityMult, terrainMult, finishMult){
+    let score = 0;
+    if (riskLabels.length >= 3) score += 1;
+    if (riskLabels.length >= 6) score += 1;
+    if (densityMult >= 1.45 || terrainMult >= 1.45) score += 2;
+    else if (densityMult >= 1.25 || terrainMult >= 1.25) score += 1;
+    if (finishMult >= 1.35) score += 1;
+    if ($('unknown').checked || $('wire').checked || $('wet').checked) score += 1;
+    if (score <= 1) return 'High';
+    if (score <= 3) return 'Medium';
+    return 'Low';
+  }
+
+  function calculate(){
+    const dayRate = Math.max(0, num('dayRate'));
+    const productionDays = Math.max(0.5, num('productionDays'));
+    const projectDays = getProjectDays();
+    if (!driveTripsManuallyEdited) $('driveTrips').value = projectDays;
+
+    const densityMult = Number($('density').value) || 1;
+    const terrainMult = Number($('terrain').value) || 1;
+    const finishMult = Number($('finish').value) || 1;
+    const baseProject = dayRate * projectDays;
+    const adjustedBase = baseProject * densityMult * terrainMult * finishMult;
+    const grappleCost = num('grapple');
+    const rakeCost = num('rake');
+    const manualAddons = Math.max(0, num('manualAddons'));
+    const risk = getRiskData();
+    const mobilizationFee = Math.max(0, num('mobilizationFee'));
+    const driveCharge = Math.max(0, num('driveHours')) * Math.max(0, num('driveTrips')) * Math.max(0, num('driveRate'));
+    const rounding = Math.max(1, num('rounding'));
+
+    const subtotalRaw = adjustedBase + grappleCost + rakeCost + manualAddons + risk.total + mobilizationFee + driveCharge;
+    const roundedSubtotal = roundUpTo(subtotalRaw, rounding);
+    const subtotal = Math.max(dayRate, roundedSubtotal);
+    const tax = roundTo(subtotal * (Math.max(0, num('taxPct')) / 100), 1);
+    const totalWithTax = subtotal + tax;
+    const deposit = roundTo(totalWithTax * (Math.max(0, num('depositPct')) / 100), 1);
+    const balance = totalWithTax - deposit;
+    const revPerEstimatedDay = subtotal / productionDays;
+    const acres = Math.max(0, num('acres'));
+    const perAcre = acres > 0 ? subtotal / acres : 0;
+    const confidence = quoteConfidence(risk.labels, densityMult, terrainMult, finishMult);
+
+    $('projectPrice').textContent = money(totalWithTax);
+    $('taxMini').textContent = tax > 0 ? `(includes ${money(tax)} estimated sales tax)` : '(before sales tax if applicable)';
+    $('depositMini').textContent = 'Deposit to schedule: ' + money(deposit) + ' (' + num('depositPct') + '%)';
+    $('balanceMini').textContent = 'Balance due on completion: ' + money(balance);
+    $('internalDays').textContent = productionDays + ' ' + dayWord(productionDays);
+    $('projectBlock').textContent = projectDays + '-day';
+    $('revPerDay').textContent = money(revPerEstimatedDay);
+    $('confidence').textContent = confidence;
+
+    const notice = $('profitNotice');
+    notice.className = 'notice show ' + (revPerEstimatedDay >= dayRate ? 'ok' : revPerEstimatedDay >= dayRate * .85 ? 'warn' : 'danger');
+    notice.textContent = revPerEstimatedDay >= dayRate
+      ? 'Good: this quote meets or beats your internal daily production target.'
+      : revPerEstimatedDay >= dayRate * .85
+        ? 'Review: this is slightly below the daily target after production-time estimate.'
+        : 'Warning: this quote is well below your daily production target. Review scope, add-ons, risk, or project block.';
+
+    const driverList = [];
+    driverList.push(selectedText('density'));
+    driverList.push(selectedText('terrain'));
+    driverList.push(selectedText('finish'));
+    if (grappleCost > 0) driverList.push('grapple: ' + selectedText('grapple').replace(/ \(.*/, ''));
+    if (rakeCost > 0) driverList.push('rake: ' + selectedText('rake').replace(/ \(.*/, ''));
+    driverList.push(...risk.labels);
+    if (driveCharge > 0) driverList.push('drive time');
+    if (mobilizationFee > 0) driverList.push('mobilization');
+
+    $('drivers').innerHTML = '';
+    driverList.forEach(d => { const span = document.createElement('span'); span.className='pill'; span.textContent=d; $('drivers').appendChild(span); });
+
+    $('breakdown').innerHTML = [
+      '<strong>Internal breakdown</strong>',
+      'Base block: ' + projectDays + ' × ' + money(dayRate) + ' = ' + money(baseProject),
+      'Density × terrain × finish: x' + densityMult.toFixed(2) + ' × x' + terrainMult.toFixed(2) + ' × x' + finishMult.toFixed(2),
+      'Adjusted base: ' + money(adjustedBase),
+      'Grapple: ' + money(grappleCost) + ' • Rake: ' + money(rakeCost),
+      'Risk: ' + money(risk.total) + ' • Manual: ' + money(manualAddons),
+      'Mobilization: ' + money(mobilizationFee) + ' • Drive: ' + money(driveCharge),
+      'Subtotal before tax: ' + money(subtotal),
+      acres > 0 ? 'Approx. internal per-acre check: ' + money(perAcre) + '/acre' : 'No acreage entered for per-acre check.'
+    ].join('<br>');
+
+    buildOutputs({subtotal, subtotalRaw, rounding, tax, totalWithTax, deposit, balance, productionDays, projectDays, revPerEstimatedDay, confidence, driverList, riskLabels:risk.labels, perAcre, driveCharge, mobilizationFee, grappleCost, rakeCost});
+  }
+
+  function buildOutputs(data){
+    const customer = text('customerName') || 'Customer';
+    const service = text('service') || selectedText('service');
+    const loc = text('location');
+    const priorities = text('customerPriorities');
+    const scope = text('scopeNotes');
+    const phone = text('businessPhone') || '715-255-0328';
+    const taxLine = data.tax > 0 ? 'Estimated sales tax included: ' + money(data.tax) + '\n' : 'Sales tax: Added in Jobber if applicable.\n';
+    const addOnPhrases = [];
+    if (data.grappleCost > 0) addOnPhrases.push('grapple work for moving/staging material as discussed');
+    if (data.rakeCost > 0) addOnPhrases.push('rake/finish work as discussed');
+
+    let quote = '';
+    quote += 'Tame Your Terrain Estimate\n\n';
+    quote += safeLine('Customer', customer);
+    quote += safeLine('Location', loc);
+    quote += safeLine('Service', selectedText('service'));
+    quote += '\nProject Price: ' + money(data.totalWithTax) + '\n';
+    quote += taxLine;
+    quote += 'Deposit to schedule: ' + money(data.deposit) + ' (' + num('depositPct') + '%)\n';
+    quote += 'Balance due upon completion: ' + money(data.balance) + '\n\n';
+    quote += 'Scope summary:\n';
+    quote += scope ? scope + '\n' : 'Work includes the agreed land improvement scope discussed during the site visit.\n';
+    if (priorities) quote += '\nCustomer priorities / desired result:\n' + priorities + '\n';
+    if (addOnPhrases.length) quote += '\nIncluded add-ons:\n- ' + addOnPhrases.join('\n- ') + '\n';
+    quote += '\nThis is a fixed Project Price for the agreed scope of work. If site conditions, boundaries, hidden debris, wet ground, rocks, wire, or the requested scope materially differ from what was discussed or visible during the estimate, the price may need to be adjusted before additional work is performed.\n\n';
+    quote += 'To move forward, reply to this message or call/text ' + phone + '.\n';
+    $('customerQuote').value = quote;
+
+    let jobber = '';
+    jobber += 'COPY INTO JOBBER QUOTE\n\n';
+    jobber += 'Line item name: Project Price - ' + selectedText('service') + '\n';
+    jobber += 'Line item amount: ' + money(data.totalWithTax) + '\n';
+    jobber += 'Deposit note: 25% deposit to schedule = ' + money(data.deposit) + '\n\n';
+    jobber += 'Description:\n';
+    jobber += 'Project price for ' + selectedText('service').toLowerCase() + ' at the agreed project area';
+    if (loc) jobber += ' near ' + loc;
+    jobber += '. '; 
+    jobber += 'Work is based on ' + selectedText('density').toLowerCase() + ', ' + selectedText('terrain').toLowerCase() + ', and a ' + selectedText('finish').toLowerCase() + ' finish. ';
+    if (scope) jobber += scope + ' ';
+    if (addOnPhrases.length) jobber += 'Includes ' + addOnPhrases.join(' and ') + '. ';
+    jobber += 'Deposit to schedule: ' + money(data.deposit) + '. Balance due upon completion: ' + money(data.balance) + '. ';
+    jobber += 'Final Project Price has been rounded up to the selected pricing increment.\n';
+    $('jobberText').value = jobber;
+
+    let ops = '';
+    ops += 'OPERATOR NOTES - TAME YOUR TERRAIN\n\n';
+    ops += safeLine('Customer', customer);
+    ops += safeLine('Phone', text('customerPhone'));
+    ops += safeLine('Location', loc);
+    ops += safeLine('Project', text('projectName'));
+    ops += safeLine('Service', selectedText('service'));
+    ops += '\nINTERNAL ESTIMATE\n';
+    ops += '- Estimated production time: ' + data.productionDays + ' ' + dayWord(data.productionDays) + '\n';
+    ops += '- Billable project block: ' + data.projectDays + '-day project\n';
+    ops += '- Confidence: ' + data.confidence + '\n';
+    ops += '- Project price: ' + money(data.totalWithTax) + '\n';
+    ops += '\nSCOPE\n';
+    ops += scope ? '- ' + scope.replace(/\n/g,'\n- ') + '\n' : '- Confirm scope before unloading.\n';
+    if (priorities) ops += '\nCUSTOMER PRIORITIES\n- ' + priorities.replace(/\n/g,'\n- ') + '\n';
+    ops += '\nSITE CONDITIONS\n';
+    ops += '- Density: ' + selectedText('density') + '\n';
+    ops += '- Terrain/access: ' + selectedText('terrain') + '\n';
+    ops += '- Finish: ' + selectedText('finish') + '\n';
+    if (data.grappleCost > 0) ops += '- Grapple work: ' + selectedText('grapple') + '\n';
+    if (data.rakeCost > 0) ops += '- Rake work: ' + selectedText('rake') + '\n';
+    ops += '\nHAZARDS / RISK FLAGS\n';
+    ops += data.riskLabels.length ? '- ' + data.riskLabels.join('\n- ') + '\n' : '- No specific risk flags selected.\n';
+    if (text('hazardNotes')) ops += '- Notes: ' + text('hazardNotes').replace(/\n/g,'\n- ') + '\n';
+    if (text('accessNotes')) ops += '\nACCESS / TRAILER PATH\n- ' + text('accessNotes').replace(/\n/g,'\n- ') + '\n';
+    if (text('preserveNotes')) ops += '\nPRESERVE / AVOID\n- ' + text('preserveNotes').replace(/\n/g,'\n- ') + '\n';
+    if (text('futureWork')) ops += '\nFUTURE WORK / FOLLOW-UP\n- ' + text('futureWork').replace(/\n/g,'\n- ') + '\n';
+    ops += '\nBEFORE STARTING\n- Confirm boundaries with customer or markings.\n- Photograph before conditions.\n- Note any hidden debris, wire, rocks, wet ground, or access issue before proceeding.\n';
+    $('operatorNotes').value = ops;
+
+    buildJobLog(data);
+  }
+
+  function csvEscape(v){
+    const s = String(v ?? '').replace(/\r?\n/g, ' | ');
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+
+  function buildJobLog(data){
+    const headers = ['date_created','customer','phone','email','location','project_name','service','project_price','sales_tax','deposit','balance','estimated_production_days','billable_project_block','revenue_per_estimated_day','acres','density','terrain','finish','grapple','rake','risk_flags','scope_notes','hazard_notes','access_notes','preserve_notes','future_work','actual_days','actual_machine_hours','fuel_used_or_cost','before_photo_notes','after_photo_notes','lessons_learned','next_time_price_change'];
+    const row = [new Date().toLocaleString(), text('customerName'), text('customerPhone'), text('customerEmail'), text('location'), text('projectName'), selectedText('service'), money(data.totalWithTax), money(data.tax), money(data.deposit), money(data.balance), data.productionDays, data.projectDays, money(data.revPerEstimatedDay), num('acres'), selectedText('density'), selectedText('terrain'), selectedText('finish'), selectedText('grapple'), selectedText('rake'), data.riskLabels.join('; '), text('scopeNotes'), text('hazardNotes'), text('accessNotes'), text('preserveNotes'), text('futureWork'), text('actualDays'), text('actualHours'), text('fuelUsed'), text('beforePhotos'), text('afterPhotos'), text('lessons'), text('wouldChange')];
+    $('jobLog').value = headers.join(',') + '\n' + row.map(csvEscape).join(',');
+  }
+
+  async function copyToClipboard(value, statusId){
+    try { await navigator.clipboard.writeText(value); }
+    catch(e){
+      const temp = document.createElement('textarea');
+      temp.value = value;
+      document.body.appendChild(temp);
+      temp.focus(); temp.select();
+      document.execCommand('copy');
+      temp.remove();
+    }
+    if (statusId && $(statusId)) {
+      $(statusId).textContent = 'Copied.';
+      setTimeout(() => $(statusId).textContent = '', 2000);
+    }
+  }
+
+  function copyPriceOnly(){
+    calculate();
+    copyToClipboard($('projectPrice').textContent.replace(/[^$0-9,]/g,''), 'quickCopyStatus');
+  }
+
+  async function copyText(id, statusId){
+    const el = $(id);
+    el.focus(); el.select(); el.setSelectionRange(0, 999999);
+    await copyToClipboard(el.value, statusId);
+  }
+
+  function downloadJobLog(){
+    calculate();
+    const blob = new Blob([$('jobLog').value], {type:'text/csv;charset=utf-8'});
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().slice(0,10);
+    const name = (text('customerName') || 'job').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'tame-your-terrain-job-log-' + stamp + '-' + name + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function saveSnapshot(){
+    calculate();
+    const snapshot = {};
+    document.querySelectorAll(allInputSelector).forEach(el => {
+      if (!el.id || ['customerQuote','operatorNotes','jobLog','jobberText'].includes(el.id)) return;
+      snapshot[el.id] = el.type === 'checkbox' ? el.checked : el.value;
+    });
+    const key = 'tyt_bid_builder_snapshot_' + Date.now();
+    localStorage.setItem(key, JSON.stringify(snapshot));
+    $('saveStatus').textContent = 'Snapshot saved in this browser only.';
+    setTimeout(() => $('saveStatus').textContent = '', 2500);
+  }
+
+  function resetForm(){
+    if (!confirm('Reset the calculator fields?')) return;
+    localStorage.removeItem('tyt_last_form');
+    location.reload();
+  }
+
+  function persistLastForm(){
+    const snapshot = {};
+    document.querySelectorAll(allInputSelector).forEach(el => {
+      if (!el.id || ['customerQuote','operatorNotes','jobLog','jobberText'].includes(el.id)) return;
+      snapshot[el.id] = el.type === 'checkbox' ? el.checked : el.value;
+    });
+    localStorage.setItem('tyt_last_form', JSON.stringify(snapshot));
+  }
+
+  function loadLastForm(){
+    const raw = localStorage.getItem('tyt_last_form');
+    if (!raw) return;
+    try{
+      const snapshot = JSON.parse(raw);
+      Object.keys(snapshot).forEach(id => {
+        const el = $(id); if (!el) return;
+        if (el.type === 'checkbox') el.checked = snapshot[id]; else el.value = snapshot[id];
+      });
+    }catch(e){}
+  }
+
+  setInterval(persistLastForm, 2000);
+  loadLastForm();
+  syncDriveTrips();
+  calculate();
+</script>
+</body>
+</html>
