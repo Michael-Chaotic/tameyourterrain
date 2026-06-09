@@ -520,10 +520,32 @@
   }
 
   function resetForm(){
-    if (!confirm('Reset the calculator fields?')) return;
-    localStorage.removeItem('tyt_last_form');
-    location.reload();
-  }
+  if (!confirm('Reset the calculator fields?')) return;
+
+  // Stop saved form values from loading back in
+  localStorage.removeItem('tyt_last_form');
+
+  // Reset every editable field back to its original HTML default
+  document.querySelectorAll(allInputSelector).forEach(el => {
+    if (!el.id || ['customerQuote','operatorNotes','jobLog','jobberText'].includes(el.id)) return;
+
+    if (el.type === 'checkbox') {
+      el.checked = el.defaultChecked;
+    } else if (el.tagName === 'SELECT') {
+      const defaultOptionIndex = Array.from(el.options).findIndex(opt => opt.defaultSelected);
+      el.selectedIndex = defaultOptionIndex >= 0 ? defaultOptionIndex : 0;
+    } else {
+      el.value = el.defaultValue;
+    }
+  });
+
+  driveTripsManuallyEdited = false;
+  syncDriveTrips();
+  calculate();
+
+  $('saveStatus').textContent = 'Calculator reset.';
+  setTimeout(() => $('saveStatus').textContent = '', 2500);
+}
 
   function persistLastForm(){
     const snapshot = {};
