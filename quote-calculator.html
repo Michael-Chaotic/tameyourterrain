@@ -247,7 +247,7 @@
   const num = (id) => Number($(id).value) || 0;
   const text = (id) => ($(id).value || '').trim();
   const selectedText = (id) => $(id).options[$(id).selectedIndex].text;
-  const roundTo = (n, step) => step <= 1 ? Math.round(n) : Math.round(n / step) * step;
+  const roundTo = (n, step) => step <= 1 ? Math.ceil(n) : Math.ceil(n / step) * step;
   const roundUpTo = (n, step) => step <= 1 ? Math.ceil(n) : Math.ceil(n / step) * step;
   const dayWord = (n) => Number(n) === 1 ? 'day' : 'days';
   const safeLine = (label, value) => value ? label + ': ' + value + '\n' : '';
