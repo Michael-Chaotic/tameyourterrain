@@ -71,7 +71,7 @@
       <h1>Bid Builder & Project Price Calculator</h1>
       <p>Built for forestry mulching, habitat improvement, trail building, food plot clearing, buckthorn removal, grapple work, rake work, and hunting-property projects. Customer sees a clean <strong>Project Price</strong>; you see the internal production math.</p>
       <div class="badges">
-        <span class="badge">$2,600/day internal base</span>
+        <span class="badge">$2,200/day internal base</span>
         <span class="badge">1-day minimum project</span>
         <span class="badge">25% deposit</span>
         <span class="badge">Copy/paste into Jobber</span>
@@ -100,7 +100,7 @@
           <span class="sectionTag">Step 2</span>
           <h2>Production Estimate & Project Block</h2>
           <div class="grid grid-4">
-            <div class="field"><label for="dayRate">Internal day value ($)</label><input id="dayRate" type="number" value="2600" min="0" step="50"><div class="small">Customer does not see this.</div></div>
+            <div class="field"><label for="dayRate">Internal day value ($)</label><input id="dayRate" type="number" value="2200" min="0" step="50"><div class="small">Customer does not see this.</div></div>
             <div class="field"><label for="productionDays">Estimated production time</label><select id="productionDays"><option value="0.5">0.5 day internal</option><option value="1" selected>1 day</option><option value="1.5">1.5 days</option><option value="2">2 days</option><option value="2.5">2.5 days</option><option value="3">3 days</option><option value="3.5">3.5 days</option><option value="4">4 days</option><option value="4.5">4.5 days</option><option value="5">5 days</option><option value="6">6 days</option><option value="7">7 days</option><option value="8">8 days</option><option value="10">10 days</option></select><div class="small">Used for internal planning only.</div></div>
             <div class="field"><label for="manualProjectDays">Billable project block</label><select id="manualProjectDays"><option value="auto" selected>Auto round up</option><option value="1">1-day project</option><option value="2">2-day project</option><option value="3">3-day project</option><option value="4">4-day project</option><option value="5">5-day project</option><option value="6">6-day project</option><option value="7">7-day project</option><option value="8">8-day project</option><option value="10">10-day project</option></select><div class="small">Minimum is always 1 day.</div></div>
             <div class="field"><label for="acres">Estimated acres / area</label><input id="acres" type="number" value="1" min="0" step="0.01"><div class="small">Optional, for per-acre sanity check.</div></div>
@@ -187,7 +187,7 @@
       <aside>
         <div class="quotePanel">
           <div class="label">Customer-facing amount</div>
-          <div class="price" id="projectPrice">$2,600</div>
+          <div class="price" id="projectPrice">$2,200</div>
           <div class="mini"><strong>Project Price</strong> <span id="taxMini"></span></div>
           <div class="mini" id="depositMini">Deposit to schedule: $750</div>
           <div class="mini" id="balanceMini">Balance before tax: $2,250</div>
@@ -201,7 +201,7 @@
           <div class="metricgrid">
             <div class="metric"><div class="m1">Internal estimate</div><div class="m2" id="internalDays">1 day</div></div>
             <div class="metric"><div class="m1">Billable block</div><div class="m2" id="projectBlock">1 day</div></div>
-            <div class="metric"><div class="m1">Revenue / est. day</div><div class="m2" id="revPerDay">$2,600</div></div>
+            <div class="metric"><div class="m1">Revenue / est. day</div><div class="m2" id="revPerDay">$2,200</div></div>
             <div class="metric"><div class="m1">Confidence</div><div class="m2" id="confidence">High</div></div>
           </div>
           <div class="notice" id="profitNotice"></div>
