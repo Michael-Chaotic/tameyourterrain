@@ -74,6 +74,7 @@
         <span class="badge">$2,200/day internal base</span>
         <span class="badge">1-day minimum project</span>
         <span class="badge">25% deposit</span>
+        <span class="badge">$225 mobilization always included</span>
         <span class="badge">Copy/paste into Jobber</span>
       </div>
     </header>
@@ -147,7 +148,7 @@
           <span class="sectionTag">Step 5</span>
           <h2>Mobilization, Deposit & Tax</h2>
           <div class="grid grid-4">
-            <div class="field"><label for="mobilizationFee">Mobilization fee ($)</label><input id="mobilizationFee" type="number" value="0" step="25"><div class="small">Optional one-time mobilization.</div></div>
+            <div class="field"><label for="mobilizationFee">Mobilization fee ($)</label><input id="mobilizationFee" type="number" value="225" min="225" step="25"><div class="small">Required one-time mobilization. Always included.</div></div>
             <div class="field"><label for="driveHours">Drive hours round trip</label><input id="driveHours" type="number" value="1" min="0" step="0.25"></div>
             <div class="field"><label for="driveTrips">Drive trips / days</label><input id="driveTrips" type="number" value="1" min="0" step="1"><div class="small">Auto-updates to billable project days unless edited.</div></div>
             <div class="field"><label for="driveRate">Drive rate ($/hr)</label><input id="driveRate" type="number" value="125" step="5"></div>
@@ -317,7 +318,8 @@
     const rakeCost = num('rake');
     const manualAddons = Math.max(0, num('manualAddons'));
     const risk = getRiskData();
-    const mobilizationFee = Math.max(0, num('mobilizationFee'));
+    const mobilizationFee = Math.max(225, num('mobilizationFee'));
+    if (num('mobilizationFee') < 225) $('mobilizationFee').value = 225;
     const driveCharge = Math.max(0, num('driveHours')) * Math.max(0, num('driveTrips')) * Math.max(0, num('driveRate'));
     const rounding = Math.max(1, num('rounding'));
 
