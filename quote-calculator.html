@@ -157,7 +157,7 @@
             <div class="field"><label for="depositPct">Deposit %</label><input id="depositPct" type="number" value="25" min="0" max="100" step="1"></div>
             <div class="field"><label for="taxPct">Sales tax %</label><input id="taxPct" type="number" value="0" min="0" step="0.001"><div class="small">Leave 0 if Jobber adds tax.</div></div>
             <div class="field"><label for="rounding">Round Project Price up to</label><select id="rounding"><option value="50">Next $50</option><option value="100" selected>Next $100</option><option value="250">Next $250</option><option value="500">Next $500</option><option value="1">No rounding</option></select><div class="small">Uses round-up logic, not nearest-dollar rounding.</div></div>
-            <div class="field"><label for="businessPhone">Business phone</label><input id="businessPhone" value="715-255-0328"></div>
+            <div class="field"><label for="businessPhone">Business phone</label><input id="businessPhone" value="715-557-4564"></div>
           </div>
         </section>
 
@@ -386,7 +386,7 @@
     const loc = text('location');
     const priorities = text('customerPriorities');
     const scope = text('scopeNotes');
-    const phone = text('businessPhone') || '715-255-0328';
+    const phone = text('businessPhone') || '715-557-4564';
     const taxLine = data.tax > 0 ? 'Estimated sales tax included: ' + money(data.tax) + '\n' : 'Sales tax: Added in Jobber if applicable.\n';
     const addOnPhrases = [];
     if (data.grappleCost > 0) addOnPhrases.push('grapple work for moving/staging material as discussed');
